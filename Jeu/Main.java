@@ -1,4 +1,4 @@
-package jeu1;
+package jeu;
 
 import joueur.Armes;
 import joueur.Joueur;
