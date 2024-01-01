@@ -19,7 +19,7 @@ public class Main
 		Tableau c2 = new Tableau(2).addBas();
 		Tableau c3 = new TableauMonstre(3, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
 		Tableau c4 = new TableauMarchand(4, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
-		Tableau c5 = new TableauCoffre(5, Armes.EPEE).addHaut().addDroite();
+		Tableau c5 = new TableauCoffre(5, Armes.EPEEPIERRE).addHaut().addDroite();
 		Tableau c6 = new Tableau(6).addHaut().addDroite().addGauche();
 		
 		Joueur chevalier = new Joueur("Chevalier", 10, 3, Armes.AUCUNE, 2);

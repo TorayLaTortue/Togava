@@ -2,17 +2,20 @@ package joueur;
 
 public enum Armes
 {
-	AUCUNE("aucune", 1, 0) , EPEE("une épée", 3, 1) , CLAYMORE("une claymore", 9, 3);
+	AUCUNE("aucune", 0, 0, 0) , EPEEBOIS("une épée en bois", 2, 0,0), EPEEPIERRE("une épée en pierre", 3, 1, 1) , CLAYMORE("une claymore", 9, 0, 3)
+	, DAGUEROUILLE("une dague rouillé", 1, 2, 0);
 	
 	private String nom;
 	private int dégats;
+	private int vitesse;
 	private int couts;
 	
 	
-	private Armes(String nom, int dégats, int couts)
+	private Armes(String nom, int dégats, int vitesse, int couts)
 	{
 		this.nom = nom;
 		this.dégats = dégats;
+		this.vitesse = vitesse;
 		this.setCouts(couts);
 	}
 
@@ -27,7 +30,15 @@ public enum Armes
 		this.dégats = dégats;
 	}
 
-	
+	public int getVitesse(int vitesse)
+	{
+		return vitesse;
+	}
+
+	public void setVitesse(int vitesse)
+	{
+		this.vitesse  = vitesse;
+	}
 	
 	
 	public String getNom()

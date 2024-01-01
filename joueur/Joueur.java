@@ -14,14 +14,14 @@ public class Joueur
 	
 	private static Joueur joueur;  
 	
-	public Joueur(String nom ,int vie, int vitesse, Armes arme,int tableauStart)
+	public Joueur(TypeJoueur TypeJoueur)
 	{
-		this.setNom(nom);
-		this.vie = vie;
-		this.vitesse = vitesse;
+		this.nom = TypeJoueur.getNom();
+		this.vie = TypeJoueur.getVie();
+		this.vitesse = TypeJoueur.getVitesse();
 		this.setArme(arme);
 		this.ancienTableau = tableauStart;
-		this.gold = 0;
+		this.gold = TypeJoueur.getGold();
 		this.mort = false;
 		joueur = this;
 	}
@@ -79,7 +79,7 @@ public class Joueur
 		this.arme = arme;
 	}
 	
-
+	
 	
 	public static Joueur get()
 	{
