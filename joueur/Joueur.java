@@ -9,6 +9,7 @@ public class Joueur
 	private int atk;
 	private int vitesse;
 	private Armes arme;
+	private int mana;
 	private int ancienTableau;
 	private int gold;
 	private boolean mort;
@@ -22,6 +23,7 @@ public class Joueur
 		this.atk = TypeJoueur.getAtk();
 		this.vitesse = TypeJoueur.getVitesse();
 		this.arme = TypeJoueur.getArme();
+		this.mana =  TypeJoueur.getMana();
 		this.gold = TypeJoueur.getGold();
 		this.mort = false;
 		joueur = this;
@@ -62,6 +64,7 @@ public class Joueur
 	{
 		victime.setVie(victime.getVie() - (getArme().getDégats() + getAtk()));
 		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
+		setMana(getMana() - getArme().getCoutMana());
 	}
 	
 	
@@ -88,7 +91,15 @@ public class Joueur
 		this.arme = arme;
 	}
 	
-	
+	public int getMana()
+	{
+		return mana;
+	}
+
+	public void setMana(int mana)
+	{
+		this.mana = mana;
+	}
 	
 	public static Joueur get()
 	{

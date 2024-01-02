@@ -4,7 +4,7 @@ public enum TypeJoueur
 {
 	CHEVALIER("Chevalier", 10, 2, 3, Armes.EPEEBOIS, 3, 2 ,0)
 	,BANDIT("Bandit", 8, 4, 5, Armes.DAGUEROUILLE, 5, 2 ,5)
-	,Mage("Mage", 4, 7, 4, Armes.DAGUEROUILLE, 20, 2 ,0);
+	,MAGE("Mage", 4, 7, 4, Armes.SCEPTRET1, 20, 2 ,0);
 	
 	private String nom;
 	private int vie;

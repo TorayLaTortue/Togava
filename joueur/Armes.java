@@ -60,7 +60,7 @@ public enum Armes
 		return coutMana;
 	}
 
-	public void coutMana(int coutMana)
+	public void setCoutMana(int coutMana)
 	{
 		this.coutMana = coutMana;
 	}

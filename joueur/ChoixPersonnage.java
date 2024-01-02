@@ -79,6 +79,7 @@ public class ChoixPersonnage
 			else if(numero == 3)
 			{
 				end = true;
+				return new Joueur(TypeJoueur.MAGE);
 			}
 			
 			else if(numero == 4)

@@ -67,31 +67,7 @@ public class Combat
 					
 					if(joueur.getVitesse() > monstre.getVitesse())
 					{
-						joueur.attaque(monstre);
-						if(monstre.getVie() <= 0)
-						{
-							monstre.setMort(true);
-							joueur.addGold(monstre.getGold());
-							System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
-							end = true;
-						}
-						else
-						{
-							monstre.attaque(joueur);
-							if(joueur.getVie() <= 0)
-							{
-								joueur.setMort(true);
-								end = true;
-								System.out.println("La partie est terminer, t'es un noob ! ");
-								System.exit(0);
-							}
-						}
-						
-					}
-					else if(joueur.getVitesse() == monstre.getVitesse()) 
-					{
-						boolean chanceAttaque = new Random().nextBoolean();
-						if(chanceAttaque)
+						if(joueur.getMana() >= joueur.getArme().getCoutMana())
 						{
 							joueur.attaque(monstre);
 							if(monstre.getVie() <= 0)
@@ -115,6 +91,44 @@ public class Combat
 						}
 						else
 						{
+							System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+						}
+						
+					}
+					else if(joueur.getVitesse() == monstre.getVitesse()) 
+					{
+						boolean chanceAttaque = new Random().nextBoolean();
+						if(chanceAttaque)
+						{
+							if(joueur.getMana() >= joueur.getArme().getCoutMana())
+							{
+								joueur.attaque(monstre);
+								if(monstre.getVie() <= 0)
+								{
+									monstre.setMort(true);
+									joueur.addGold(monstre.getGold());
+									System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+									end = true;
+								}
+								else
+								{
+									monstre.attaque(joueur);
+									if(joueur.getVie() <= 0)
+									{
+										joueur.setMort(true);
+										end = true;
+										System.out.println("La partie est terminer, t'es un noob ! ");
+										System.exit(0);
+									}
+								}
+							}
+							else
+							{
+								System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+							}
+						}
+						else
+						{
 							monstre.attaque(joueur);
 							if(joueur.getVie() <= 0)
 							{
@@ -125,15 +139,21 @@ public class Combat
 							}
 							else
 							{
-								joueur.attaque(monstre);
-								if(monstre.getVie() <= 0)
+								if(joueur.getMana() >= joueur.getArme().getCoutMana())
 								{
-									monstre.setMort(true);
-									joueur.addGold(monstre.getGold());
-									System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
-									end = true;
+									joueur.attaque(monstre);
+									if(monstre.getVie() <= 0)
+									{
+										monstre.setMort(true);
+										joueur.addGold(monstre.getGold());
+										System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+										end = true;
+									}
 								}
-							
+								else
+								{
+									System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+								}
 							}
 						}
 					}
@@ -151,15 +171,21 @@ public class Combat
 						}
 						else
 						{
-							joueur.attaque(monstre);
-							if(monstre.getVie() <= 0)
+							if(joueur.getMana() >= joueur.getArme().getCoutMana())
 							{
-								monstre.setMort(true);
-								joueur.addGold(monstre.getGold());
-								System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
-								end = true;
+								joueur.attaque(monstre);
+								if(monstre.getVie() <= 0)
+								{
+									monstre.setMort(true);
+									joueur.addGold(monstre.getGold());
+									System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+									end = true;
+								}
 							}
-						
+							else
+							{
+								System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+							}
 						}
 					}	
 					

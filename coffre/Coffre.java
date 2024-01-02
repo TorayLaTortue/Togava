@@ -27,7 +27,7 @@ public class Coffre
 			}
 			else
 			{
-				System.out.println("Vous avez " + joueur.getArme() + ", deux choix s'offre a vous :");
+				System.out.println("Vous avez " + joueur.getArme().getNom() + ", deux choix s'offre a vous :");
 			}
 			
 			while(end == false)
