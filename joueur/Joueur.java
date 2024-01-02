@@ -6,6 +6,7 @@ public class Joueur
 {
 	private String nom;
 	private int vie;
+	private int atk;
 	private int vitesse;
 	private Armes arme;
 	private int ancienTableau;
@@ -18,9 +19,9 @@ public class Joueur
 	{
 		this.nom = TypeJoueur.getNom();
 		this.vie = TypeJoueur.getVie();
+		this.atk = TypeJoueur.getAtk();
 		this.vitesse = TypeJoueur.getVitesse();
-		this.setArme(arme);
-		this.ancienTableau = tableauStart;
+		this.arme = TypeJoueur.getArme();
 		this.gold = TypeJoueur.getGold();
 		this.mort = false;
 		joueur = this;
@@ -37,9 +38,6 @@ public class Joueur
 	}
 	
 	
-	
-	
-	
 	public int getVie()
 	{
 		return vie;
@@ -49,16 +47,27 @@ public class Joueur
 	{
 		this.vie = vie;
 	}
+
+	public int getAtk()
+	{
+		return atk;
+	}
+	public void setAtk(int atk)
+	{
+		this.atk = atk;
+	}
+
+
 	public void attaque(Monstre victime)
 	{
-		victime.setVie(victime.getVie() - getArme().getDégats());
-		System.out.println("Vous avez infligez " + getArme().getDégats() + " dégats au " + victime.getNom() + ".\n");
+		victime.setVie(victime.getVie() - (getArme().getDégats() + getAtk()));
+		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
 	}
 	
 	
 	public int getVitesse()
 	{
-		return vitesse;
+		return vitesse +  arme.getVitesse();
 	}
 
 	public void setVitesse(int vitesse)

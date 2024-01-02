@@ -2,6 +2,8 @@ package jeu;
 
 import joueur.Armes;
 import joueur.Joueur;
+import joueur.TypeJoueur;
+import joueur.ChoixPersonnage;
 import marchand.Marchand;
 import monstre.Monstre;
 import monstre.TypeMonstre;
@@ -22,7 +24,8 @@ public class Main
 		Tableau c5 = new TableauCoffre(5, Armes.EPEEPIERRE).addHaut().addDroite();
 		Tableau c6 = new Tableau(6).addHaut().addDroite().addGauche();
 		
-		Joueur chevalier = new Joueur("Chevalier", 10, 3, Armes.AUCUNE, 2);
+		ChoixPersonnage choixPersonnage = new ChoixPersonnage();
+        Joueur chevalier = choixPersonnage.choixPersonnage();
 		
 		c2.evenement();
 		
