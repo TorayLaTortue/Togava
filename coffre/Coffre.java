@@ -48,6 +48,7 @@ public class Coffre
 					
 	
 					String reponse = in.nextLine();
+					in.close();
 					try 
 					{
 						numero = Integer.parseInt(reponse);

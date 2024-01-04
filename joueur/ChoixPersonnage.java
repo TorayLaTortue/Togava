@@ -16,15 +16,15 @@ public class ChoixPersonnage
 				System.out.println("1 - Chevalier ");
 			
 			
-				System.out.println("2 - Bandit ");
+				System.out.println("2 - Chevalier du neant ");
 			
 			
-				System.out.println("3 - Mage ");
+				System.out.println("3 - Bandit ");
 			
 			
-				System.out.println("4 - Archer ");
+				System.out.println("4 - Mage ");
 		
-			
+				System.out.println("5 - Adepte ");
 
 			boolean isNumero = true;
 			boolean isCorrectNumero = false;
@@ -38,6 +38,7 @@ public class ChoixPersonnage
 				
 
 				String reponse = in.nextLine();
+				in.close();
 				try 
 				{
 					numero = Integer.parseInt(reponse);
@@ -72,24 +73,25 @@ public class ChoixPersonnage
 			{
 				
 				end = true;
-				return new Joueur(TypeJoueur.BANDIT);
+				return new Joueur(TypeJoueur.CHEVALIERDUNEANT);
 			}
 			
 			
 			else if(numero == 3)
 			{
 				end = true;
-				return new Joueur(TypeJoueur.MAGE);
+				return new Joueur(TypeJoueur.BANDIT);
 			}
 			
 			else if(numero == 4)
 			{
 				end = true;
+				return new Joueur(TypeJoueur.MAGE);
 			}
 			else if(numero == 5)
 			{
 				end = true;
-				
+				return new Joueur(TypeJoueur.ADEPTE);
 			}
 			}
 		

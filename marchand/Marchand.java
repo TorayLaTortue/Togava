@@ -78,6 +78,7 @@ public class Marchand
 				
 
 				String reponse = in.nextLine();
+				in.close();
 				try 
 				{
 					numero = Integer.parseInt(reponse);

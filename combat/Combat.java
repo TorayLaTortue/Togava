@@ -39,6 +39,7 @@ public class Combat
 					
 
 					String reponse = in.nextLine();
+					in.close();
 					try 
 					{
 						numero = Integer.parseInt(reponse);
@@ -74,7 +75,7 @@ public class Combat
 							{
 								monstre.setMort(true);
 								joueur.addGold(monstre.getGold());
-								System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+								System.out.println("Vous avez gagnez le combat et gagné " + monstre.getGold() + " gold !");
 								end = true;
 							}
 							else
@@ -84,14 +85,15 @@ public class Combat
 								{
 									joueur.setMort(true);
 									end = true;
-									System.out.println("La partie est terminer, t'es un noob ! ");
+									System.out.println("La partie est terminé, t'es un noob ! ");
 									System.exit(0);
 								}
 							}
 						}
 						else
 						{
-							System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+							System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
+							joueur.setMana(joueur.getMana() + 1);
 						}
 						
 					}
@@ -107,7 +109,7 @@ public class Combat
 								{
 									monstre.setMort(true);
 									joueur.addGold(monstre.getGold());
-									System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+									System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
 									end = true;
 								}
 								else
@@ -117,14 +119,15 @@ public class Combat
 									{
 										joueur.setMort(true);
 										end = true;
-										System.out.println("La partie est terminer, t'es un noob ! ");
+										System.out.println("La partie est terminé, t'es un noob ! ");
 										System.exit(0);
 									}
 								}
 							}
 							else
 							{
-								System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+								System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
+								joueur.setMana(joueur.getMana() + 1);
 							}
 						}
 						else
@@ -134,7 +137,7 @@ public class Combat
 							{
 								joueur.setMort(true);
 								end = true;
-								System.out.println("La partie est terminer, t'es un noob ! ");
+								System.out.println("La partie est terminé, t'es un noob ! ");
 								System.exit(0);
 							}
 							else
@@ -146,13 +149,14 @@ public class Combat
 									{
 										monstre.setMort(true);
 										joueur.addGold(monstre.getGold());
-										System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+										System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
 										end = true;
 									}
 								}
 								else
 								{
-									System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+									System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
+									joueur.setMana(joueur.getMana() + 1);
 								}
 							}
 						}
@@ -166,7 +170,7 @@ public class Combat
 						{
 							joueur.setMort(true);
 							end = true;
-							System.out.println("La partie est terminer, t'es un noob ! ");
+							System.out.println("La partie est terminé, t'es un noob ! ");
 							System.exit(0);
 						}
 						else
@@ -178,13 +182,14 @@ public class Combat
 								{
 									monstre.setMort(true);
 									joueur.addGold(monstre.getGold());
-									System.out.println("Vous avez gagnez le combat wow et gagnez " + monstre.getGold() + " gold !");
+									System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
 									end = true;
 								}
 							}
 							else
 							{
-								System.out.println("Vous n'avez pas assez de mana et donc en regenerez");
+								System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
+								joueur.setMana(joueur.getMana() + 1);
 							}
 						}
 					}	
@@ -210,7 +215,7 @@ public class Combat
 						{
 							joueur.setMort(true);
 							end = true;
-							System.out.println("La partie est terminer, t'es trop nul ! ");
+							System.out.println("La partie est terminé, t'es trop nul ! ");
 							System.exit(0);
 						}
 						

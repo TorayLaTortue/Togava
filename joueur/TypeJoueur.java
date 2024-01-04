@@ -3,8 +3,10 @@ package joueur;
 public enum TypeJoueur
 {
 	CHEVALIER("Chevalier", 10, 2, 3, Armes.EPEEBOIS, 3, 2 ,0)
+	,CHEVALIERDUNEANT("Chevalier  du neant", 6, 4, 5, Armes.EPEEBOIS, 8, 2 ,0)
 	,BANDIT("Bandit", 8, 4, 5, Armes.DAGUEROUILLE, 5, 2 ,5)
-	,MAGE("Mage", 4, 7, 4, Armes.SCEPTRET1, 20, 2 ,0);
+	,MAGE("Mage", 4, 7, 4, Armes.SCEPTRET1, 20, 2 ,0)
+	, ADEPTE("Adepte", 5, 5, 5, Armes.SCEPTRET1, 10, 2 ,3);
 	
 	private String nom;
 	private int vie;
