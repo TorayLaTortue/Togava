@@ -148,7 +148,7 @@ public class Tableau
 		
 		if(getId() == 6)
 		{
-			System.out.println("Bravo vous avez gagner ! ");
+			System.out.println("Bravo vous avez gagné ! ");
 			System.exit(0);
 			
 		}
@@ -158,12 +158,19 @@ public class Tableau
 		}
 		else
 		{
-			System.out.println("Vous êtes dans un lieu vide");
+			System.out.println("Vous êtes dans le neant.");
 		}
 			Deplacement.deplacement(this);
 		
-		
 	}
 	
+	public int getX()
+	{
+		return getId() ;
+	}
 	
+	public int getY()
+	{
+		return getId() ;
+	}
 }

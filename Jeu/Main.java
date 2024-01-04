@@ -24,6 +24,8 @@ public class Main
 		Tableau c5 = new TableauCoffre(5, Armes.EPEEPIERRE).addHaut().addDroite();
 		Tableau c6 = new Tableau(6).addHaut().addDroite().addGauche();
 		
+
+		
 		ChoixPersonnage choixPersonnage = new ChoixPersonnage();
         Joueur chevalier = choixPersonnage.choixPersonnage();
 		
