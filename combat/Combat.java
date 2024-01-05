@@ -1,7 +1,7 @@
 package combat;
 
 import java.util.Random;
-import java.util.Scanner;
+
 
 import joueur.Joueur;
 import monstre.Monstre;
