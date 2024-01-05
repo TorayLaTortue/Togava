@@ -1,6 +1,7 @@
 package joueur;
 
-import java.util.Scanner;
+
+import scan.Scan;
 
 public class ChoixPersonnage
 {
@@ -32,21 +33,18 @@ public class ChoixPersonnage
 			
 			do  
 			{
-				Scanner in = new Scanner(System.in);
-				isNumero = true;
-				numero = 0;
+				String reponse = Scan.scanner();
+                isNumero = true;
+                numero = 0;
 				
-
-				String reponse = in.nextLine();
-				in.close();
 				try 
-				{
-					numero = Integer.parseInt(reponse);
-				} 
-				catch (NumberFormatException e)
-				{
-					isNumero = false;
-				}
+                {
+                    numero = Integer.parseInt(reponse);
+                } 
+                catch (NumberFormatException e)
+                {
+                    isNumero = false;
+                }
 				
 				if(!isNumero)
 				{

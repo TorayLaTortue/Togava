@@ -12,12 +12,13 @@ public class Tableau
 	private Boolean haut;
 	private Boolean bas;
 	private int id;
+	private int id2;
 	
 	
 	private static ArrayList<Tableau> tableaux = new ArrayList<>();
 	
 	
-	public Tableau(int id)
+	public Tableau(int id,  int id2)
 	
 	{
 		this.setDroite(false);
@@ -25,6 +26,7 @@ public class Tableau
 		this.setHaut(false);
 		this.setBas(false);
 		this.setId(id);
+		this.setId2(id2);
 		tableaux.add(this);
 		
 	}
@@ -124,6 +126,16 @@ public class Tableau
 	{
 		this.id = id;
 	}
+	
+	public int getId2()
+	{
+		return id2;
+	}
+
+	public void setId2(int id2)
+	{
+		this.id2 = id2;
+	}
 
 	
 	public static ArrayList<Tableau> getTableaux()
@@ -146,13 +158,13 @@ public class Tableau
 	public void evenement()
 	{
 		
-		if(getId() == 6)
+		if(getId() == 2)
 		{
 			System.out.println("Bravo vous avez gagné ! ");
 			System.exit(0);
 			
 		}
-		else if(getId() == 2)
+		else if(getId() == 11)
 		{
 			System.out.println("Vous vous trouvez au spawn.");
 		}
@@ -171,6 +183,6 @@ public class Tableau
 	
 	public int getY()
 	{
-		return getId() ;
+		return getId2() ;
 	}
 }

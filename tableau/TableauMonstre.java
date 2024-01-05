@@ -8,9 +8,9 @@ public class TableauMonstre extends Tableau
 {
 	private Monstre monstre;
 	
-	public TableauMonstre(int id, Monstre monstre)
+	public TableauMonstre(int id, int id2, Monstre monstre)
 	{
-		super(id);
+		super(id, id2);
 		this.monstre = monstre;
 		
 	}

@@ -1,9 +1,10 @@
 package coffre;
 
-import java.util.Scanner;
+
 
 import joueur.Armes;
 import joueur.Joueur;
+import scan.Scan;
 import tableau.TableauCoffre;
 
 public class Coffre
@@ -37,26 +38,23 @@ public class Coffre
 				System.out.println("2 - Partir \n");
 				
 				boolean isNumero = true;
-				boolean isCorrectNumero = false;
-				int numero = 0;
+			boolean isCorrectNumero = false;
+			int numero = 0;
+			
+			do  
+			{
+				String reponse = Scan.scanner();
+                isNumero = true;
+                numero = 0;
 				
-				do  
-				{
-					Scanner in = new Scanner(System.in);
-					isNumero = true;
-					numero = 0;
-					
-	
-					String reponse = in.nextLine();
-					in.close();
-					try 
-					{
-						numero = Integer.parseInt(reponse);
-					} 
-					catch (NumberFormatException e)
-					{
-						isNumero = false;
-					}
+				try 
+                {
+                    numero = Integer.parseInt(reponse);
+                } 
+                catch (NumberFormatException e)
+                {
+                    isNumero = false;
+                }
 					
 					if(!isNumero)
 					{

@@ -26,16 +26,16 @@ import tableau.TableauMonstre;
 
 public class Main2 {
     public static void main(String[] args) {
-        Tableau c1 = new TableauMonstre(10, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
-		Tableau c2 = new Tableau(11).addBas();
-		Tableau c3 = new TableauMonstre(12, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
-		Tableau c4 = new TableauMarchand(0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
-		Tableau c5 = new TableauCoffre(1, Armes.EPEEPIERRE).addHaut().addDroite();
-		Tableau c6 = new Tableau(2).addHaut().addDroite().addGauche(); // fin
+        Tableau c1 = new TableauMonstre(10, 1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
+		Tableau c2 = new Tableau(11, 1).addBas();
+		Tableau c3 = new TableauMonstre(12, 1, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
+		Tableau c4 = new TableauMarchand(0, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
+		Tableau c5 = new TableauCoffre(1, 0, Armes.EPEEPIERRE).addHaut().addDroite();
+		Tableau c6 = new Tableau(2 ,0).addHaut().addDroite().addGauche(); // fin
 
         // Créez une image avec une taille fixe (par exemple, 800x600)
-        int width = 600;
-        int height = 600;
+        int width = 2000;
+        int height = 2000;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // Obtenez un objet Graphics à partir de l'image
@@ -101,4 +101,8 @@ public class Main2 {
         frame.add(panel);
         frame.setVisible(true);
     }
+
+    
 }
+
+

@@ -7,9 +7,9 @@ public class TableauMarchand extends Tableau
 {
 private Marchand marchand;
 	
-	public TableauMarchand(int id, Marchand marchand)
+	public TableauMarchand(int id, int id2, Marchand marchand)
 	{
-		super(id);
+		super(id, id2);
 		this.setMarchand(marchand);
 		
 	}

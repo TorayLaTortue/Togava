@@ -17,12 +17,12 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		Tableau c1 = new TableauMonstre(1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
-		Tableau c2 = new Tableau(2).addBas();
-		Tableau c3 = new TableauMonstre(3, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
-		Tableau c4 = new TableauMarchand(11, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
-		Tableau c5 = new TableauCoffre(12, Armes.EPEEPIERRE).addHaut().addDroite();
-		Tableau c6 = new Tableau(13).addHaut().addDroite().addGauche(); // fin
+		Tableau c1 = new TableauMonstre(10, 1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
+		Tableau c2 = new Tableau(11, 1).addBas();
+		Tableau c3 = new TableauMonstre(12, 1, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
+		Tableau c4 = new TableauMarchand(0, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
+		Tableau c5 = new TableauCoffre(1, 0, Armes.EPEEPIERRE).addHaut().addDroite();
+		Tableau c6 = new Tableau(2 ,0).addHaut().addDroite().addGauche(); // fin
 		
 
 		
