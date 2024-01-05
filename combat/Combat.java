@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import joueur.Joueur;
 import monstre.Monstre;
+import scan.Scan;
 import tableau.Tableau;
 import tableau.TableauMonstre;
 
@@ -33,13 +34,10 @@ public class Combat
 				
 				do  
 				{
-					Scanner in = new Scanner(System.in);
+					String reponse = Scan.scanner();
 					isNumero = true;
 					numero = 0;
 					
-
-					String reponse = in.nextLine();
-					in.close();
 					try 
 					{
 						numero = Integer.parseInt(reponse);
@@ -205,7 +203,7 @@ public class Combat
 					{
 						System.out.println("Vous avez réussi a fuir comme un noob, bravo !\n");
 						end = true;
-						Tableau.getTableau(joueur.getAncienTableau()).evenement();
+						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
 					}
 					else
 					{

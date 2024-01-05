@@ -11,22 +11,22 @@ public class Tableau
 	private Boolean gauche;
 	private Boolean haut;
 	private Boolean bas;
-	private int id;
-	private int id2;
+	private int X;
+	private int Y;
 	
 	
 	private static ArrayList<Tableau> tableaux = new ArrayList<>();
 	
 	
-	public Tableau(int id,  int id2)
+	public Tableau(int X,  int Y)
 	
 	{
 		this.setDroite(false);
 		this.setGauche(false);
 		this.setHaut(false);
 		this.setBas(false);
-		this.setId(id);
-		this.setId2(id2);
+		this.setX(X);
+		this.setY(Y);
 		tableaux.add(this);
 		
 	}
@@ -49,8 +49,8 @@ public class Tableau
 	}
 	public Tableau toDroite()
 	{
-		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() +1);
+		Joueur.get().setAncienTableauY(getX());
+		return getTableau((getX() + 1), (getY()));
 		
 	}
 	
@@ -70,8 +70,8 @@ public class Tableau
 	}
 	public Tableau toGauche()
 	{
-		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() -1);
+		Joueur.get().setAncienTableauY(getX());
+		return getTableau((getX() - 1), (getY()));
 		
 	}
 	
@@ -91,8 +91,8 @@ public class Tableau
 	}
 	public Tableau toHaut()
 	{
-		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() +10);
+		Joueur.get().setAncienTableauY(getY());
+		return getTableau(getX(), (getY() + 1));
 		
 	}
 	
@@ -112,29 +112,29 @@ public class Tableau
 	}
 	public Tableau toBas()
 	{
-		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() -10);
+		Joueur.get().setAncienTableauY(getY());
+		return getTableau(getX(), (getY() - 1));
 		
 	}
 	
-	public int getId()
+	public int getX()
 	{
-		return id;
+		return X;
 	}
 
-	public void setId(int id)
+	public void setX(int X)
 	{
-		this.id = id;
+		this.X = X;
 	}
 	
-	public int getId2()
+	public int getY()
 	{
-		return id2;
+		return Y;
 	}
 
-	public void setId2(int id2)
+	public void setY(int Y)
 	{
-		this.id2 = id2;
+		this.Y = Y;
 	}
 
 	
@@ -143,28 +143,21 @@ public class Tableau
 		return tableaux;
 	}
 	
-	public static Tableau getTableau(int id)
-	{
-		for(Tableau tableau : getTableaux())
-		{
-			if(tableau.getId() == id )
-			{
-				return tableau;
-			}
-		}
-		return null;
+	public static Tableau getTableau(int X, int Y)
+	{	
+		return getTableaux().stream().filter(t -> t.getX() == X && t.getY() == Y).findFirst().get();
 	}
 
 	public void evenement()
 	{
 		
-		if(getId() == 2)
+		if(getX() == 3 && getY() == 0)
 		{
 			System.out.println("Bravo vous avez gagné ! ");
 			System.exit(0);
 			
 		}
-		else if(getId() == 11)
+		else if(getX() == 0 && getY() == 0)
 		{
 			System.out.println("Vous vous trouvez au spawn.");
 		}
@@ -174,15 +167,5 @@ public class Tableau
 		}
 			Deplacement.deplacement(this);
 		
-	}
-	
-	public int getX()
-	{
-		return getId() ;
-	}
-	
-	public int getY()
-	{
-		return getId2() ;
 	}
 }

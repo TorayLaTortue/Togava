@@ -10,7 +10,8 @@ public class Joueur
 	private int vitesse;
 	private Armes arme;
 	private int mana;
-	private int ancienTableau;
+	private int ancienTableauX;
+	private int ancienTableauY;
 	private int gold;
 	private boolean mort;
 	
@@ -120,14 +121,24 @@ public class Joueur
 		this.mort = mort;
 	}
 
-	public int getAncienTableau()
+	public int getAncienTableauX()
 	{
-		return ancienTableau;
+		return ancienTableauX;
 	}
 
-	public void setAncienTableau(int ancienTableau)
+	public void setAncienTableauX(int ancienTableauX)
 	{
-		this.ancienTableau = ancienTableau;
+		this.ancienTableauX = ancienTableauX;
+	}
+
+	public int getAncienTableauY()
+	{
+		return ancienTableauY;
+	}
+
+	public void setAncienTableauY(int ancienTableauY)
+	{
+		this.ancienTableauY = ancienTableauY;
 	}
 
 	public int getGold()

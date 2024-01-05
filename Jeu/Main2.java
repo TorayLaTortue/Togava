@@ -26,28 +26,60 @@ import tableau.TableauMonstre;
 
 public class Main2 {
     public static void main(String[] args) {
-        Tableau c1 = new TableauMonstre(10, 1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
-		Tableau c2 = new Tableau(11, 1).addBas();
-		Tableau c3 = new TableauMonstre(12, 1, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
-		Tableau c4 = new TableauMarchand(0, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
-		Tableau c5 = new TableauCoffre(1, 0, Armes.EPEEPIERRE).addHaut().addDroite();
-		Tableau c6 = new Tableau(2 ,0).addHaut().addDroite().addGauche(); // fin
+        Tableau c0 = new  Tableau(0, 0).addBas();
+        Tableau c1 = new TableauMonstre(1, 0, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
+		Tableau c2 = new Tableau(2, 0).addBas();
+		Tableau c3 = new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
+		Tableau c4 = new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
+		Tableau c5 = new TableauCoffre(5, 0, Armes.EPEEPIERRE).addHaut().addDroite();
+		Tableau c6 = new Tableau(6 ,0);
+        Tableau c7 = new Tableau(7, 0);
+        Tableau c8 = new Tableau(8, 0);
+        Tableau c9 = new Tableau(9, 0);
+
+        Tableau c10 = new TableauMonstre(0, 1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
+        Tableau c11 = new Tableau(1, 1).addBas();
+		Tableau c12 = new Tableau(2, 1).addBas();
+		Tableau c13 = new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
+		Tableau c14 = new TableauMarchand(4, 1, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
+		Tableau c15 = new TableauCoffre(5, 1, Armes.EPEEPIERRE).addHaut().addDroite();
+		Tableau c16 = new Tableau(6 ,1); 
+        Tableau c17 = new TableauMarchand(7, 1 ,  new Marchand().addArme(Armes.CLAYMORE));
+        Tableau c18 = new Tableau(8, 1);
+        Tableau c19 = new TableauCoffre(9, 1, Armes.EPEEPIERRE).addHaut().addDroite();
+
+
 
         // Créez une image avec une taille fixe (par exemple, 800x600)
-        int width = 2000;
-        int height = 2000;
+        int width = 1000;
+        int height = 1000;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // Obtenez un objet Graphics à partir de l'image
         Graphics g = image.getGraphics();
 
         // Dessinez vos tableaux sur l'image
+        drawTableau(g, c0);
         drawTableau(g, c1);
         drawTableau(g, c2);
         drawTableau(g, c3);
         drawTableau(g, c4);
         drawTableau(g, c5);
         drawTableau(g, c6);
+        drawTableau(g, c7);
+        drawTableau(g, c8);
+        drawTableau(g, c9);
+        drawTableau(g, c10);
+        drawTableau(g, c11);
+        drawTableau(g, c12);
+        drawTableau(g, c13);
+        drawTableau(g, c14);
+        drawTableau(g, c15);
+        drawTableau(g, c16);
+        drawTableau(g, c17);
+        drawTableau(g, c18);
+        drawTableau(g, c19);
+
 
         // Libérez les ressources graphiques
         g.dispose();

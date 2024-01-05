@@ -149,7 +149,7 @@ public class Marchand
 					{
 						isCorrectNumero = true;
 						System.out.println("Vous partez. \n");
-						Tableau.getTableau(joueur.getAncienTableau()).evenement();
+						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
 					}
 					else
 					{
