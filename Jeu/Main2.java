@@ -59,15 +59,18 @@ public class Main2 {
     private static void drawTableau(Graphics g, Tableau tableau) {
         // Dessinez le tableau sur l'image en fonction de son type
         if (tableau instanceof TableauMonstre) {
-            drawImage(g, "image/Monstre.png", tableau.getX() * 60, tableau.getY() * 60);
+            drawImage(g, "image/Monstre.png", (tableau.getX() * 60), (tableau.getY() * 60));
         } else if (tableau instanceof TableauMarchand) {
-            drawImage(g, "image/Marchand.png", tableau.getX() * 60, tableau.getY() * 60);
+            drawImage(g, "image/Marchand.png", (tableau.getX() * 60), (tableau.getY() * 60));
         } else if (tableau instanceof TableauCoffre) {
-            drawImage(g, "image/Coffre.png", tableau.getX() * 60, tableau.getY() * 60);
-        } else {
+            drawImage(g, "image/Coffre.png", (tableau.getX() * 60), (tableau.getY() * 60));
+        } else if (tableau instanceof Tableau) {
+            drawImage(g, "image/PlaineVide.png", (tableau.getX() * 60), (tableau.getY() * 60));
+        }
+         else {
             // Dessinez une représentation par défaut pour les autres types de tableaux
             g.setColor(Color.BLACK);
-            g.drawRect(tableau.getX() * 100, tableau.getY() * 100, 100, 100);
+            g.drawRect((tableau.getX() * 60), (tableau.getY() * 60), 60, 60);
         }
     }
 
