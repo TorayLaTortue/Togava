@@ -90,7 +90,7 @@ public class Tableau
 	public Tableau toHaut()
 	{
 		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() +3);
+		return getTableau(getId() +10);
 		
 	}
 	
@@ -111,7 +111,7 @@ public class Tableau
 	public Tableau toBas()
 	{
 		Joueur.get().setAncienTableau(getId());
-		return getTableau(getId() -3);
+		return getTableau(getId() -10);
 		
 	}
 	

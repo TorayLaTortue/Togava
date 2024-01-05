@@ -23,18 +23,19 @@ import tableau.TableauCoffre;
 import tableau.TableauMarchand;
 import tableau.TableauMonstre;
 
+
 public class Main2 {
     public static void main(String[] args) {
-        Tableau c1 = new TableauMonstre(1, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
-        Tableau c2 = new Tableau(2).addBas();
-        Tableau c3 = new TableauMonstre(3, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
-        Tableau c4 = new TableauMarchand(4, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
-        Tableau c5 = new TableauCoffre(5, Armes.EPEEPIERRE).addHaut().addDroite();
-        Tableau c6 = new Tableau(6).addHaut().addDroite().addGauche();
+        Tableau c1 = new TableauMonstre(10, new Monstre(TypeMonstre.BLOB)).addBas().addGauche();
+		Tableau c2 = new Tableau(11).addBas();
+		Tableau c3 = new TableauMonstre(12, new Monstre(TypeMonstre.DRAGON)).addBas().addDroite();
+		Tableau c4 = new TableauMarchand(0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche();
+		Tableau c5 = new TableauCoffre(1, Armes.EPEEPIERRE).addHaut().addDroite();
+		Tableau c6 = new Tableau(2).addHaut().addDroite().addGauche(); // fin
 
         // Créez une image avec une taille fixe (par exemple, 800x600)
-        int width = 1920;
-        int height = 2000;
+        int width = 600;
+        int height = 600;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // Obtenez un objet Graphics à partir de l'image
@@ -58,11 +59,11 @@ public class Main2 {
     private static void drawTableau(Graphics g, Tableau tableau) {
         // Dessinez le tableau sur l'image en fonction de son type
         if (tableau instanceof TableauMonstre) {
-            drawImage(g, "Monstre.png", tableau.getX() * 10, tableau.getY() * 10);
+            drawImage(g, "image/Monstre.png", tableau.getX() * 60, tableau.getY() * 60);
         } else if (tableau instanceof TableauMarchand) {
-            drawImage(g, "Image.Marchand.png", tableau.getX() * 10, tableau.getY() * 10);
+            drawImage(g, "image/Marchand.png", tableau.getX() * 60, tableau.getY() * 60);
         } else if (tableau instanceof TableauCoffre) {
-            drawImage(g, "Image.Coffre.png", tableau.getX() * 10, tableau.getY() * 10);
+            drawImage(g, "image/Coffre.png", tableau.getX() * 60, tableau.getY() * 60);
         } else {
             // Dessinez une représentation par défaut pour les autres types de tableaux
             g.setColor(Color.BLACK);
@@ -75,6 +76,7 @@ public class Main2 {
         try {
             Image image = new ImageIcon(ImageIO.read(new File(imageName))).getImage();
             g.drawImage(image, x, y, null);
+            System.out.println("Image chargée : " + imageName);
         } catch (IOException e) {
             e.printStackTrace();
         }
