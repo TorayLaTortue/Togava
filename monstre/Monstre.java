@@ -9,6 +9,7 @@ public class Monstre
 	private int atk;
 	private int vitesse;
 	private int gold;
+	private int difficulte;
 	private boolean mort;
 	
 	public Monstre(TypeMonstre typeMonstre)
@@ -18,6 +19,7 @@ public class Monstre
 		this.atk = typeMonstre.getAtk();
 		this.vitesse = typeMonstre.getVitesse();
 		this.gold = typeMonstre.getGold();
+		this.difficulte = typeMonstre.getDifficulte();
 		this.setMort(false);
 	
 	}
@@ -102,6 +104,13 @@ public class Monstre
 
 	
 	
-	
+	public int getDifficulte()
+	{
+		return difficulte;
+	}
+	public void setDifficulte(int difficulte)
+	{
+		this.difficulte = difficulte;
+	}
 	
 }

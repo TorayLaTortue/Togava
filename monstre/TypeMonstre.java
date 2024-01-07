@@ -2,21 +2,23 @@ package monstre;
 
 public enum TypeMonstre
 {
-	BLOB("blob", 5, 1, 2, 3 ) ,DRAGON("dragon", 5, 9, 5 ,999);
+	BLOB("blob", 5, 1, 2, 3 , 1) ,DRAGON("dragon", 5, 9, 5, 999, 5);
 	
 	private String nom;
 	private int vie;
 	private int atk;
 	private int vitesse;
 	private int gold;
+	private int difficulte;
 	
-	private TypeMonstre(String nom, int vie, int atk, int vitesse, int gold)
+	private TypeMonstre(String nom, int vie, int atk, int vitesse, int gold, int difficulte)
 	{
 	this.nom = nom;
 	this.vie = vie;
 	this.atk = atk;
 	this.vitesse = vitesse;
 	this.gold = gold;
+	this.difficulte = difficulte;
 	
 	}
 	
@@ -73,6 +75,13 @@ public enum TypeMonstre
 		this.gold = gold;
 	}
 	
-	
+	public int getDifficulte()
+	{
+		return difficulte;
+	}
+	public void setDifficulte(int difficulte)
+	{
+		this.difficulte = difficulte;
+	}
 	
 }

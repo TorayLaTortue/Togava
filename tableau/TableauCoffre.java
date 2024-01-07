@@ -8,9 +8,9 @@ public class TableauCoffre extends Tableau
 {
 private Armes coffre;
 	
-	public TableauCoffre(int id, int id2, Armes coffre)
+	public TableauCoffre(int X, int Y, Armes coffre)
 	{
-		super(id, id2);
+		super(X, Y);
 		this.setCoffre(coffre);
 		
 	}

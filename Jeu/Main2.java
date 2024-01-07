@@ -10,6 +10,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
+
 import javax.imageio.ImageIO;
 import joueur.Armes;
 import joueur.ChoixPersonnage;
@@ -26,19 +28,20 @@ import tableau.TableauMonstre;
 
 public class Main2 {
     public static void main(String[] args) {
+        int seed = new Random().nextInt(101);
 
         Tableau c0 = new Tableau(0, 0).addBas().addGauche().addDroite(); //spawn
 
         Tableau[] tableaux = {
-            new Tableau(1, 0).addHaut(),
+            new Tableau(1, 0).addBas().addDroite().addHaut(),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.BLOB)).addGauche().addHaut(),
             new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addDroite().addHaut(),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, Armes.EPEEPIERRE).addHaut().addDroite(),
-            new Tableau(6, 0).addHaut(),
-            new Tableau(7, 0).addHaut(),
-            new Tableau(8, 0).addHaut(),
-            new Tableau(9, 0).addHaut(),
+            new Tableau(6, 0).addBas(),
+            new Tableau(7, 0).addBas(),
+            new Tableau(8, 0).addBas(),
+            new Tableau(9, 0).addBas(),
 
             new TableauMonstre(0, 1, new Monstre(TypeMonstre.BLOB)).addGauche(),
             new Tableau(1, 1),
@@ -56,17 +59,19 @@ public class Main2 {
         
         
         
-        int width = 800;
-        int height = 800;
+        int width = 900;
+        int height = 900;
+        int numRows = 9; 
+        int numCols = 9;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // Obtenez un objet Graphics à partir de l'image
         Graphics g = image.getGraphics();
 
         for (Tableau tableau : tableaux) {
-            drawTableau(g, tableau);
+            drawTableau(g, tableau, width, height, numRows, numCols);
         }
-        drawTableau(g, c0);
+        drawTableau(g, c0, width, height, numRows, numCols);
 
         g.dispose();// Libérez les ressources graphiques
         showImage(image);// Affichez l'image dans une fenêtre
@@ -77,14 +82,20 @@ public class Main2 {
 		c0.evenement();
     }
 
-    private static void drawTableau(Graphics g, Tableau tableau) {
+    private static void drawTableau(Graphics g, Tableau tableau, int width, int height, int numRows, int numCols) {
 
-        int x = tableau.getX() * 60;
-        int y = 600 + (-60 * tableau.getY());
+        int x = (width - ((width / numCols) * (tableau.getX() + 1)));
+        int y = (height - ((height / numRows) * (tableau.getY() + 1)));
      
         // Dessinez le tableau sur l'image en fonction de son type
         if (tableau instanceof TableauMonstre) {
-            drawImage(g, "image/Monstre.png", x, y);
+            TableauMonstre tableauMonstre = (TableauMonstre) tableau;
+            if (tableauMonstre.getMonstre().getDifficulte() == 1)
+            {
+            drawImage(g, "image/Monstre.png", x, y);}
+            else if(tableauMonstre.getMonstre().getDifficulte() == 5)
+            {
+            drawImage(g, "image/MonstreElite.png", x, y);}
         } else if (tableau instanceof TableauMarchand) {
             drawImage(g, "image/Marchand.png", x, y);
         } else if (tableau instanceof TableauCoffre) {
@@ -92,23 +103,23 @@ public class Main2 {
         } else if (tableau instanceof Tableau) {
             drawImage(g, "image/PlaineVide.png", x, y);
         } else {
-            // Dessinez une représentation par défaut pour les autres types de tableaux
+            // Est jamais senser ce produire
             g.setColor(Color.BLACK);
             g.drawRect(x, y, 60, 60);
         }
     
-        // Dessinez les indications de direction (haut, bas, gauche, droite)
+        // Dessinez les murs
         if (tableau.hasHaut()) {
             drawImage(g, "image/MurHaut.png", x, y);
         }
         if (tableau.hasBas()) {
-            drawImage(g, "image/MurBas.png", x, y-60);
+            drawImage(g, "image/MurBas.png", x, y + (height / numRows));
         }
         if (tableau.hasGauche()) {
             drawImage(g, "image/MurGauche.png", x, y);
         }
         if (tableau.hasDroite()) {
-            drawImage(g, "image/MurDroite.png", x+60, y);
+            drawImage(g, "image/MurDroite.png", x + (width /numCols), y);
         }}
 
     private static void drawImage(Graphics g, String imageName, int x, int y) {
