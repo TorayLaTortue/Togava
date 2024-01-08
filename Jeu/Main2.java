@@ -28,10 +28,9 @@ import tableau.TableauMonstre;
 
 public class Main2 {
     public static void main(String[] args) {
-        int seed = new Random().nextInt(101);
+        
         Tableau[] tableaux = Map.map();
-        Tableau c0 = new Tableau(0, 0).addBas().addGauche().addDroite(); // spawn
-
+        
         
 
         int width = 900;
