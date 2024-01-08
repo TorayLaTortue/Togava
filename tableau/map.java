@@ -1,4 +1,5 @@
 package tableau;
+
 import java.util.Random;
 import joueur.Armes;
 import marchand.Marchand;
@@ -9,8 +10,8 @@ import tableau.TableauCoffre;
 import tableau.TableauMarchand;
 import tableau.TableauMonstre;
 
-public class map {
-    public static Tableau[] generateTableau() {
+public class Map {
+    public static Tableau[] map() {
         int seed = new Random().nextInt(101);
 
         Tableau c0 = new Tableau(0, 0).addBas().addGauche().addDroite(); //spawn
@@ -59,7 +60,8 @@ public class map {
             new Tableau(8, 2),
             new Tableau(9, 2),
 
-            return tableau;
-        }
+            
+        };
+        return tableaux;
     }
 }
