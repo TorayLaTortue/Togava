@@ -10,10 +10,10 @@ import tableau.Map;
 
 
 public class Map {
-    private static Tableau c0;
+ 
     public static Tableau[] map() {
         int seed = new Random().nextInt(101);
-        Tableau c0 = new Tableau(0, 0).addBas().addGauche().addDroite(); //spawn
+       
         
         Tableau[] tableaux = {
             new Tableau(1, 0).addBas().addDroite().addHaut(),
@@ -65,7 +65,5 @@ public class Map {
         return tableaux;
 
     }
-    public Tableau getc0() {
-            return c0;
-        }
+    
 }

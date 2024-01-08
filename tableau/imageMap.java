@@ -28,7 +28,7 @@ public class ImageMap {
         for (Tableau tableau : tableaux) {
             drawTableau(g, tableau, width, height, numRows, numCols);
         }
-        drawTableau(g, Map.getc0(), width, height, numRows, numCols);
+        
 
         g.dispose();// Libérez les ressources graphiques
         showImage(image);// Affichez l'image dans une fenêtre
