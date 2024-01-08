@@ -82,8 +82,8 @@ public class ImageMap {
         try {
             Image image = new ImageIcon(ImageIO.read(new File(imageName))).getImage();
             g.drawImage(image, x, y, null);
-            System.out.println("Image chargée : " + imageName);
         } catch (IOException e) {
+            System.out.println("Image qui n'a pas chargée : " + imageName);
             e.printStackTrace();
         }
     }

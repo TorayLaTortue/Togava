@@ -16,7 +16,8 @@ public class Map {
        
         
         Tableau[] tableaux = {
-            new Tableau(1, 0).addBas().addDroite().addHaut(),
+            new Tableau(0, 0).addBas().addGauche().addHaut(),
+            new Tableau(1, 0).addBas(),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.BLOB)).addGauche().addHaut(),
             new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addDroite().addHaut(),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
@@ -48,16 +49,16 @@ public class Map {
             new Tableau(8, 3),
             new Tableau(9, 3),
 
-            new Tableau(0, 2),
-            new Tableau(1, 2),
-            new Tableau(2, 2),
-            new Tableau(3, 2),
-            new Tableau(4, 2),
-            new Tableau(5, 2),
-            new Tableau(6, 2),
-            new Tableau(7, 2),
-            new Tableau(8, 2),
-            new Tableau(9, 2),
+            new Tableau(0, 4),
+            new Tableau(1, 4),
+            new Tableau(2, 4),
+            new Tableau(3, 4),
+            new Tableau(4, 4),
+            new Tableau(5, 4),
+            new Tableau(6, 4),
+            new Tableau(7, 4),
+            new Tableau(8, 4),
+            new Tableau(9, 4),
 
             
         };

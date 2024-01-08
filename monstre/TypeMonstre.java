@@ -2,7 +2,8 @@ package monstre;
 
 public enum TypeMonstre
 {
-	BLOB("blob", 5, 1, 2, 3 , 1) ,DRAGON("dragon", 5, 9, 5, 999, 5);
+	 BLOB("blob", 8, 2, 2, 3 , 1), Squelette("Squelette", 6, 4, 3, 6 , 1)
+	,DRAGON("dragon", 5, 9, 5, 999, 5);
 	
 	private String nom;
 	private int vie;
