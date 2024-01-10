@@ -1,5 +1,6 @@
 package monstre;
 
+
 import java.util.Random;
 
 import joueur.Joueur;
@@ -85,8 +86,8 @@ public class Monstre
 
 	public int getGold()
 	{
-		
-		return gold;
+		int aleatoireGold = (new Random().nextInt(4) + 10) /10;
+		return gold * aleatoireGold;
 	}
 
 	public void setGold(int gold)

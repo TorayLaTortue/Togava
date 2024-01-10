@@ -8,6 +8,7 @@ import monstre.Monstre;
 import scan.Scan;
 import tableau.Tableau;
 import tableau.TableauMonstre;
+import joueur.Level;
 
 public class Combat
 {
@@ -17,9 +18,8 @@ public class Combat
 		boolean end = false;
 		Joueur joueur = Joueur.get();
 		Monstre monstre = tableau.getMonstre();
-		int aleatoireGold = (new Random().nextInt(4) + 10) /10;
 		int aleatoireExp = (new Random().nextInt(4) + 10) /10;
-		int gold = monstre.getGold() * aleatoireGold;
+		int gold = monstre.getGold();
 		int exp = monstre.getExperience() * aleatoireExp;
 		
 		if(monstre.isMort() == false)
@@ -77,7 +77,9 @@ public class Combat
 							{
 								monstre.setMort(true);
 								joueur.addGold(gold);
+								joueur.addExperience(exp);
 								System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
+								Level.levelUpdate();
 								end = true;
 							}
 							else
@@ -111,6 +113,8 @@ public class Combat
 								{
 									monstre.setMort(true);
 									joueur.addGold(gold);
+									joueur.addExperience(exp);
+									Level.levelUpdate();
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									
 									end = true;
@@ -152,6 +156,8 @@ public class Combat
 									{
 										monstre.setMort(true);
 										joueur.addGold(gold);
+										joueur.addExperience(exp);
+										Level.levelUpdate();
 										System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 										end = true;
 									}
@@ -185,6 +191,8 @@ public class Combat
 								{
 									monstre.setMort(true);
 									joueur.addGold(gold);
+									joueur.addExperience(exp);
+									Level.levelUpdate();
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									end = true;
 								}

@@ -12,13 +12,13 @@ import tableau.Map;
 public class Map {
  
     public static Tableau[] map() {
-        int seed = new Random().nextInt(101);
+        // int seed = new Random().nextInt(101);
        
         
         Tableau[] tableaux = {
             new Tableau(0, 0).addBas().addGauche().addHaut(),
-            new Tableau(1, 0).addBas(),
-            new TableauMonstre(2, 0, new Monstre(TypeMonstre.BLOB)).addGauche().addHaut(),
+            new TableauMonstre(1, 0, new Monstre(TypeMonstre.BLOB)),
+            new TableauMonstre(2, 0, new Monstre(TypeMonstre.BLOB)).addHaut(),
             new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addDroite().addHaut(),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, Armes.EPEEPIERRE).addHaut().addDroite(),

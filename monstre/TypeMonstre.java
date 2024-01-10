@@ -1,10 +1,9 @@
 package monstre;
 
-import java.util.Random;
 
 public enum TypeMonstre
 {
-	 BLOB("blob", 8, 2, 2, 3 , 5, 1), Squelette("Squelette", 6, 4, 3, 6 , 10, 1)
+	 BLOB("blob", 8, 2, 2, 3 , 100, 1), Squelette("Squelette", 6, 4, 3, 6 , 10, 1)
 	,DRAGON("dragon", 5, 9, 5, 999, 100, 5);
 	
 	private String nom;

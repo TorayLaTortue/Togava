@@ -173,6 +173,11 @@ public class Joueur
 		this.experience = experience;
 	}
 
+	public void addExperience(int experience)
+	{
+		setExperience(getExperience() + experience);
+	}
+
 	public int getLevel()
 	{
 		return level;
