@@ -13,20 +13,24 @@ public class Joueur
 	private int ancienTableauX;
 	private int ancienTableauY;
 	private int gold;
+	private int experience;
+	private int level;
 	private boolean mort;
 	
 	private static Joueur joueur;  
 	
-	public Joueur(TypeJoueur TypeJoueur)
+	public Joueur(TypeJoueur typeJoueur)
 	{
-		this.nom = TypeJoueur.getNom();
-		this.vie = TypeJoueur.getVie();
-		this.atk = TypeJoueur.getAtk();
-		this.vitesse = TypeJoueur.getVitesse();
-		this.arme = TypeJoueur.getArme();
-		this.mana =  TypeJoueur.getMana();
-		this.gold = TypeJoueur.getGold();
+		this.nom = typeJoueur.getNom();
+		this.vie = typeJoueur.getVie();
+		this.atk = typeJoueur.getAtk();
+		this.vitesse = typeJoueur.getVitesse();
+		this.arme = typeJoueur.getArme();
+		this.mana =  typeJoueur.getMana();
+		this.gold = typeJoueur.getGold();
 		this.mort = false;
+		this.experience = typeJoueur.getExperience();
+		this.level = typeJoueur.getLevel();
 		joueur = this;
 	}
 	
@@ -157,6 +161,26 @@ public class Joueur
 	public void subGold(int gold)
 	{
 		setGold(getGold() - gold);
+	}
+
+	public int getExperience()
+	{
+		return experience;
+	}
+
+	public void setExperience(int experience)
+	{
+		this.experience = experience;
+	}
+
+	public int getLevel()
+	{
+		return level;
+	}
+
+	public void setLevel(int level)
+	{
+		this.level = level;
 	}
 	
 }

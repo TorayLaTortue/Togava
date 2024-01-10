@@ -1,5 +1,7 @@
 package monstre;
 
+import java.util.Random;
+
 import joueur.Joueur;
 
 public class Monstre
@@ -9,6 +11,7 @@ public class Monstre
 	private int atk;
 	private int vitesse;
 	private int gold;
+	private int experience;
 	private int difficulte;
 	private boolean mort;
 	
@@ -19,6 +22,7 @@ public class Monstre
 		this.atk = typeMonstre.getAtk();
 		this.vitesse = typeMonstre.getVitesse();
 		this.gold = typeMonstre.getGold();
+		this.experience = typeMonstre.getExperience();
 		this.difficulte = typeMonstre.getDifficulte();
 		this.setMort(false);
 	
@@ -81,6 +85,7 @@ public class Monstre
 
 	public int getGold()
 	{
+		
 		return gold;
 	}
 
@@ -102,7 +107,14 @@ public class Monstre
 		this.mort = mort;
 	}
 
-	
+	public int getExperience()
+	{
+		return experience;
+	}
+	public void setExperience(int experience)
+	{
+		this.experience = experience;
+	}
 	
 	public int getDifficulte()
 	{

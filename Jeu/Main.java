@@ -1,5 +1,4 @@
 package jeu;
-import javafx.scene.input.KeyEvent;
 import joueur.ChoixPersonnage;
 import joueur.Joueur;
 import tableau.ImageMap;
@@ -15,7 +14,7 @@ public class Main {
         Tableau[] tableaux = Map.map();
         
         ImageMap.imageMap(tableaux);
-        Tableau.getTableau(0, 0).evenement();
+        Tableau.getTableau(2, 0).evenement();
     }
 
     

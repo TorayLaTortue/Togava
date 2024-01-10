@@ -17,6 +17,10 @@ public class Combat
 		boolean end = false;
 		Joueur joueur = Joueur.get();
 		Monstre monstre = tableau.getMonstre();
+		int aleatoireGold = (new Random().nextInt(4) + 10) /10;
+		int aleatoireExp = (new Random().nextInt(4) + 10) /10;
+		int gold = monstre.getGold() * aleatoireGold;
+		int exp = monstre.getExperience() * aleatoireExp;
 		
 		if(monstre.isMort() == false)
 		{
@@ -72,8 +76,8 @@ public class Combat
 							if(monstre.getVie() <= 0)
 							{
 								monstre.setMort(true);
-								joueur.addGold(monstre.getGold());
-								System.out.println("Vous avez gagnez le combat et gagné " + monstre.getGold() + " gold !");
+								joueur.addGold(gold);
+								System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 								end = true;
 							}
 							else
@@ -106,8 +110,9 @@ public class Combat
 								if(monstre.getVie() <= 0)
 								{
 									monstre.setMort(true);
-									joueur.addGold(monstre.getGold());
-									System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
+									joueur.addGold(gold);
+									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
+									
 									end = true;
 								}
 								else
@@ -146,8 +151,8 @@ public class Combat
 									if(monstre.getVie() <= 0)
 									{
 										monstre.setMort(true);
-										joueur.addGold(monstre.getGold());
-										System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
+										joueur.addGold(gold);
+										System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 										end = true;
 									}
 								}
@@ -179,8 +184,8 @@ public class Combat
 								if(monstre.getVie() <= 0)
 								{
 									monstre.setMort(true);
-									joueur.addGold(monstre.getGold());
-									System.out.println("Vous avez gagnez le combat wow et gagné " + monstre.getGold() + " gold !");
+									joueur.addGold(gold);
+									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									end = true;
 								}
 							}

@@ -1,24 +1,28 @@
 package monstre;
 
+import java.util.Random;
+
 public enum TypeMonstre
 {
-	 BLOB("blob", 8, 2, 2, 3 , 1), Squelette("Squelette", 6, 4, 3, 6 , 1)
-	,DRAGON("dragon", 5, 9, 5, 999, 5);
+	 BLOB("blob", 8, 2, 2, 3 , 5, 1), Squelette("Squelette", 6, 4, 3, 6 , 10, 1)
+	,DRAGON("dragon", 5, 9, 5, 999, 100, 5);
 	
 	private String nom;
 	private int vie;
 	private int atk;
 	private int vitesse;
 	private int gold;
+	private int experience;
 	private int difficulte;
 	
-	private TypeMonstre(String nom, int vie, int atk, int vitesse, int gold, int difficulte)
+	private TypeMonstre(String nom, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
 	{
 	this.nom = nom;
 	this.vie = vie;
 	this.atk = atk;
 	this.vitesse = vitesse;
 	this.gold = gold;
+	this.experience = experience;
 	this.difficulte = difficulte;
 	
 	}
@@ -75,6 +79,16 @@ public enum TypeMonstre
 	{
 		this.gold = gold;
 	}
+
+	public int getExperience()
+	{
+		return experience;
+	}
+	public void setExperience(int experience)
+	{
+		this.experience = experience;
+	}
+
 	
 	public int getDifficulte()
 	{
