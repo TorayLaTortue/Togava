@@ -1,10 +1,11 @@
 package jeu;
+import javafx.scene.input.KeyEvent;
 import joueur.ChoixPersonnage;
 import joueur.Joueur;
 import tableau.ImageMap;
 import tableau.Map;
 import tableau.Tableau;
-import scan.Touche;
+import scan.Touche; // a reprendre + tard quand j'aurais une fenetre de mon jeu
 
 public class Main {
     public static void main(String[] args) {
