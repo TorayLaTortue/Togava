@@ -7,10 +7,12 @@ public class Joueur
 {
 	private String nom;
 	private int vie;
+	private int vieMax;
 	private int atk;
 	private int vitesse;
 	private Armes arme;
 	private int mana;
+	private int manaMax;
 	private int ancienTableauX;
 	private int ancienTableauY;
 	private int gold;
@@ -24,10 +26,12 @@ public class Joueur
 	{
 		this.nom = typeJoueur.getNom();
 		this.vie = typeJoueur.getVie();
+		this.vieMax = typeJoueur.getVieMax();
 		this.atk = typeJoueur.getAtk();
 		this.vitesse = typeJoueur.getVitesse();
 		this.arme = typeJoueur.getArme();
 		this.mana =  typeJoueur.getMana();
+		this.manaMax = typeJoueur.getManaMax();
 		this.gold = typeJoueur.getGold();
 		this.mort = false;
 		this.experience = typeJoueur.getExperience();
@@ -54,6 +58,16 @@ public class Joueur
 	public void setVie(int vie)
 	{
 		this.vie = vie;
+	}
+
+	public int getVieMax()
+	{
+		return vieMax;
+	}
+
+	public void setVieMax(int vieMax)
+	{
+		this.vieMax = vieMax;
 	}
 
 	public int getAtk()
@@ -106,6 +120,16 @@ public class Joueur
 	public void setMana(int mana)
 	{
 		this.mana = mana;
+	}
+
+	public int getManaMax()
+	{
+		return manaMax;
+	}
+
+	public void setManaMax(int manaMax)
+	{
+		this.manaMax = manaMax;
 	}
 	
 	public static Joueur get()

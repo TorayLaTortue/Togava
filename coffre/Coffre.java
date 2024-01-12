@@ -102,7 +102,9 @@ public class Coffre {
 				if (numero == 1) {
 
 					joueur.setVie(coffreObjet.getVie());
+					joueur.setVieMax(coffreObjet.getVieMax());
 					joueur.setMana(coffreObjet.getMana());
+					joueur.setManaMax(coffreObjet.getManaMax());
 					joueur.setVitesse(coffreObjet.getVitesse());
 					tableau.setCoffreObjet(Objet.RIEN);
 					end = true;
