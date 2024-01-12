@@ -1,4 +1,4 @@
-package joueur;
+package objet;
 
 public enum Armes
 {

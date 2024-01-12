@@ -1,6 +1,7 @@
 package joueur;
 
 import monstre.Monstre;
+import objet.Armes;
 
 public class Joueur
 {

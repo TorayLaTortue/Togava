@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import deplacement.Deplacement;
-import joueur.Armes;
 import joueur.Joueur;
+import objet.Armes;
 import tableau.Tableau;
 import tableau.TableauMarchand;
 
@@ -166,6 +166,13 @@ public class Marchand
 		armes.add(arme);
 		return this;
 	}
+
+	public Marchand addPotion(Armes arme)
+	{
+		armes.add(arme);
+		return this;
+	}
+
 
 	
 	

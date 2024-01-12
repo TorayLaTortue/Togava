@@ -1,34 +1,40 @@
 package joueur;
 
+import objet.Armes;
+
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", 10, 2, 3, Armes.EPEEBOIS, 3, 2 ,0 ,0 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", 6, 4, 5, Armes.EPEEBOIS, 8, 2 ,0 ,0 ,1)
-	,BANDIT("Bandit", 8, 4, 5, Armes.DAGUEROUILLE, 5, 2 ,5 ,0 ,1)
-	,VAMPIRE("Vampire", 7, 3, 2, Armes.DAGUEROUILLE, 5, 2 ,0 ,0 ,1)
-	,MAGE("Mage", 4, 7, 4, Armes.SCEPTRET1, 20, 2 ,0, 0 ,1)
-	, ADEPTE("Adepte", 5, 5, 5, Armes.SCEPTRET1, 10, 2 ,3 ,0 ,1);
+	CHEVALIER("Chevalier", 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,1)
+	,BANDIT("Bandit", 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,1)
+	,VAMPIRE("Vampire", 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,1)
+	,MAGE("Mage", 4, 4, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,1)
+	, ADEPTE("Adepte", 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,1);
 	
 	private String nom;
 	private int vie;
+	private int vieMax;
 	private int atk;
 	private int vitesse;
 	private Armes arme;
 	private int mana;
+	private int manaMax;
 	private int ancienTableau;
 	private int gold;
 	private int experience;
 	private int level;
 	
 	
-	private TypeJoueur(String nom, int vie, int atk, int vitesse, Armes arme, int mana, int tableauStart, int gold, int experience, int level)
+	private TypeJoueur(String nom, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int level)
 	{
 	this.nom = nom;
 	this.vie = vie;
+	this.vieMax = vieMax;
 	this.atk = atk;
 	this.vitesse = vitesse;
 	this.arme = arme;
 	this.mana = mana;
+	this.manaMax = manaMax;
 	this.ancienTableau = tableauStart;
 	this.gold = gold;
 	this.experience = experience;
@@ -50,11 +56,24 @@ public enum TypeJoueur
 	
 	public int getVie()
 	{
+		if(vie > vieMax)
+		{
+			setVie(vieMax);
+		}
 		return vie;
 	}
 	public void setVie(int vie)
 	{
 		this.vie = vie;
+	}
+
+	public int getVieMax()
+	{
+		return vie;
+	}
+	public void setVieMax(int vieMax)
+	{
+		this.vieMax = vieMax;
 	}
 	
 	
@@ -91,11 +110,24 @@ public enum TypeJoueur
 
 	public int getMana()
 	{
+		if(mana > manaMax)
+		{
+			setMana(manaMax);
+		}
 		return mana;
 	}
 	public void setMana(int mana)
 	{
 		this.mana = mana;
+	}
+
+	public int getManaMax()
+	{
+		return manaMax;
+	}
+	public void setManaMax(int manaMax)
+	{
+		this.manaMax = manaMax;
 	}
 	
 
