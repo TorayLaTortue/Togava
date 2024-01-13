@@ -18,9 +18,9 @@ public class Map {
        
         
         Tableau[] tableaux = {
-            new Tableau(0, 0).addBas().addGauche().addHaut(),
+            new Tableau(0, 0).addBas(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.BLOB)),
-            new TableauCoffre(2, 0, Armes.AUCUNE,Objet.POTIONMANA).addHaut(),
+            new TableauCoffre(2, 0, Armes.AUCUNE, Objet.POTIONVITESSE),
             new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addDroite().addHaut(),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),

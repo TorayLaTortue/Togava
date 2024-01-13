@@ -16,8 +16,4 @@ public class Main {
         ImageMap.imageMap(tableaux);
         Tableau.getTableau(2, 0).evenement();
     }
-
-    
-    
-
 }
