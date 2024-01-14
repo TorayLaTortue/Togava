@@ -54,6 +54,10 @@ public class Joueur
 	
 	public int getVie()
 	{
+		if(vie > vieMax)
+		{
+			setVie(vieMax);
+		}
 		return vie;
 	}
 
@@ -129,7 +133,11 @@ public class Joueur
 
 	public int getManaMax()
 	{
-		return manaMax;
+		if(mana > manaMax)
+		{
+			setMana(manaMax);
+		}
+		return mana;
 	}
 
 	public void setManaMax(int manaMax)

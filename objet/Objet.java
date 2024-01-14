@@ -6,7 +6,7 @@ public enum Objet {
 	RIEN("vide", 0, 0, 0, 0, 0, 0 ,0),
 	POTIONVIE("potion de vie", 0, 5, 0, 0, 0, 0 ,0), POTIONVIEMAX("potion d'augmentation de vie", 0, 0, 5, 0, 0, 0 ,0),
 	POTIONMANA("potion de régénaration de mana", 0, 0, 0, 0, 10, 0, 0), POTIONMANMAX("potion d'augmentation du mana", 0, 0, 0, 0, 0, 5, 0),
-	POTIONPOLY("potion de régénaration polyvalente", 0, 3, 0, 0, 5, 0, 0),
+	POTIONPOLY("potion de régénaration polyvalente", 0, 30, 0, 0, 5, 0, 0),
 	POTIONVITESSE("potion de vitesse", 0, 0, 0, 2, 0, 0, 0);
 
 	private String nom;
@@ -41,9 +41,17 @@ public enum Objet {
 		this.dégats = dégats;
 	}
 
-	public int useVie(Joueur joueur) {
+	public void useVie(Joueur joueur) {
+		if(joueur.getVie() + vie >= joueur.getVieMax())
+		{
+			joueur.setVie(joueur.getVieMax());
+		}
+		else
+		{
+			joueur.setVie(vie);
+		}
 		System.out.println("Vous avez gagnez " + vie + " pv, vous avez donc " + joueur.getVie() + " sur " + joueur.getVieMax() + " total");
-		return vie;
+		
 	}
 
 	public int getVie() {
@@ -93,6 +101,14 @@ public enum Objet {
 	}
 
 	public int useMana(Joueur joueur) {
+		if(joueur.getMana() + mana >= joueur.getManaMax())
+		{
+			joueur.setMana(joueur.getManaMax());
+		}
+		else
+		{
+			joueur.setMana(mana);
+		}
 		System.out.println("Vous avez gagnez " + mana + " mana, vous avez donc " + joueur.getMana() + " mana sur " + joueur.getManaMax() + " mana total.");
 		return mana;
 	}

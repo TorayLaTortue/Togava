@@ -8,7 +8,7 @@ public enum TypeJoueur
 	,CHEVALIERDUNEANT("Chevalier  du neant", 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
 	,BANDIT("Bandit", 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
 	,VAMPIRE("Vampire", 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", 4, 4, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	,MAGE("Mage", 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
 	, ADEPTE("Adepte", 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;

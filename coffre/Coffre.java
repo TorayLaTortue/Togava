@@ -102,7 +102,7 @@ public class Coffre {
 				if (numero == 1) {
 				
 					if(coffreObjet.getVie() > 0)
-					{joueur.setVie(coffreObjet.useVie(joueur) + joueur.getVie());}
+					{coffreObjet.useVie(joueur);}
 					if(coffreObjet.getVieMax() > 0)
 					{joueur.setVieMax(coffreObjet.useVieMax(joueur) + joueur.getVieMax());}
 					if(coffreObjet.getMana() > 0)
