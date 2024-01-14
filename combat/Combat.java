@@ -26,8 +26,8 @@ public class Combat
 		{
 			while(end == false)
 			{
-				System.out.println("Vous avez " + joueur.getVie() + " pv et le " + monstre.getNom() + " a " + monstre.getVie() + " pv");
-				System.out.println("Voulez vous attaquer ou fuir ?");
+				System.out.println("Vous avez " + joueur.getVie() + "PV et le " + monstre.getNom() + " a " + monstre.getVie() + "PV");
+				System.out.println("Voulez-vous attaquer ou fuir ?");
 				
 				System.out.println("1 - Attaquer ");
 				System.out.println("2 - Fuir \n");
@@ -89,7 +89,7 @@ public class Combat
 								{
 									joueur.setMort(true);
 									end = true;
-									System.out.println("La partie est terminé, t'es un noob ! ");
+									System.out.println("La partie est terminée, tu es un noob ! ");
 									System.exit(0);
 								}
 							}
@@ -127,7 +127,7 @@ public class Combat
 									{
 										joueur.setMort(true);
 										end = true;
-										System.out.println("La partie est terminé, t'es un noob ! ");
+										System.out.println("La partie est terminée, tu es un noob ! ");
 										System.exit(0);
 									}
 								}
@@ -145,7 +145,7 @@ public class Combat
 							{
 								joueur.setMort(true);
 								end = true;
-								System.out.println("La partie est terminé, t'es un noob ! ");
+								System.out.println("La partie est terminée, tu es un noob ! ");
 								System.exit(0);
 							}
 							else
@@ -180,7 +180,7 @@ public class Combat
 						{
 							joueur.setMort(true);
 							end = true;
-							System.out.println("La partie est terminé, t'es un noob ! ");
+							System.out.println("La partie est terminée, tu es un noob ! ");
 							System.exit(0);
 						}
 						else
@@ -215,7 +215,7 @@ public class Combat
 					int chanceDeFuite = new Random().nextInt(101);
 					if(chanceDeFuite <= probafuite)
 					{
-						System.out.println("Vous avez réussi a fuir comme un noob, bravo !\n");
+						System.out.println("Vous avez réussi à fuir comme un noob, bravo !\n");
 						end = true;
 						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
 					}
@@ -239,7 +239,7 @@ public class Combat
 		}
 		else
 		{
-			System.out.println("Il y a un cadavre d'un " + monstre.getNom());
+			System.out.println("Il y a un cadavre d'un " + monstre.getNom() + ".");
 		}
 		
 		
