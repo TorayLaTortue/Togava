@@ -10,7 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
+import java.awt.geom.AffineTransform;
+import java.awt.Graphics2D;
 
 public class ImageMap {
 
@@ -20,18 +21,23 @@ public class ImageMap {
         int height = 900;
         int numRows = 9;
         int numCols = 9;
+        double scaleFactor = 1;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
+        
+
         // Obtenez un objet Graphics à partir de l'image
-        Graphics g = image.getGraphics();
+        Graphics2D g = (Graphics2D) image.getGraphics();
 
         for (Tableau tableau : tableaux) {
             drawTableau(g, tableau, width, height, numRows, numCols);
         }
         
+        AffineTransform at = AffineTransform.getScaleInstance(scaleFactor, scaleFactor);
+        g.transform(at);
 
         g.dispose();// Libérez les ressources graphiques
-        showImage(image);// Affichez l'image dans une fenêtre
+        showImage(image, scaleFactor);// Affichez l'image dans une fenêtre
     }
 
     public static void drawTableau(Graphics g, Tableau tableau, int width, int height, int numRows, int numCols) {
@@ -88,19 +94,30 @@ public class ImageMap {
         }
     }
 
-    public static void showImage(BufferedImage image) {
+    public static void showImage(BufferedImage image, double scaleFactor) {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(image.getWidth(), image.getHeight());
-
+    
+        // Calculate the new size based on the scaling factor
+        int newWidth = (int) (image.getWidth() * scaleFactor);
+        int newHeight = (int) (image.getHeight() * scaleFactor);
+    
+        frame.setSize(newWidth, newHeight);
+    
         JPanel panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+    
+                // Apply scaling transformation
+                Graphics2D g2d = (Graphics2D) g;
+                AffineTransform transform = AffineTransform.getScaleInstance(scaleFactor, scaleFactor);
+                g2d.setTransform(transform);
+    
                 g.drawImage(image, 0, 0, this);
             }
         };
-
+    
         frame.add(panel);
         frame.setVisible(true);
     }
