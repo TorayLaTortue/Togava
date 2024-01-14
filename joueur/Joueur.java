@@ -87,7 +87,10 @@ public class Joueur
 		victime.setVie(victime.getVie() - (getArme().getDégats() + getAtk()));
 		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
 		setMana(getMana() - getArme().getCoutMana());
+		if(joueur.getArme().getCoutMana() >= 1)
+		{	
 		System.out.println("Vous avez utilisez " + getArme().getCoutMana() + " mana, il vous reste " + getMana() + " mana.");
+		}
 	}
 	
 	

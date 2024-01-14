@@ -70,7 +70,7 @@ public class Combat
 					
 					if(joueur.getVitesse() > monstre.getVitesse())
 					{
-						if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
+						if(joueur.getMana() >= joueur.getArme().getCoutMana())
 						{
 							joueur.attaque(monstre);
 							if(monstre.getVie() <= 0)
@@ -106,7 +106,7 @@ public class Combat
 						boolean chanceAttaque = new Random().nextBoolean();
 						if(chanceAttaque)
 						{
-							if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
+							if(joueur.getMana() >= joueur.getArme().getCoutMana())
 							{
 								joueur.attaque(monstre);
 								if(monstre.getVie() <= 0)
@@ -122,6 +122,7 @@ public class Combat
 								else
 								{
 									monstre.attaque(joueur);
+									System.out.println("Le monstre a été plus rapide et vous a infligez " + monstre.getAtk() + " dégats.");
 									if(joueur.getVie() <= 0)
 									{
 										joueur.setMort(true);
@@ -149,7 +150,7 @@ public class Combat
 							}
 							else
 							{
-								if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
+								if(joueur.getMana() >= joueur.getArme().getCoutMana())
 								{
 									joueur.attaque(monstre);
 									if(monstre.getVie() <= 0)
@@ -184,7 +185,7 @@ public class Combat
 						}
 						else
 						{
-							if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1 && joueur.getArme().getCoutMana() >= 1)
+							if(joueur.getMana() >= joueur.getArme().getCoutMana())
 							{
 								joueur.attaque(monstre);
 								if(monstre.getVie() <= 0)

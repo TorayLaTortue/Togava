@@ -14,6 +14,6 @@ public class Main {
         Tableau[] tableaux = Map.map();
         
         ImageMap.imageMap(tableaux);
-        Tableau.getTableau(2, 0).evenement();
+        Tableau.getTableau(0, 0).evenement();
     }
 }
