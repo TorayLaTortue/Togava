@@ -20,14 +20,14 @@ public class Map {
         Tableau[] tableaux = {
             new Tableau(0, 0).addBas(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.BLOB)),
-            new TableauCoffre(2, 0, Armes.AUCUNE, Objet.POTIONVITESSE),
-            new TableauMonstre(3, 0, new Monstre(TypeMonstre.DRAGON)).addDroite().addHaut(),
+            new TableauMonstre(2, 0, new Monstre(TypeMonstre.SQUELTTE)),
+            new TableauCoffre(3, 0, Armes.AUCUNE, Objet.POTIONPOLY),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),
             new Tableau(6, 0).addBas(),
             new Tableau(7, 0).addBas(),
             new Tableau(8, 0).addBas(),
-            new Tableau(9, 0).addBas(),
+           
 
             new TableauMonstre(0, 1, new Monstre(TypeMonstre.BLOB)).addGauche(),
             new Tableau(1, 1),
@@ -38,7 +38,18 @@ public class Map {
             new Tableau(6, 1),
             new TableauMarchand(7, 1, new Marchand().addArme(Armes.CLAYMORE)),
             new Tableau(8, 1),
-            new TableauCoffre(9, 1, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),
+            
+
+            new Tableau(0, 2),
+            new Tableau(1, 2),
+            new Tableau(2, 2),
+            new Tableau(3, 2),
+            new Tableau(4, 2),
+            new Tableau(5, 2),
+            new Tableau(6, 2),
+            new Tableau(7, 2),
+            new Tableau(8, 2),
+            
 
             new Tableau(0, 3),
             new Tableau(1, 3),
@@ -49,7 +60,7 @@ public class Map {
             new Tableau(6, 3),
             new Tableau(7, 3),
             new Tableau(8, 3),
-            new Tableau(9, 3),
+            
 
             new Tableau(0, 4),
             new Tableau(1, 4),
@@ -60,7 +71,11 @@ public class Map {
             new Tableau(6, 4),
             new Tableau(7, 4),
             new Tableau(8, 4),
-            new Tableau(9, 4),
+
+            new Tableau(6, 6),
+            new Tableau(7, 7),
+            new Tableau(8, 8),
+            
 
             
         };

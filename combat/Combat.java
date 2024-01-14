@@ -70,7 +70,7 @@ public class Combat
 					
 					if(joueur.getVitesse() > monstre.getVitesse())
 					{
-						if(joueur.getMana() >= joueur.getArme().getCoutMana())
+						if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
 						{
 							joueur.attaque(monstre);
 							if(monstre.getVie() <= 0)
@@ -79,7 +79,7 @@ public class Combat
 								joueur.addGold(gold);
 								joueur.addExperience(exp);
 								System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
-								Level.levelUpdate();
+								Level.levelUpdate(joueur);
 								end = true;
 							}
 							else
@@ -94,7 +94,7 @@ public class Combat
 								}
 							}
 						}
-						else
+						else if (joueur.getMana() <= joueur.getArme().getCoutMana())
 						{
 							System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 							joueur.setMana(joueur.getMana() + 1);
@@ -106,7 +106,7 @@ public class Combat
 						boolean chanceAttaque = new Random().nextBoolean();
 						if(chanceAttaque)
 						{
-							if(joueur.getMana() >= joueur.getArme().getCoutMana())
+							if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
 							{
 								joueur.attaque(monstre);
 								if(monstre.getVie() <= 0)
@@ -114,7 +114,7 @@ public class Combat
 									monstre.setMort(true);
 									joueur.addGold(gold);
 									joueur.addExperience(exp);
-									Level.levelUpdate();
+									Level.levelUpdate(joueur);
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									
 									end = true;
@@ -131,7 +131,7 @@ public class Combat
 									}
 								}
 							}
-							else
+							else if (joueur.getMana() <= joueur.getArme().getCoutMana())
 							{
 								System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 								joueur.setMana(joueur.getMana() + 1);
@@ -149,7 +149,7 @@ public class Combat
 							}
 							else
 							{
-								if(joueur.getMana() >= joueur.getArme().getCoutMana())
+								if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1)
 								{
 									joueur.attaque(monstre);
 									if(monstre.getVie() <= 0)
@@ -157,12 +157,12 @@ public class Combat
 										monstre.setMort(true);
 										joueur.addGold(gold);
 										joueur.addExperience(exp);
-										Level.levelUpdate();
+										Level.levelUpdate(joueur);
 										System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 										end = true;
 									}
 								}
-								else
+								else if (joueur.getMana() <= joueur.getArme().getCoutMana())
 								{
 									System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 									joueur.setMana(joueur.getMana() + 1);
@@ -184,7 +184,7 @@ public class Combat
 						}
 						else
 						{
-							if(joueur.getMana() >= joueur.getArme().getCoutMana())
+							if(joueur.getMana() >= joueur.getArme().getCoutMana() && joueur.getArme().getCoutMana() >= 1 && joueur.getArme().getCoutMana() >= 1)
 							{
 								joueur.attaque(monstre);
 								if(monstre.getVie() <= 0)
@@ -192,12 +192,12 @@ public class Combat
 									monstre.setMort(true);
 									joueur.addGold(gold);
 									joueur.addExperience(exp);
-									Level.levelUpdate();
+									Level.levelUpdate(joueur);
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									end = true;
 								}
 							}
-							else
+							else if (joueur.getMana() <= joueur.getArme().getCoutMana())
 							{
 								System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 								joueur.setMana(joueur.getMana() + 1);

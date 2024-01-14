@@ -17,6 +17,7 @@ public class Joueur
 	private int ancienTableauY;
 	private int gold;
 	private int experience;
+	private int experienceRequis;
 	private int level;
 	private boolean mort;
 	
@@ -35,6 +36,7 @@ public class Joueur
 		this.gold = typeJoueur.getGold();
 		this.mort = false;
 		this.experience = typeJoueur.getExperience();
+		this.experienceRequis = typeJoueur.getExperienceRequis();
 		this.level = typeJoueur.getLevel();
 		joueur = this;
 	}
@@ -201,6 +203,17 @@ public class Joueur
 	public void addExperience(int experience)
 	{
 		setExperience(getExperience() + experience);
+	}
+
+	public int getExperienceRequis()
+	{
+		return experienceRequis;
+	}
+
+	public void setExperienceRequis(int level)
+	{
+		double result = experienceRequis * (1 + (level / 10.0));
+    	this.experienceRequis = (int) Math.round(result);
 	}
 
 	public int getLevel()

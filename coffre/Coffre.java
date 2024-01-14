@@ -101,13 +101,17 @@ public class Coffre {
 
 				if (numero == 1) {
 				
-					if(coffreObjet.getVie(joueur))
-					{}
-					joueur.setVie(coffreObjet.useVie(joueur) + joueur.getVie());
-					joueur.setVieMax(coffreObjet.useVieMax(joueur) + joueur.getVieMax());
-					joueur.setMana(coffreObjet.useMana(joueur) + joueur.getMana());
-					joueur.setManaMax(coffreObjet.useManaMax(joueur) + joueur.getManaMax());
-					joueur.setVitesse(coffreObjet.useVitesse(joueur) + joueur.getVitesse());
+					if(coffreObjet.getVie() > 0)
+					{joueur.setVie(coffreObjet.useVie(joueur) + joueur.getVie());}
+					if(coffreObjet.getVieMax() > 0)
+					{joueur.setVieMax(coffreObjet.useVieMax(joueur) + joueur.getVieMax());}
+					if(coffreObjet.getMana() > 0)
+					{joueur.setMana(coffreObjet.useMana(joueur) + joueur.getMana());}
+					if(coffreObjet.getManaMax() > 0)
+					{joueur.setManaMax(coffreObjet.useManaMax(joueur) + joueur.getManaMax());}
+					if(coffreObjet.getVitesse() > 0)
+					{joueur.setVitesse(coffreObjet.useVitesse(joueur) + joueur.getVitesse());}
+					
 					tableau.setCoffreObjet(Objet.RIEN);
 					end = true;
 				}
