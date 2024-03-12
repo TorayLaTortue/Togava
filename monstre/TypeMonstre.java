@@ -4,12 +4,14 @@ import joueur.Type;
 
 public enum TypeMonstre
 {
-	BLOB("blob",Type.AUCUN , 8, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , 10, 4, 2, 6 , 25, 1),
-	SQUELETTE("Squelette",Type.TENEBRE , 12, 4, 3, 6 , 30, 1),
-	DRAGON("dragon",Type.PHYSIQUE , 5, 9, 5, 999, 200, 5);
+	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 4, 2, 6 , 25, 1),
+	SQUELETTE("squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 4, 3, 6 , 30, 1),
+	CHEVALIERCOROMPUE("chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 9, 5, 999, 200, 5),
+	DRAGON("dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 9, 5, 999, 200, 5);
 	
 	private String nom;
 	private Type type;
+	private ArmesMonstre armesMonstre;
 	private int vie;
 	private int atk;
 	private int vitesse;
@@ -17,10 +19,11 @@ public enum TypeMonstre
 	private int experience;
 	private int difficulte;
 	
-	private TypeMonstre(String nom, Type type, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
+	private TypeMonstre(String nom, Type type, ArmesMonstre armes, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
 	{
 	this.nom = nom;
 	this.type = type;
+	this.armesMonstre = armes;
 	this.vie = vie;
 	this.atk = atk;
 	this.vitesse = vitesse;
@@ -45,6 +48,12 @@ public enum TypeMonstre
 	public void setType(Type type) {
 		this.type = type;
 	}
+	public ArmesMonstre getArmes() {
+		return armesMonstre;
+	}
+	public void setArmes(ArmesMonstre armes) {
+		this.armesMonstre = armes;
+	}
 	
 	public int getVie()
 	{
@@ -59,6 +68,7 @@ public enum TypeMonstre
 	
 	public int getAtk()
 	{
+		atk = atk + armesMonstre.getDégats();
 		return atk;
 	}
 	public void setAtk(int atk)

@@ -4,10 +4,13 @@ package monstre;
 import java.util.Random;
 
 import joueur.Joueur;
+import joueur.Type;
 
 public class Monstre
 {
 	private String nom;
+	private Type type;
+	private ArmesMonstre armesMonstre;
 	private int vie;
 	private int atk;
 	private int vitesse;
@@ -19,6 +22,8 @@ public class Monstre
 	public Monstre(TypeMonstre typeMonstre)
 	{
 		this.nom = typeMonstre.getNom();
+		this.type = typeMonstre.getType();
+		this.armesMonstre = typeMonstre.getArmes();
 		this.vie = typeMonstre.getVie();
 		this.atk = typeMonstre.getAtk();
 		this.vitesse = typeMonstre.getVitesse();
@@ -73,6 +78,7 @@ public class Monstre
 	
 	public int getVitesse()
 	{
+		vitesse = vitesse + armesMonstre.getVitesse();
 		return vitesse;
 	}
 
