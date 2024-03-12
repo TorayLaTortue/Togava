@@ -1,12 +1,15 @@
 package monstre;
 
+import joueur.Type;
 
 public enum TypeMonstre
 {
-	 BLOB("blob", 8, 2, 2, 3 , 250, 1), SQUELTTE("Squelette", 12, 4, 3, 6 , 30, 1)
-	,DRAGON("dragon", 5, 9, 5, 999, 200, 5);
+	BLOB("blob",Type.AUCUN , 8, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , 10, 4, 2, 6 , 25, 1),
+	SQUELETTE("Squelette",Type.TENEBRE , 12, 4, 3, 6 , 30, 1),
+	DRAGON("dragon",Type.PHYSIQUE , 5, 9, 5, 999, 200, 5);
 	
 	private String nom;
+	private Type type;
 	private int vie;
 	private int atk;
 	private int vitesse;
@@ -14,9 +17,10 @@ public enum TypeMonstre
 	private int experience;
 	private int difficulte;
 	
-	private TypeMonstre(String nom, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
+	private TypeMonstre(String nom, Type type, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
 	{
 	this.nom = nom;
+	this.type = type;
 	this.vie = vie;
 	this.atk = atk;
 	this.vitesse = vitesse;
@@ -35,7 +39,12 @@ public enum TypeMonstre
 		this.nom = nom;
 	}
 	
-	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	
 	public int getVie()
 	{

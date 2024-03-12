@@ -1,30 +1,39 @@
 package objet;
 
+import joueur.Type;
+
 public enum Armes
 {
-	AUCUNE("aucune", 0, 0, 0, 0)
-	, EPEEBOIS("une épée en bois", 2, 0, 0, 0), EPEEPIERRE("une épée en pierre", 3, 1, 0, 1)
-	, DAGUEROUILLE("une dague rouillé", 1, 2, 0, 0), DAGUE("une dague basique", 2, 3, 0, 0)
-	, SCEPTRET1("un sceptre magique de débutant", 3, 2,  1, 0), SCEPTRET2("un sceptre magique puissant", 6, 2,  2, 0)
-	, CLAYMORE("une claymore sombre", 25, -2, 0, 30), KARAMBIT("un karambit sombre", 20, 10, 0, 30) ,SCEPTRENOIR("un sceptre magique infusé de néant", 30, 2,  5, 30);
+	AUCUNE("aucune",Type.AUCUN, 0, 0, 0, 0)
+	, EPEEBOIS("une épée en bois",Type.PHYSIQUE , 2, 0, 0, 0), EPEEPIERRE("une épée en pierre",Type.PHYSIQUE , 3, 1, 0, 1)
+	, DAGUEROUILLE("une dague rouillé",Type.TENEBRE , 1, 2, 0, 0), DAGUE("une dague basique",Type.TENEBRE , 2, 3, 0, 0)
+	, SCEPTRET1("un sceptre magique de débutant",Type.LUMIERE , 3, 2,  1, 0), SCEPTRET2("un sceptre magique puissant",Type.LUMIERE , 6, 2,  2, 0)
+	, CLAYMORE("une claymore sombre",Type.PHYSIQUE , 25, -2, 0, 30), KARAMBIT("un karambit sombre",Type.TENEBRE , 20, 10, 0, 30) ,SCEPTRELUMIERE("un sceptre magique infusé de néant",Type.LUMIERE , 30, 2,  5, 30);
 	
 	private String nom;
 	private int dégats;
 	private int vitesse;
 	private int coutMana;
 	private int couts;
+	private Type type;
 	
 	
-	private Armes(String nom, int dégats, int vitesse, int coutMana, int couts)
+	private Armes(String nom,Type type, int dégats, int vitesse, int coutMana, int couts)
 	{
 		this.nom = nom;
+		this.type = type;
 		this.dégats = dégats;
 		this.vitesse = vitesse;
 		this.coutMana = coutMana;
 		this.setCouts(couts);
 	}
 
-	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	public int getDégats()
 	{
 		return dégats;

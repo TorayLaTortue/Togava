@@ -4,14 +4,15 @@ import objet.Armes;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	, ADEPTE("Adepte", 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	, ADEPTE("Adepte", Type.LUMIERE, 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
+	private Type type;
 	private int vie;
 	private int vieMax;
 	private int atk;
@@ -26,9 +27,10 @@ public enum TypeJoueur
 	private int level;
 	
 	
-	private TypeJoueur(String nom, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
 	{
 	this.nom = nom;
+	this.type = type;
 	this.vie = vie;
 	this.vieMax = vieMax;
 	this.atk = atk;
@@ -54,8 +56,14 @@ public enum TypeJoueur
 		this.nom = nom;
 	}
 	
+	public Type getType() {
+		return type;
+	}
 	
-	
+	public void setType(Type type) {
+		this.type = type;
+	}
+
 	public int getVie()
 	{
 		if(vie > vieMax)
