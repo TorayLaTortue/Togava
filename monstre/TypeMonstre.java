@@ -4,27 +4,29 @@ import joueur.Type;
 
 public enum TypeMonstre
 {
-	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 4, 2, 6 , 25, 1),
-	SQUELETTE("squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 4, 3, 6 , 30, 1),
-	CHEVALIERCOROMPUE("chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 9, 5, 999, 200, 5),
-	DRAGON("dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 9, 5, 999, 200, 5);
+	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 2, 6 , 25, 1),
+	SQUELETTE("squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 3, 6 , 30, 1),
+	CHEVALIERCOROMPUE("chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 4, 9, 5, 999, 200, 5),
+	DRAGON("dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 5, 999, 200, 5);
 	
 	private String nom;
 	private Type type;
 	private ArmesMonstre armesMonstre;
 	private int vie;
+	private int defense;
 	private int atk;
 	private int vitesse;
 	private int gold;
 	private int experience;
 	private int difficulte;
 	
-	private TypeMonstre(String nom, Type type, ArmesMonstre armes, int vie, int atk, int vitesse, int gold, int experience, int difficulte)
+	private TypeMonstre(String nom, Type type, ArmesMonstre armes, int vie, int defense, int atk, int vitesse, int gold, int experience, int difficulte)
 	{
 	this.nom = nom;
 	this.type = type;
 	this.armesMonstre = armes;
 	this.vie = vie;
+	this.defense = defense;
 	this.atk = atk;
 	this.vitesse = vitesse;
 	this.gold = gold;
@@ -63,7 +65,12 @@ public enum TypeMonstre
 	{
 		this.vie = vie;
 	}
-	
+	public int getDefense() {
+		return defense;
+	}
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
 	
 	
 	public int getAtk()
@@ -75,8 +82,12 @@ public enum TypeMonstre
 	{
 		this.atk = atk;
 	}
-	
-	
+	public ArmesMonstre getArmesMonstre() {
+		return armesMonstre;
+	}
+	public void setArmesMonstre(ArmesMonstre armesMonstre) {
+		this.armesMonstre = armesMonstre;
+	}
 	
 	public int getVitesse()
 	{

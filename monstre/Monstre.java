@@ -12,6 +12,7 @@ public class Monstre
 	private Type type;
 	private ArmesMonstre armesMonstre;
 	private int vie;
+	private int defense;
 	private int atk;
 	private int vitesse;
 	private int gold;
@@ -25,6 +26,7 @@ public class Monstre
 		this.type = typeMonstre.getType();
 		this.armesMonstre = typeMonstre.getArmes();
 		this.vie = typeMonstre.getVie();
+		this.defense = typeMonstre.getDefense();
 		this.atk = typeMonstre.getAtk();
 		this.vitesse = typeMonstre.getVitesse();
 		this.gold = typeMonstre.getGold();
@@ -61,10 +63,22 @@ public class Monstre
 	{
 		this.vie = vie;
 	}
+	public int getDefense() {
+		return defense;
+	}
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
 	public void attaque(Joueur victime)
 	{
-		victime.setVie(victime.getVie() - getAtk());
-		System.out.println("Le monstre vous a infligez " + getAtk() + " dégats.\n");
+		int degatTotal = victime.getDefense() - getAtk();
+		if(degatTotal < 1)
+		{
+			degatTotal = 1;
+		}
+
+		victime.setVie(victime.getVie() - degatTotal);
+		System.out.println("Le monstre vous a infligez " + degatTotal + " dégats.\n");
 	}
 	
 	

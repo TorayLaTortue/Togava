@@ -99,10 +99,16 @@ public class Joueur
 	}
 
 
-	public void attaque(Monstre victime) // rajouter la def dans le calcule
+	public void attaque(Monstre victime) 
 	{
-		victime.setVie(victime.getVie() - (getAtk()));
-		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
+		int degatTotal = victime.getDefense() - getAtk();
+		if(degatTotal < 1)
+		{
+			degatTotal = 1;
+		}
+
+		victime.setVie(victime.getVie() - degatTotal);
+		System.out.println("Vous avez infligez " + degatTotal+ " dégats au " + victime.getNom() + ".\n");
 		setMana(getMana() - getArme().getCoutMana());
 		if(joueur.getArme().getCoutMana() >= 1)
 		{	
