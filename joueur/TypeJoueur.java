@@ -5,16 +5,17 @@ import pet.TypePets;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
 	private TypePets typePets;
 	private int vie;
+	private int defense;
 	private int vieMax;
 	private int atk;
 	private int vitesse;
@@ -29,12 +30,13 @@ public enum TypeJoueur
 	private Type type;
 	
 	
-	private TypeJoueur(String nom, Type type, TypePets typePets, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, TypePets typePets, int vie, int defense, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
 	{
 	this.nom = nom;
 	this.type = type;
 	this.typePets = typePets;
 	this.vie = vie;
+	this.defense = defense;
 	this.vieMax = vieMax;
 	this.atk = atk;
 	this.vitesse = vitesse;
@@ -45,7 +47,7 @@ public enum TypeJoueur
 	this.gold = gold;
 	this.experience = experience;
 	this.experienceRequis = experienceRequis;
-	this.level=level;
+	this.level = level;
 	
 	
 	}
@@ -70,7 +72,7 @@ public enum TypeJoueur
 		return typePets;
 	}
 	public void setTypePets(TypePets typePets) {
-		typePets = typePets;
+		this.typePets = typePets;
 	}
 
 	public int getVie()
@@ -84,6 +86,12 @@ public enum TypeJoueur
 	public void setVie(int vie)
 	{
 		this.vie = vie;
+	}
+	public int getDefense() {
+		return defense;
+	}
+	public void setDefense(int defense) {
+		this.defense = defense;
 	}
 
 	public int getVieMax()

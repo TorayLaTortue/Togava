@@ -2,15 +2,18 @@ package joueur;
 
 import monstre.Monstre;
 import objet.Armes;
+import pet.TypePets;
 
 public class Joueur
 {
 	private String nom;
 	private int vie;
+	private int defense;
 	private int vieMax;
 	private int atk;
 	private int vitesse;
 	private Armes arme;
+	private TypePets typePets;
 	private int mana;
 	private int manaMax;
 	private int ancienTableauX;
@@ -27,11 +30,13 @@ public class Joueur
 	{
 		this.nom = typeJoueur.getNom();
 		this.vie = typeJoueur.getVie();
+		this.defense = typeJoueur.getDefense();
 		this.vieMax = typeJoueur.getVieMax();
 		this.atk = typeJoueur.getAtk();
 		this.vitesse = typeJoueur.getVitesse();
 		this.arme = typeJoueur.getArme();
-		this.mana =  typeJoueur.getMana();
+		this.typePets = typeJoueur.getTypePets();
+		this.mana = typeJoueur.getMana();
 		this.manaMax = typeJoueur.getManaMax();
 		this.gold = typeJoueur.getGold();
 		this.mort = false;
@@ -65,6 +70,13 @@ public class Joueur
 	{
 		this.vie = vie;
 	}
+	public int getDefense() {
+		defense = defense + typePets.getDefense();
+		return defense;
+	}
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
 
 	public int getVieMax()
 	{
@@ -78,6 +90,7 @@ public class Joueur
 
 	public int getAtk()
 	{
+		atk = atk + arme.getDégats() + typePets.getAtk();
 		return atk;
 	}
 	public void setAtk(int atk)
@@ -88,7 +101,7 @@ public class Joueur
 
 	public void attaque(Monstre victime)
 	{
-		victime.setVie(victime.getVie() - (getArme().getDégats() + getAtk()));
+		victime.setVie(victime.getVie() - (getAtk()));
 		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
 		setMana(getMana() - getArme().getCoutMana());
 		if(joueur.getArme().getCoutMana() >= 1)
@@ -100,7 +113,7 @@ public class Joueur
 	
 	public int getVitesse()
 	{
-		return vitesse +  arme.getVitesse();
+		return vitesse + arme.getVitesse() + typePets.getVitesse();
 	}
 
 	public void setVitesse(int vitesse)
@@ -124,6 +137,12 @@ public class Joueur
 	public int getMana()
 	{
 		return mana;
+	}
+	public TypePets getTypePets() {
+		return typePets;
+	}
+	public void setTypePets(TypePets typePets) {
+		this.typePets = typePets;
 	}
 
 	public void setMana(int mana)
