@@ -99,7 +99,7 @@ public class Joueur
 	}
 
 
-	public void attaque(Monstre victime)
+	public void attaque(Monstre victime) // rajouter la def dans le calcule
 	{
 		victime.setVie(victime.getVie() - (getAtk()));
 		System.out.println("Vous avez infligez " + (getArme().getDégats() + getAtk()) + " dégats au " + victime.getNom() + ".\n");
