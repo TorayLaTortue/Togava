@@ -1,18 +1,19 @@
 package joueur;
 
 import objet.Armes;
+import pet.TypePets;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", Type.PHYSIQUE, 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", Type.TENEBRE, 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", Type.TENEBRE, 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	, ADEPTE("Adepte", Type.LUMIERE, 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10,10, 2, 3, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
-	private Type type;
+	private TypePets typePets;
 	private int vie;
 	private int vieMax;
 	private int atk;
@@ -25,12 +26,14 @@ public enum TypeJoueur
 	private int experience;
 	private int experienceRequis;
 	private int level;
+	private Type type;
 	
 	
-	private TypeJoueur(String nom, Type type, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, TypePets typePets, int vie, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
 	{
 	this.nom = nom;
 	this.type = type;
+	this.typePets = typePets;
 	this.vie = vie;
 	this.vieMax = vieMax;
 	this.atk = atk;
@@ -62,6 +65,12 @@ public enum TypeJoueur
 	
 	public void setType(Type type) {
 		this.type = type;
+	}
+	public TypePets getTypePets() {
+		return typePets;
+	}
+	public void setTypePets(TypePets typePets) {
+		typePets = typePets;
 	}
 
 	public int getVie()

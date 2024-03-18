@@ -24,7 +24,8 @@ public enum ArmesMonstre
 		this.dégats = dégats;
 		this.vitesse = vitesse;
 		this.coutMana = coutMana;
-		this.setCouts(couts);
+		this.couts = couts;
+		this.durabilite = durabilite;
 	}
 
 	public Type getType() {
