@@ -7,6 +7,7 @@ import pet.TypePets;
 public class Joueur
 {
 	private String nom;
+	private Type type;
 	private int vie;
 	private int defense;
 	private int vieMax;
@@ -29,6 +30,7 @@ public class Joueur
 	public Joueur(TypeJoueur typeJoueur)
 	{
 		this.nom = typeJoueur.getNom();
+		this.type = typeJoueur.getType();
 		this.vie = typeJoueur.getVie();
 		this.defense = typeJoueur.getDefense();
 		this.vieMax = typeJoueur.getVieMax();
@@ -55,7 +57,12 @@ public class Joueur
 	{
 		this.nom = nom;
 	}
-	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	
 	public int getVie()
 	{
@@ -102,6 +109,11 @@ public class Joueur
 	public void attaque(Monstre victime) 
 	{
 		int degatTotal = victime.getDefense() - getAtk();
+		if(victime.estFaible(arme.getType(), getType()))
+		{
+			degatTotal = degatTotal * 1.5;
+		}
+		
 		if(degatTotal < 1)
 		{
 			degatTotal = 1;

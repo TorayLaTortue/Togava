@@ -1,13 +1,15 @@
 package monstre;
 
+import java.util.ArrayList;
+
 import joueur.Type;
 
 public enum TypeMonstre
 {
-	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 2, 6 , 25, 1),
-	SQUELETTE("squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 3, 6 , 30, 1),
-	CHEVALIERCOROMPUE("chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 4, 9, 5, 999, 200, 5),
-	DRAGON("dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 5, 999, 200, 5);
+	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 2, 3 , 250, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 2, 6 , 25, 1, Type.EAU),
+	SQUELETTE("squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 3, 6 , 30, 1, Type.LUMIERE),
+	CHEVALIERCOROMPUE("chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 4, 9, 5, 999, 200, 5, Type.LUMIERE),
+	DRAGON("dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 5, 999, 200, 5, Type.TENEBRE, Type.PHYSIQUE);
 	
 	private String nom;
 	private Type type;
@@ -19,8 +21,9 @@ public enum TypeMonstre
 	private int gold;
 	private int experience;
 	private int difficulte;
+	private ArrayList<Type> faiblesse = new ArrayList<>();
 	
-	private TypeMonstre(String nom, Type type, ArmesMonstre armes, int vie, int defense, int atk, int vitesse, int gold, int experience, int difficulte)
+	private TypeMonstre(String nom, Type type, ArmesMonstre armes, int vie, int defense, int atk, int vitesse, int gold, int experience, int difficulte, Type... faiblesse)
 	{
 	this.nom = nom;
 	this.type = type;
@@ -32,6 +35,9 @@ public enum TypeMonstre
 	this.gold = gold;
 	this.experience = experience;
 	this.difficulte = difficulte;
+	for (Type faiblesses : faiblesse) {
+		this.faiblesse.add(faiblesses);
+	}
 	
 	}
 	
@@ -126,6 +132,13 @@ public enum TypeMonstre
 	public void setDifficulte(int difficulte)
 	{
 		this.difficulte = difficulte;
+	}
+
+	public ArrayList<Type> getFaiblesse() {
+		return faiblesse;
+	}
+	public void setFaiblesse(ArrayList<Type> faiblesse) {
+		this.faiblesse = faiblesse;
 	}
 	
 }

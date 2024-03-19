@@ -1,6 +1,7 @@
 package monstre;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import joueur.Joueur;
@@ -19,6 +20,7 @@ public class Monstre
 	private int experience;
 	private int difficulte;
 	private boolean mort;
+	private ArrayList<Type> faiblesse = new ArrayList<>();
 	
 	public Monstre(TypeMonstre typeMonstre)
 	{
@@ -33,7 +35,7 @@ public class Monstre
 		this.experience = typeMonstre.getExperience();
 		this.difficulte = typeMonstre.getDifficulte();
 		this.setMort(false);
-	
+		this.faiblesse = typeMonstre.getFaiblesse();
 	}
 	
 	public String getNom()
@@ -150,5 +152,20 @@ public class Monstre
 	{
 		this.difficulte = difficulte;
 	}
+
+	public ArrayList<Type> getFaiblesse() {
+		return faiblesse;
+	}
+	public void setFaiblesse(ArrayList<Type> faiblesse) {
+		this.faiblesse = faiblesse;
+	}
+	
+	public boolean estFaible(Type perso, Type arme){
+        if(faiblesse.contains(perso) || faiblesse.contains(arme))
+        {       
+            return true;
+        }
+        return false;
+    }
 	
 }

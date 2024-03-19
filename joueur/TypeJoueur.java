@@ -13,6 +13,7 @@ public enum TypeJoueur
 	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
+	private Type type;
 	private TypePets typePets;
 	private int vie;
 	private int defense;
@@ -27,7 +28,7 @@ public enum TypeJoueur
 	private int experience;
 	private int experienceRequis;
 	private int level;
-	private Type type;
+	
 	
 	
 	private TypeJoueur(String nom, Type type, TypePets typePets, int vie, int defense, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)

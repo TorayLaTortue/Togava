@@ -18,7 +18,6 @@ public enum Type {
     
     private int id;
     private String type;
-    private ArrayList<Type> faiblesse = new ArrayList<>();
     
 
     Type(String type){
@@ -38,7 +37,7 @@ public enum Type {
         this.type = type;
     }
 
-    static{
+   /* static{
         LUMIERE.faiblesse.addAll(Arrays.asList(Type.TENEBRE));
 
         TENEBRE.faiblesse.addAll(Arrays.asList(Type.LUMIERE));
@@ -50,17 +49,9 @@ public enum Type {
         PLANTE.faiblesse.addAll(Arrays.asList(Type.FEU, Type.PHYSIQUE));
 
         EAU.faiblesse.addAll(Arrays.asList(Type.PLANTE));
+    }*/
 
-
-    }
-
-    public static boolean estFaible(Type type, Type type2){
-        if(type.faiblesse.contains(type2))
-        {       
-            return true;
-        }
-        return false;
-    }
+    
 
     
 
