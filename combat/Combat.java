@@ -19,8 +19,8 @@ public class Combat
 		Joueur joueur = Joueur.get();
 		Monstre monstre = tableau.getMonstre();
 		int aleatoireExp = (new Random().nextInt(4) + 10) /10;
-		int gold = monstre.getGold();
-		int exp = monstre.getExperience() * aleatoireExp;
+		float gold = monstre.getGold();
+		float exp = monstre.getExperience() * aleatoireExp;
 		
 		if(monstre.isMort() == false)
 		{

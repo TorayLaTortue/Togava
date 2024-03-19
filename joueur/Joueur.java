@@ -8,20 +8,20 @@ public class Joueur
 {
 	private String nom;
 	private Type type;
-	private int vie;
-	private int defense;
-	private int vieMax;
-	private int atk;
-	private int vitesse;
+	private float vie;
+	private float defense;
+	private float vieMax;
+	private float atk;
+	private float vitesse;
 	private Armes arme;
 	private TypePets typePets;
-	private int mana;
-	private int manaMax;
+	private float mana;
+	private float manaMax;
 	private int ancienTableauX;
 	private int ancienTableauY;
-	private int gold;
-	private int experience;
-	private int experienceRequis;
+	private float gold;
+	private float experience;
+	private float experienceRequis;
 	private int level;
 	private boolean mort;
 	
@@ -64,7 +64,7 @@ public class Joueur
 		this.type = type;
 	}
 	
-	public int getVie()
+	public float getVie()
 	{
 		if(vie > vieMax)
 		{
@@ -73,34 +73,34 @@ public class Joueur
 		return vie;
 	}
 
-	public void setVie(int vie)
+	public void setVie(float vie)
 	{
 		this.vie = vie;
 	}
-	public int getDefense() {
+	public float getDefense() {
 		defense = defense + typePets.getDefense();
 		return defense;
 	}
-	public void setDefense(int defense) {
+	public void setDefense(float defense) {
 		this.defense = defense;
 	}
 
-	public int getVieMax()
+	public float getVieMax()
 	{
 		return vieMax;
 	}
 
-	public void setVieMax(int vieMax)
+	public void setVieMax(float vieMax)
 	{
 		this.vieMax = vieMax;
 	}
 
-	public int getAtk()
+	public float getAtk()
 	{
 		atk = atk + arme.getDégats() + typePets.getAtk();
 		return atk;
 	}
-	public void setAtk(int atk)
+	public void setAtk(float atk)
 	{
 		this.atk = atk;
 	}
@@ -108,11 +108,8 @@ public class Joueur
 
 	public void attaque(Monstre victime) 
 	{
-		int degatTotal = victime.getDefense() - getAtk();
-		if(victime.estFaible(arme.getType(), getType()))
-		{
-			degatTotal = degatTotal * 1.5;
-		}
+		float degatTotal = getAtk();
+		degatTotal = victime.estFaible(arme.getType(), getType(), degatTotal) - victime.getDefense();
 		
 		if(degatTotal < 1)
 		{
@@ -129,12 +126,12 @@ public class Joueur
 	}
 	
 	
-	public int getVitesse()
+	public float getVitesse()
 	{
 		return vitesse + arme.getVitesse() + typePets.getVitesse();
 	}
 
-	public void setVitesse(int vitesse)
+	public void setVitesse(float vitesse)
 	{
 		this.vitesse = vitesse;
 	}
@@ -152,7 +149,7 @@ public class Joueur
 		this.arme = arme;
 	}
 	
-	public int getMana()
+	public float getMana()
 	{
 		return mana;
 	}
@@ -163,12 +160,12 @@ public class Joueur
 		this.typePets = typePets;
 	}
 
-	public void setMana(int mana)
+	public void setMana(float mana)
 	{
 		this.mana = mana;
 	}
 
-	public int getManaMax()
+	public float getManaMax()
 	{
 		if(mana > manaMax)
 		{
@@ -177,7 +174,7 @@ public class Joueur
 		return mana;
 	}
 
-	public void setManaMax(int manaMax)
+	public void setManaMax(float manaMax)
 	{
 		this.manaMax = manaMax;
 	}
@@ -220,40 +217,40 @@ public class Joueur
 		this.ancienTableauY = ancienTableauY;
 	}
 
-	public int getGold()
+	public float getGold()
 	{
 		return gold;
 	}
 
-	public void setGold(int gold)
+	public void setGold(float gold)
 	{
 		this.gold = gold;
 	}
-	public void addGold(int gold)
+	public void addGold(float gold)
 	{
 		setGold(getGold() + gold);
 	}
-	public void subGold(int gold)
+	public void subGold(float gold)
 	{
 		setGold(getGold() - gold);
 	}
 
-	public int getExperience()
+	public float getExperience()
 	{
 		return experience;
 	}
 
-	public void setExperience(int experience)
+	public void setExperience(float experience)
 	{
 		this.experience = experience;
 	}
 
-	public void addExperience(int experience)
+	public void addExperience(float experience)
 	{
 		setExperience(getExperience() + experience);
 	}
 
-	public int getExperienceRequis()
+	public float getExperienceRequis()
 	{
 		return experienceRequis;
 	}
@@ -274,4 +271,11 @@ public class Joueur
 		this.level = level;
 	}
 	
+
+	public void information()
+	{
+		System.out.println("Nom : " + this.getNom());
+		System.out.println("Level : " + this.getLevel());
+		System.out.println("Atk : " + this.getAtk());
+	}
 }

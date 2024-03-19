@@ -9,29 +9,29 @@ public enum TypeJoueur
 	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 5, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
 	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 5, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
 	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 2, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 7, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 70, 4, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
 	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 5, 5, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;
 	private TypePets typePets;
-	private int vie;
-	private int defense;
-	private int vieMax;
-	private int atk;
-	private int vitesse;
+	private float vie;
+	private float defense;
+	private float vieMax;
+	private float atk;
+	private float vitesse;
 	private Armes arme;
-	private int mana;
-	private int manaMax;
+	private float mana;
+	private float manaMax;
 	private int ancienTableau;
-	private int gold;
-	private int experience;
-	private int experienceRequis;
+	private float gold;
+	private float experience;
+	private float experienceRequis;
 	private int level;
 	
 	
 	
-	private TypeJoueur(String nom, Type type, TypePets typePets, int vie, int defense, int vieMax, int atk, int vitesse, Armes arme, int mana, int manaMax, int tableauStart, int gold, int experience, int experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, TypePets typePets, float vie, float defense, float vieMax, float atk, float vitesse, Armes arme, float mana, float manaMax, int tableauStart, float gold, float experience, float experienceRequis, int level)
 	{
 	this.nom = nom;
 	this.type = type;
@@ -76,7 +76,7 @@ public enum TypeJoueur
 		this.typePets = typePets;
 	}
 
-	public int getVie()
+	public float getVie()
 	{
 		if(vie > vieMax)
 		{
@@ -84,44 +84,44 @@ public enum TypeJoueur
 		}
 		return vie;
 	}
-	public void setVie(int vie)
+	public void setVie(float vie)
 	{
 		this.vie = vie;
 	}
-	public int getDefense() {
+	public float getDefense() {
 		return defense;
 	}
-	public void setDefense(int defense) {
+	public void setDefense(float defense) {
 		this.defense = defense;
 	}
 
-	public int getVieMax()
+	public float getVieMax()
 	{
 		return vie;
 	}
-	public void setVieMax(int vieMax)
+	public void setVieMax(float vieMax)
 	{
 		this.vieMax = vieMax;
 	}
 	
 	
 	
-	public int getAtk()
+	public float getAtk()
 	{
 		return atk;
 	}
-	public void setAtk(int atk)
+	public void setAtk(float atk)
 	{
 		this.atk = atk;
 	}
 	
 	
 	
-	public int getVitesse()
+	public float getVitesse()
 	{
 		return vitesse;
 	}
-	public void setVitesse(int vitesse)
+	public void setVitesse(float vitesse)
 	{
 		this.vitesse = vitesse;
 	}
@@ -136,7 +136,7 @@ public enum TypeJoueur
 		this.arme = arme;
 	}
 
-	public int getMana()
+	public float getMana()
 	{
 		if(mana > manaMax)
 		{
@@ -144,16 +144,16 @@ public enum TypeJoueur
 		}
 		return mana;
 	}
-	public void setMana(int mana)
+	public void setMana(float mana)
 	{
 		this.mana = mana;
 	}
 
-	public int getManaMax()
+	public float getManaMax()
 	{
 		return manaMax;
 	}
-	public void setManaMax(int manaMax)
+	public void setManaMax(float manaMax)
 	{
 		this.manaMax = manaMax;
 	}
@@ -169,20 +169,20 @@ public enum TypeJoueur
 		this.ancienTableau = ancienTableau;
 	}
 	
-	public int getGold()
+	public float getGold()
 	{
 		return gold;
 	}
-	public void setGold(int gold)
+	public void setGold(float gold)
 	{
 		this.gold = gold;
 	}
 	
-	public int getExperience()
+	public float getExperience()
 	{
 		return experience;
 	}
-	public void setExperience(int experience)
+	public void setExperience(float experience)
 	{
 		this.experience = experience;
 	}
@@ -196,11 +196,11 @@ public enum TypeJoueur
 		this.level = level;
 	}
 
-	public int getExperienceRequis()
+	public float getExperienceRequis()
 	{
 		return experienceRequis;
 	}
-	public void setExperienceRequis(int experienceRequis)
+	public void setExperienceRequis(float experienceRequis)
 	{
 		this.experienceRequis = experienceRequis;
 	}

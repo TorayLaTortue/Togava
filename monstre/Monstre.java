@@ -12,12 +12,13 @@ public class Monstre
 	private String nom;
 	private Type type;
 	private ArmesMonstre armesMonstre;
-	private int vie;
-	private int defense;
-	private int atk;
-	private int vitesse;
-	private int gold;
-	private int experience;
+	private float vie;
+	private float defense;
+	private float atk;
+	private float vitesse;
+	private float gold;
+	private float experience;
+	private int multiplicateur;
 	private int difficulte;
 	private boolean mort;
 	private ArrayList<Type> faiblesse = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Monstre
 		this.vitesse = typeMonstre.getVitesse();
 		this.gold = typeMonstre.getGold();
 		this.experience = typeMonstre.getExperience();
+		this.multiplicateur = typeMonstre.getMultiplicateur();
 		this.difficulte = typeMonstre.getDifficulte();
 		this.setMort(false);
 		this.faiblesse = typeMonstre.getFaiblesse();
@@ -56,24 +58,24 @@ public class Monstre
 	
 	
 
-	public int getVie()
+	public float getVie()
 	{
 		return vie;
 	}
 
-	public void setVie(int vie)
+	public void setVie(float vie)
 	{
 		this.vie = vie;
 	}
-	public int getDefense() {
+	public float getDefense() {
 		return defense;
 	}
-	public void setDefense(int defense) {
+	public void setDefense(float defense) {
 		this.defense = defense;
 	}
 	public void attaque(Joueur victime)
 	{
-		int degatTotal = victime.getDefense() - getAtk();
+		float degatTotal = victime.getDefense() - getAtk();
 		if(degatTotal < 1)
 		{
 			degatTotal = 1;
@@ -84,12 +86,12 @@ public class Monstre
 	}
 	
 	
-	public int getAtk()
+	public float getAtk()
 	{
 		return atk;
 	}
 
-	public void setAtk(int atk)
+	public void setAtk(float atk)
 	{
 		this.atk = atk;
 	}
@@ -97,13 +99,13 @@ public class Monstre
 	
 	
 	
-	public int getVitesse()
+	public float getVitesse()
 	{
 		vitesse = vitesse + armesMonstre.getVitesse();
 		return vitesse;
 	}
 
-	public void setVitesse(int vitesse)
+	public void setVitesse(float vitesse)
 	{
 		this.vitesse = vitesse;
 	}
@@ -111,13 +113,14 @@ public class Monstre
 	
 	
 
-	public int getGold()
+	public float getGold()
 	{
-		int aleatoireGold = (new Random().nextInt(4) + 10) /10;
-		return gold * aleatoireGold;
+		float aleatoireGold = (new Random().nextFloat(multiplicateur) + 10) /10;
+		float roundedGold = Math.round(aleatoireGold * gold);
+		return roundedGold;
 	}
 
-	public void setGold(int gold)
+	public void setGold(float gold)
 	{
 		this.gold = gold;
 	}
@@ -135,11 +138,13 @@ public class Monstre
 		this.mort = mort;
 	}
 
-	public int getExperience()
+	public float getExperience()
 	{
-		return experience;
+		float aleatoireExp = (new Random().nextFloat(multiplicateur) + 10) /10;
+		float roundedExp = Math.round(aleatoireExp * experience);
+		return roundedExp;
 	}
-	public void setExperience(int experience)
+	public void setExperience(float experience)
 	{
 		this.experience = experience;
 	}
@@ -160,12 +165,24 @@ public class Monstre
 		this.faiblesse = faiblesse;
 	}
 	
-	public boolean estFaible(Type perso, Type arme){
-        if(faiblesse.contains(perso) || faiblesse.contains(arme))
+	public float estFaible(Type perso, Type arme, float degat){
+		boolean crit = false;
+        if(faiblesse.contains(perso))
         {       
-            return true;
+            degat = degat * 1.5f;
+			crit = true;
         }
-        return false;
+		if(faiblesse.contains(arme))
+        {       
+            degat = degat * 1.5f;
+			crit = true;
+        }
+		if(crit)
+		{
+			System.out.println("Votre attaque est super efficace");
+		}
+
+        return degat;
     }
 	
 }
