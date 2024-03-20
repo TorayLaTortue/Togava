@@ -115,9 +115,10 @@ public class Monstre
 
 	public float getGold()
 	{
-		float aleatoireGold = (new Random().nextFloat(multiplicateur) + 10) /10;
-		float roundedGold = Math.round(aleatoireGold * gold);
-		return roundedGold;
+		Random random = new Random();
+		int randomNumber = random.nextInt(multiplicateur + 1) + 10;
+        float randomFloatGold = Math.round(randomNumber) / 10.0f;
+		return randomFloatGold;
 	}
 
 	public void setGold(float gold)
@@ -140,9 +141,10 @@ public class Monstre
 
 	public float getExperience()
 	{
-		float aleatoireExp = (new Random().nextFloat(multiplicateur) + 10) /10;
-		float roundedExp = Math.round(aleatoireExp * experience);
-		return roundedExp;
+		Random random = new Random();
+		int randomNumber = random.nextInt(multiplicateur + 1) + 10;
+        float randomFloatExp = Math.round(randomNumber) / 10.0f;
+		return randomFloatExp;
 	}
 	public void setExperience(float experience)
 	{
@@ -184,5 +186,8 @@ public class Monstre
 
         return degat;
     }
+	
+
+
 	
 }

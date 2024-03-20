@@ -48,9 +48,10 @@ public class ImageMap {
         // Dessinez le tableau sur l'image en fonction de son type
         if (tableau instanceof TableauMonstre) {
             TableauMonstre tableauMonstre = (TableauMonstre) tableau;
-            if (tableauMonstre.getMonstre().getDifficulte() == 1) {
+            int difficulteMax = tableauMonstre.getMaxDifficulte();
+            if (tableauMonstre.getMonstre(difficulteMax).getDifficulte() == 1) {
                 drawImage(g, "image/Monstre.png", x, y);
-            } else if (tableauMonstre.getMonstre().getDifficulte() == 5) {
+            } else if (tableauMonstre.getMonstre(difficulteMax).getDifficulte() == 5) {
                 drawImage(g, "image/MonstreElite.png", x, y);
             } else {
                 g.setColor(Color.BLACK);

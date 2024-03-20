@@ -165,7 +165,7 @@ public class Tableau
 		{
 			System.out.println("Vous êtes dans le neant.");
 		}
-			Deplacement.deplacement(this);
+		Deplacement.deplacement(this);
 		
 	}
 }

@@ -50,7 +50,7 @@ public enum Objet {
 		{
 			joueur.setVie(vie);
 		}
-		System.out.println("Vous avez gagnez " + vie + " pv, vous avez donc " + joueur.getVie() + " sur " + joueur.getVieMax() + " total");
+		System.out.println("Vous avez gagnez " + vie + " pv, vous avez donc " + joueur.getVie() + " pv sur " + joueur.getVieMax() + " pv maximum.");
 		
 	}
 

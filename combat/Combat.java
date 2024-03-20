@@ -15,13 +15,13 @@ public class Combat
 
 	public static void combat(TableauMonstre tableau)
 	{
+		int idMonstre = 0;
 		boolean end = false;
 		Joueur joueur = Joueur.get();
-		Monstre monstre = tableau.getMonstre();
-		int aleatoireExp = (new Random().nextInt(4) + 10) /10;
+		Monstre monstre = tableau.getMonstre(idMonstre);
 		float gold = monstre.getGold();
-		float exp = monstre.getExperience() * aleatoireExp;
-		
+		float exp = monstre.getExperience();
+		System.out.println("combat");
 		if(monstre.isMort() == false)
 		{
 			while(end == false)

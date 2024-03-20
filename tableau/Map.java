@@ -19,7 +19,7 @@ public class Map {
         
         Tableau[] tableaux = {
             new Tableau(0, 0).addBas(),
-            new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE)),
+            new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.SQUELETTE)),
             new TableauCoffre(3, 0, Armes.AUCUNE, Objet.POTIONPOLY),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
