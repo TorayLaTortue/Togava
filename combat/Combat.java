@@ -21,7 +21,6 @@ public class Combat
 		Monstre monstre = tableau.getMonstre(idMonstre);
 		float gold = monstre.getGold();
 		float exp = monstre.getExperience();
-		System.out.println("combat");
 		if(monstre.isMort() == false)
 		{
 			while(end == false)
