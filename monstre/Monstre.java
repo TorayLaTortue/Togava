@@ -4,10 +4,11 @@ package monstre;
 import java.util.ArrayList;
 import java.util.Random;
 
+import combat.Entite;
 import joueur.Joueur;
 import joueur.Type;
 
-public class Monstre
+public class Monstre extends Entite
 {
 	private String nom;
 	private Type type;
@@ -16,6 +17,7 @@ public class Monstre
 	private float defense;
 	private float atk;
 	private float vitesse;
+	private float action;
 	private float gold;
 	private float experience;
 	private int multiplicateur;
@@ -25,6 +27,7 @@ public class Monstre
 	
 	public Monstre(TypeMonstre typeMonstre)
 	{
+		super();
 		this.nom = typeMonstre.getNom();
 		this.type = typeMonstre.getType();
 		this.armesMonstre = typeMonstre.getArmes();
@@ -109,7 +112,13 @@ public class Monstre
 	{
 		this.vitesse = vitesse;
 	}
-	
+	public float getAction() {
+		action = 10000 / vitesse;
+		return action;
+	}
+	public void setAction(float action) {
+		this.action = action;
+	}
 	
 	
 
@@ -118,7 +127,7 @@ public class Monstre
 		Random random = new Random();
 		int randomNumber = random.nextInt(multiplicateur + 1) + 10;
         float randomFloatGold = Math.round(randomNumber) / 10.0f;
-		return randomFloatGold;
+		return gold * randomFloatGold;
 	}
 
 	public void setGold(float gold)
@@ -144,7 +153,7 @@ public class Monstre
 		Random random = new Random();
 		int randomNumber = random.nextInt(multiplicateur + 1) + 10;
         float randomFloatExp = Math.round(randomNumber) / 10.0f;
-		return randomFloatExp;
+		return experience * randomFloatExp;
 	}
 	public void setExperience(float experience)
 	{

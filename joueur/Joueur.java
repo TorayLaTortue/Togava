@@ -1,10 +1,11 @@
 package joueur;
 
+import combat.Entite;
 import monstre.Monstre;
 import objet.Armes;
 import pet.TypePets;
 
-public class Joueur
+public class Joueur extends Entite
 {
 	private String nom;
 	private Type type;
@@ -13,6 +14,7 @@ public class Joueur
 	private float vieMax;
 	private float atk;
 	private float vitesse;
+	private float action;
 	private Armes arme;
 	private TypePets typePets;
 	private float mana;
@@ -24,11 +26,13 @@ public class Joueur
 	private float experienceRequis;
 	private int level;
 	private boolean mort;
+
 	
 	private static Joueur joueur;  
 	
 	public Joueur(TypeJoueur typeJoueur)
 	{
+		super();
 		this.nom = typeJoueur.getNom();
 		this.type = typeJoueur.getType();
 		this.vie = typeJoueur.getVie();
@@ -135,7 +139,13 @@ public class Joueur
 	{
 		this.vitesse = vitesse;
 	}
-
+	public float getAction() {
+		action = 10000 / vitesse;
+		return action;
+	}
+	public void setAction(float action) {
+		this.action = action;
+	}
 	
 	
 	

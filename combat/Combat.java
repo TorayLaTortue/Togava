@@ -18,14 +18,22 @@ public class Combat
 		int idMonstre = 0;
 		boolean end = false;
 		Joueur joueur = Joueur.get();
-		Monstre monstre = tableau.getMonstre(idMonstre);
-		float gold = monstre.getGold();
-		float exp = monstre.getExperience();
+		
+		
+
+		
+
+		float gold = tableau.getMonstre(idMonstre).getGold();
+		float exp = tableau.getMonstre(idMonstre).getExperience();
+		
+		Action.action(tableau);}}
+
+		/*
 		if(monstre.isMort() == false)
 		{
 			while(end == false)
 			{
-				System.out.println("Vous avez " + joueur.getVie() + "PV et le " + monstre.getNom() + " a " + monstre.getVie() + "PV");
+				System.out.println("Vous avez " + joueur.getVie() + "PV et le " + tableau.getMonstre(idMonstre).getNom() + " a " + tableau.getMonstre(idMonstre).getVie() + "PV");
 				System.out.println("Voulez-vous attaquer ou fuir ?");
 				
 				System.out.println("1 - Attaquer ");
@@ -246,4 +254,4 @@ public class Combat
 	}
 	
 	
-}
+}*/
