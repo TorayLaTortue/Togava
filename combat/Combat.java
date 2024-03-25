@@ -1,5 +1,6 @@
 package combat;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -16,9 +17,10 @@ public class Combat
 	public static void combat(TableauMonstre tableau)
 	{
 		int idMonstre = 0;
-		boolean end = false;
-		Joueur joueur = Joueur.get();
 		
+		boolean cycle = false;
+		Joueur joueur = Joueur.get();
+		boolean fin = false;
 		
 
 		
@@ -26,12 +28,20 @@ public class Combat
 		float gold = tableau.getMonstre(idMonstre).getGold();
 		float exp = tableau.getMonstre(idMonstre).getExperience();
 		
-		Action.action(tableau);}}
+		Action.action(tableau);
+	
+		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 
-		/*
-		if(monstre.isMort() == false)
+		
+
+			
+		
+		
+		if(fin == false)
 		{
-			while(end == false)
+			
+			Action.action(tableau);
+			while(cycle == false)
 			{
 				System.out.println("Vous avez " + joueur.getVie() + "PV et le " + tableau.getMonstre(idMonstre).getNom() + " a " + tableau.getMonstre(idMonstre).getVie() + "PV");
 				System.out.println("Voulez-vous attaquer ou fuir ?");
@@ -87,7 +97,7 @@ public class Combat
 								joueur.addExperience(exp);
 								System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 								Level.levelUpdate(joueur);
-								end = true;
+								cycle = true;
 							}
 							else
 							{
@@ -95,7 +105,7 @@ public class Combat
 								if(joueur.getVie() <= 0)
 								{
 									joueur.setMort(true);
-									end = true;
+									cycle = true;
 									System.out.println("La partie est terminée, tu es un noob ! ");
 									System.exit(0);
 								}
@@ -124,7 +134,7 @@ public class Combat
 									Level.levelUpdate(joueur);
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
 									
-									end = true;
+									cycle = true;
 								}
 								else
 								{
@@ -133,7 +143,7 @@ public class Combat
 									if(joueur.getVie() <= 0)
 									{
 										joueur.setMort(true);
-										end = true;
+										cycle = true;
 										System.out.println("La partie est terminée, tu es un noob ! ");
 										System.exit(0);
 									}
@@ -151,7 +161,7 @@ public class Combat
 							if(joueur.getVie() <= 0)
 							{
 								joueur.setMort(true);
-								end = true;
+								cycle = true;
 								System.out.println("La partie est terminée, tu es un noob ! ");
 								System.exit(0);
 							}
@@ -167,7 +177,7 @@ public class Combat
 										joueur.addExperience(exp);
 										Level.levelUpdate(joueur);
 										System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
-										end = true;
+										cycle = true;
 									}
 								}
 								else if (joueur.getMana() <= joueur.getArme().getCoutMana())
@@ -186,7 +196,7 @@ public class Combat
 						if(joueur.getVie() <= 0)
 						{
 							joueur.setMort(true);
-							end = true;
+							cycle = true;
 							System.out.println("La partie est terminée, tu es un noob ! ");
 							System.exit(0);
 						}
@@ -202,7 +212,7 @@ public class Combat
 									joueur.addExperience(exp);
 									Level.levelUpdate(joueur);
 									System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
-									end = true;
+									cycle = true;
 								}
 							}
 							else if (joueur.getMana() <= joueur.getArme().getCoutMana())
@@ -223,7 +233,7 @@ public class Combat
 					if(chanceDeFuite <= probafuite)
 					{
 						System.out.println("Vous avez réussi à fuir comme un noob, bravo !\n");
-						end = true;
+						cycle = true;
 						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
 					}
 					else
@@ -233,7 +243,7 @@ public class Combat
 						if(joueur.getVie() <= 0)
 						{
 							joueur.setMort(true);
-							end = true;
+							cycle = true;
 							System.out.println("La partie est terminé, t'es trop nul ! ");
 							System.exit(0);
 						}
@@ -243,6 +253,8 @@ public class Combat
 				}	
 					
 			}
+
+		fin = tableau.isAllMort();
 		}
 		else
 		{
@@ -251,7 +263,7 @@ public class Combat
 		
 		
 		
-	}
+	}<
 	
 	
-}*/
+}

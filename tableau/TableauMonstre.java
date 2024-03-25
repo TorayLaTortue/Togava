@@ -23,6 +23,22 @@ public class TableauMonstre extends Tableau
 	public ArrayList<Monstre> getAllMonstre() {
 		return monstre;
 	}
+	public String getAllNomMonstre(){
+		ArrayList<Monstre> monstres = getAllMonstre();
+		StringBuilder sb = new StringBuilder();
+	
+		for(Monstre monstre : monstres) {
+			sb.append(monstre.getNom()).append(", ");
+		}
+	
+		// Supprimer la virgule et l'espace en trop à la fin, s'ils existent
+		if (sb.length() > 0) {
+			sb.delete(sb.length() - 2, sb.length());
+		}
+	
+		return sb.toString();
+	}
+
 	public void setMonstre(ArrayList<Monstre> monstre) {
 		this.monstre = monstre;
 	}
@@ -69,5 +85,25 @@ public class TableauMonstre extends Tableau
 
         return difficulteMax;
     }
+
+
+	public boolean isAllMort()
+	{
+		ArrayList<Monstre> monstres = getAllMonstre();
+		int monstreMort = 0;
+		boolean fin = false;
+		for (Monstre monstre : monstres) {
+			if(monstre.isMort() == true)
+			{
+				monstreMort++;
+			}
+			if(monstreMort == monstres.size())
+			{
+				fin = true;
+			}
+			
+		}
+		return fin;
+	}
 
 }

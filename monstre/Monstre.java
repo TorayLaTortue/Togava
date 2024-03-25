@@ -7,6 +7,8 @@ import java.util.Random;
 import combat.Entite;
 import joueur.Joueur;
 import joueur.Type;
+import tableau.Tableau;
+import tableau.TableauMonstre;
 
 public class Monstre extends Entite
 {
@@ -196,7 +198,7 @@ public class Monstre extends Entite
         return degat;
     }
 	
-
+	
 
 	
 }
