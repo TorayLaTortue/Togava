@@ -25,19 +25,22 @@ public class Combat
 
 		
 
-		float gold = tableau.getMonstre(idMonstre).getGold();
-		float exp = tableau.getMonstre(idMonstre).getExperience();
+		
 		
 	
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 
-		if(fin == false)
+		while(fin == false)
 		{
 			System.out.println("Vous avez " + joueur.getVie() + " PV.");
 			System.out.println(tableau.getAllNomVieMonstre() + ".");
 			Action.action(tableau);
 			System.out.println("");
 			
+			
+
+
+			cycle = false;
 			while(cycle == false)
 			{
 				System.out.println("Qui voulez-vous attaquer ?");
@@ -50,63 +53,65 @@ public class Combat
 				
 				System.out.println(idMonstre + 1 + " - Fuir \n");
 				
-				boolean isNumero = true;
+				boolean ischoix = true;
 				boolean isCorrectNumero = false;
-				int numero = 0;
+				int choix = 0;
 				
 				do  
 				{
 					String reponse = Scan.scanner();
-					isNumero = true;
-					numero = 0;
+					ischoix = true;
+					choix = 0;
 					
 					try 
 					{
-						numero = Integer.parseInt(reponse);
+						choix = Integer.parseInt(reponse);
 					} 
 					catch (NumberFormatException e)
 					{
-						isNumero = false;
+						ischoix = false;
 					}
 					
-					if(!isNumero)
+					if(!ischoix)
 					{
 						System.out.println("Vous devez mettre entre 0 et " + (monstres.size()+1) + " ! ");
 					}
 					else
 					{
-						if(numero >= 0 && numero <= monstres.size() +1)
+						if(choix >= 0 && choix <= monstres.size() +1)
 						{
 							isCorrectNumero = true;
 						}
 					}
 				} while(!isCorrectNumero);
 				
-				/*
-				if(numero == 1) //Attaque 
+				
+				if(choix <= monstres.size()) //Attaque 
 				{
+					choix --;
+					float gold = tableau.getMonstre(choix).getGold();
+					float exp = tableau.getMonstre(choix).getExperience();
+
 					
-					if(joueur.getVitesse() > monstre.getVitesse())
+					if(joueur.getMana() >= joueur.getArme().getCoutMana())
 					{
-						if(joueur.getMana() >= joueur.getArme().getCoutMana())
+						joueur.attaque(tableau.getMonstre(choix));
+						if(tableau.getMonstre(choix).getVie() <= 0)
 						{
-							joueur.attaque(monstre);
-							if(monstre.getVie() <= 0)
-							{
-								monstre.setMort(true);
-								joueur.addGold(gold);
-								joueur.addExperience(exp);
-								System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
-								Level.levelUpdate(joueur);
-								cycle = true;
+							tableau.getMonstre(choix).setMort(true);
+							joueur.addGold(gold);
+							joueur.addExperience(exp);
+							System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
+							Level.levelUpdate(joueur);
+							
 							}
 							else
 							{
-								monstre.attaque(joueur);
+								tableau.getMonstre(choix).attaque(joueur);
 								if(joueur.getVie() <= 0)
 								{
 									joueur.setMort(true);
-									cycle = true;
+									
 									System.out.println("La partie est terminée, tu es un noob ! ");
 									System.exit(0);
 								}
@@ -118,7 +123,8 @@ public class Combat
 							joueur.setMana(joueur.getMana() + 1);
 						}
 						
-					}
+					
+					/*
 					else if(joueur.getVitesse() == monstre.getVitesse()) 
 					{
 						boolean chanceAttaque = new Random().nextBoolean();
@@ -223,8 +229,10 @@ public class Combat
 							}
 						}
 					}	
-					
+				*/
+				cycle = true;
 				}
+				/*
 				else // fuite
 				{
 					float fuite = (joueur.getVitesse() / monstre.getVitesse())*50;
