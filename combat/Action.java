@@ -12,7 +12,7 @@ import tableau.TableauMonstre;
 public class Action {
     
     public static void action(TableauMonstre tableau) {
-        // Déclaration et initialisation des listes
+        
         Joueur joueur = Joueur.get();
         List<Monstre> monstres = tableau.getAllMonstre();
         List<Entite> entites = new ArrayList<>();
@@ -23,7 +23,10 @@ public class Action {
         
         entites.add(joueur);
 
-        // Définir le comparateur personnalisé pour trier par la stat action
+        for(Entite entite : entites){
+            System.out.println(entite.getNom() + " a " + entite.getAction() + " actions.");
+        }
+        
         Comparator<Entite> comparator = new Comparator<Entite>() {
             @Override
             public int compare(Entite entite1, Entite entite2) {
@@ -34,13 +37,9 @@ public class Action {
             }
         };
 
-        // Trier la liste d'entités en utilisant le comparateur
         Collections.sort(entites, comparator);
 
-        // La liste d'entités est maintenant triée par la stat action
 
-        for(Entite entite : entites){
-            System.out.println(entite.getNom() + " a " +entite.getAction() + " actions.");
-        }
+        
     }
 }

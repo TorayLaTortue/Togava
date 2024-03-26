@@ -28,26 +28,27 @@ public class Combat
 		float gold = tableau.getMonstre(idMonstre).getGold();
 		float exp = tableau.getMonstre(idMonstre).getExperience();
 		
-		Action.action(tableau);
 	
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 
-		
-
-			
-		
-		
 		if(fin == false)
 		{
-			
+			System.out.println("Vous avez " + joueur.getVie() + " PV.");
+			System.out.println(tableau.getAllNomVieMonstre() + ".");
 			Action.action(tableau);
+			System.out.println("");
+			
 			while(cycle == false)
 			{
-				System.out.println("Vous avez " + joueur.getVie() + "PV et le " + tableau.getMonstre(idMonstre).getNom() + " a " + tableau.getMonstre(idMonstre).getVie() + "PV");
-				System.out.println("Voulez-vous attaquer ou fuir ?");
+				System.out.println("Qui voulez-vous attaquer ?");
+				idMonstre = 0;
+				for(Monstre monstre  : monstres)
+				{
+					System.out.println(idMonstre + 1 + " - Attaquer " + monstre.getNom());
+					idMonstre ++;
+				}
 				
-				System.out.println("1 - Attaquer ");
-				System.out.println("2 - Fuir \n");
+				System.out.println(idMonstre + 1 + " - Fuir \n");
 				
 				boolean isNumero = true;
 				boolean isCorrectNumero = false;
@@ -70,18 +71,18 @@ public class Combat
 					
 					if(!isNumero)
 					{
-						System.out.println("Vous devez mettre 1 ou 2 ! >:c");
+						System.out.println("Vous devez mettre entre 0 et " + (monstres.size()+1) + " ! ");
 					}
 					else
 					{
-						if(numero == 1 || numero == 2)
+						if(numero >= 0 && numero <= monstres.size() +1)
 						{
 							isCorrectNumero = true;
 						}
 					}
 				} while(!isCorrectNumero);
 				
-				
+				/*
 				if(numero == 1) //Attaque 
 				{
 					
@@ -252,18 +253,15 @@ public class Combat
 					
 				}	
 					
-			}
+			}*/
 
 		fin = tableau.isAllMort();
 		}
-		else
-		{
-			System.out.println("Il y a un cadavre d'un " + monstre.getNom() + ".");
-		}
 		
 		
+	}
 		
-	}<
+	}
 	
 	
 }

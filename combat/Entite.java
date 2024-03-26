@@ -4,12 +4,10 @@ public class Entite {
     private float action;
     private String nom;
 
-    // Constructeur
     public Entite() {
         
     }
 
-    // Méthode pour récupérer l'action
     public float getAction() {
         return action;
     }

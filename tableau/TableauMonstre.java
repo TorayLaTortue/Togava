@@ -39,6 +39,22 @@ public class TableauMonstre extends Tableau
 		return sb.toString();
 	}
 
+	public String getAllNomVieMonstre(){
+		ArrayList<Monstre> monstres = getAllMonstre();
+		StringBuilder sb = new StringBuilder();
+	
+		for(Monstre monstre : monstres) {
+			sb.append("Le " + monstre.getNom() + " a " + monstre.getVie() + " PV").append(", ");
+		}
+	
+		
+		if (sb.length() > 0) {
+			sb.delete(sb.length() - 2, sb.length());
+		}
+	
+		return sb.toString();
+	}
+
 	public void setMonstre(ArrayList<Monstre> monstre) {
 		this.monstre = monstre;
 	}

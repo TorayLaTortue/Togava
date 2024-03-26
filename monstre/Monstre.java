@@ -116,6 +116,7 @@ public class Monstre extends Entite
 	}
 	public float getAction() {
 		action = 10000 / vitesse;
+		action = (float) Math.round(action * 10.0f) / 10.0f;
 		return action;
 	}
 	public void setAction(float action) {
