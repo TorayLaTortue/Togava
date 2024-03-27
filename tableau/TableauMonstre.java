@@ -105,28 +105,26 @@ public class TableauMonstre extends Tableau
 
 	public boolean isAllMort()
 	{
-		ArrayList<Monstre> monstreVerif = getAllMonstre(); //bien retirer le mod mort et pas le 1er de la liste
+		ArrayList<Monstre> monstreVerif = getAllMonstre(); 
 		int nombreMonstreMort = 0;
-		int i = 0;
+		
 		boolean fin = false;
 		System.out.println(monstreVerif.size() + " size");
+
+		
+
 		for (Monstre monstre : monstreVerif) {
 			if(monstre.isMort() == true)
 			{
 				nombreMonstreMort++;
-				getAllMonstre().remove(i);
+				
 			}
-			i++;
 		}
-		if(0 == monstreVerif.size())
+		if(nombreMonstreMort == monstreVerif.size())
 		{
 			fin = true;
-			
 		}
-		System.out.println(fin  + " fin ");
-		System.out.println(i + " i");
-		System.out.println(nombreMonstreMort +"  nombre");
-		System.out.println(monstreVerif.size() + " size");
+		
 		return fin;
 	}
 

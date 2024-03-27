@@ -3,7 +3,7 @@ package combat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+
 
 import joueur.Joueur;
 import monstre.Monstre;
@@ -11,11 +11,11 @@ import tableau.TableauMonstre;
 
 public class Action {
     
-    public static void action(TableauMonstre tableau) {
+    public static ArrayList<Entite> action(ArrayList<Monstre> monstres) {
         
         Joueur joueur = Joueur.get();
-        List<Monstre> monstres = tableau.getAllMonstre();
-        List<Entite> entites = new ArrayList<>();
+        
+        ArrayList<Entite> entites = new ArrayList<>();
 
         for (Monstre monstre : monstres) {
             entites.add(monstre);
@@ -39,7 +39,7 @@ public class Action {
 
         Collections.sort(entites, comparator);
 
-
         
+        return entites;
     }
 }
