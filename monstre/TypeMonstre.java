@@ -7,7 +7,7 @@ import joueur.Type;
 
 public enum TypeMonstre
 {
-	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 100, 3 , 250, 5, 1), BLOBFEU("blob",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 105, 6 , 25, 5, 1),
+	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 100, 3 , 250, 5, 1), BLOBFEU("Blob de feu",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 105, 6 , 25, 5, 1),
 	SQUELETTE("Squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 110, 6 , 30, 4, 1),
 	CHEVALIERCOROMPUE("Chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 5, 4, 9, 120, 999, 200, 4, 5),
 	DRAGON("Dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 130, 999, 200, 2, 5);

@@ -48,21 +48,20 @@ public class Combat
 			while(cycle == false) //Debut d'un tour
 			{
 			
-			if(entites.get(0) instanceof Monstre || entites.get(0) instanceof Joueur)
+			if(entites.get(0) instanceof Monstre)
 			{
 
-				System.out.println("Qui voulez-vous attaquer ?");
+				System.out.println("\n Qui voulez-vous attaquer ?");
 				idMonstre = 0;
 				int id = 1;
 				for(Monstre monstre  : monstres)//Verifie que dans la case, il reste des monstres vivant
 				{
-					
 					if(monstre.isMort() == false)
 					{
 						
 						System.out.println(id + " - Attaquer " + monstre.getNom());
-						hMonstres.put(id, monstres.get(idMonstre));
-						System.out.println(hMonstres.get(id).getNom() + " , " + (idMonstre));
+						hMonstres.put(id, monstres.get(idMonstre ));
+						//System.out.println(hMonstres.get(id).getNom() + " , " + (idMonstre));
 						id ++;
 					}
 					idMonstre ++;
@@ -91,19 +90,23 @@ public class Combat
 					
 					if(!ischoix)
 					{
-						System.out.println("Vous devez mettre entre 0 et " + (monstres.size()+1) + " ! ");
+						System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size()+1) + " ! ");
 					}
 					else
 					{
-						if(choix >= 0 && choix <= monstres.size() +1)
+						if(choix >= 0 && choix <= hMonstres.size() +1)
 						{
 							isCorrectNumero = true;
+						}
+						else
+						{
+							System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size()+1) + " ! ");
 						}
 					}
 				} while(!isCorrectNumero);
 				
 				
-				if(choix <= monstres.size()) //Attaque 
+				if(choix <= hMonstres.size()) //Attaque 
 				{
 					
 					float gold = hMonstres.get(choix).getGold();
@@ -116,15 +119,15 @@ public class Combat
 						if(hMonstres.get(choix).getVie() <= 0)
 						{
 							
-							monstres.get(choix).setMort(true);
+							hMonstres.get(choix).setMort(true);
 							joueur.addGold(gold);
 							joueur.addExperience(exp);
-							System.out.println("Vous avez gagnez le combat et gagné " + gold + " gold et " + exp + " experience !");
+							System.out.println("Vous avez battue le " + hMonstres.get(choix).getNom() + " et gagné " + gold + " gold et " + exp + " experience !");
 							Level.levelUpdate(joueur);
 							}
 							else
 							{
-								monstres.get(choix).attaque(joueur);
+								hMonstres.get(choix).attaque(joueur);
 								if(joueur.getVie() <= 0)
 								{
 									joueur.setMort(true);
@@ -138,7 +141,6 @@ public class Combat
 							System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 							joueur.setMana(joueur.getMana() + 1);
 						}
-			}	
 			
 				
 						
@@ -283,13 +285,25 @@ public class Combat
 			}*/
 
 		
-		fin = tableau.isAllMort();
+			fin = tableau.isAllMort();
+			if(monstres.size() == 0)
+			{
+				fin = true;
+			}
 
-		if(monstres.size() == 0)
-		{
-			fin = true;
-		}
-		}
+			}
+			else
+			{
+				}
+				
+				hMonstres.get(0).attaque(joueur);
+				if (joueur.getVie() <= 0) {
+					joueur.setMort(true);
+					cycle = true;
+					System.out.println("La partie est terminée, tu es un noob ! ");
+					System.exit(0);
+				}
+			}
 		
 		
 	}

@@ -23,9 +23,7 @@ public class Action {
         
         entites.add(joueur);
 
-        for(Entite entite : entites){
-            System.out.println(entite.getNom() + " a " + entite.getAction() + " actions.");
-        }
+        
         
         Comparator<Entite> comparator = new Comparator<Entite>() {
             @Override
@@ -39,6 +37,9 @@ public class Action {
 
         Collections.sort(entites, comparator);
 
+        for(Entite entite : entites){
+            System.out.println(entite.getNom() + " a " + entite.getAction() + " actions.");
+        }
         
         return entites;
     }
