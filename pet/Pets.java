@@ -1,11 +1,5 @@
 package pet;
 
-
-import java.util.Random;
-
-import joueur.Joueur;
-import joueur.Type;
-
 public class Pets
 {
 	private String nom;

@@ -1,7 +1,5 @@
 package joueur;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public enum Type {
     AUCUN("Aucun"),

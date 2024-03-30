@@ -9,8 +9,8 @@ public enum TypeJoueur
 	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
 	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
 	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 70, 120, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 5, 2, 5, 5, 120, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 5, 70, 120, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 50, 2, 5, 50, 20, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;

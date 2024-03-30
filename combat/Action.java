@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 import joueur.Joueur;
 import monstre.Monstre;
-import tableau.TableauMonstre;
+
 
 public class Action {
     
@@ -18,7 +18,10 @@ public class Action {
         ArrayList<Entite> entites = new ArrayList<>();
 
         for (Monstre monstre : monstres) {
-            entites.add(monstre);
+            if (!monstre.isMort()) {
+                entites.add(monstre);
+            }
+            
         }
         
         entites.add(joueur);

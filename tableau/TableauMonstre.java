@@ -106,13 +106,9 @@ public class TableauMonstre extends Tableau
 	public boolean isAllMort()
 	{
 		ArrayList<Monstre> monstreVerif = getAllMonstre(); 
-		int nombreMonstreMort = 0;
-		
+		int nombreMonstreMort = 0;	
 		boolean fin = false;
-		System.out.println(monstreVerif.size() + " size");
-
 		
-
 		for (Monstre monstre : monstreVerif) {
 			if(monstre.isMort() == true)
 			{

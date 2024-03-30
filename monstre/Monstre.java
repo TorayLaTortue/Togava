@@ -7,8 +7,6 @@ import java.util.Random;
 import combat.Entite;
 import joueur.Joueur;
 import joueur.Type;
-import tableau.Tableau;
-import tableau.TableauMonstre;
 
 public class Monstre extends Entite
 {
@@ -30,6 +28,7 @@ public class Monstre extends Entite
 	public Monstre(TypeMonstre typeMonstre)
 	{
 		super();
+		this.action = 10000 / vitesse;
 		this.nom = typeMonstre.getNom();
 		this.type = typeMonstre.getType();
 		this.armesMonstre = typeMonstre.getArmes();
@@ -114,15 +113,14 @@ public class Monstre extends Entite
 	{
 		this.vitesse = vitesse;
 	}
+	@Override
 	public float getAction() {
-		action = 10000 / vitesse;
-		action = (float) Math.round(action * 10.0f) / 10.0f;
-		return action;
+		return super.getAction();
 	}
+	@Override
 	public void setAction(float action) {
-		this.action = action;
+		super.setAction(action);
 	}
-	
 	
 
 	public float getGold()
