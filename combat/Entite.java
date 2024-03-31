@@ -9,7 +9,7 @@ public class Entite {
     }
 
     public float getAction() {
-        action = (float) Math.round(action * 10.0f) / 10.0f;
+        //action = (float) Math.round(action * 10.0f) / 10.0f;
         return action;
     }
     public void setAction(float action) {
@@ -17,7 +17,7 @@ public class Entite {
         {
             action = 0;
         }
-        action = (float) Math.round(action * 10.0f) / 10.0f;
+        //action = (float) Math.round(action * 10.0f) / 10.0f;
         this.action = action;
     }
     public String getNom() {

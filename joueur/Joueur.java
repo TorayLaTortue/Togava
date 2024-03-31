@@ -35,8 +35,7 @@ public class Joueur extends Entite
 	
 	public Joueur(TypeJoueur typeJoueur)
 	{
-		super();
-		this.action = 10000 / vitesse;
+		super.setAction(10000 / typeJoueur.getVitesse());
 		this.nom = typeJoueur.getNom();
 		this.type = typeJoueur.getType();
 		this.vie = typeJoueur.getVie();
@@ -54,6 +53,7 @@ public class Joueur extends Entite
 		this.experienceRequis = typeJoueur.getExperienceRequis();
 		this.level = typeJoueur.getLevel();
 		joueur = this;
+		
 	}
 	
 	public String getNom()
@@ -143,14 +143,7 @@ public class Joueur extends Entite
 	{
 		this.vitesse = vitesse;
 	}
-	@Override
-	public float getAction() {
-		return super.getAction();
-	}
-	@Override
-	public void setAction(float action) {
-		super.setAction(action);
-	}
+	
 	
 	public Armes getArme()
 	{

@@ -7,3 +7,5 @@ clé
 des équipements
 éléments
 abilité au joueur
+inventaire
+vente d'objet

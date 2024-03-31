@@ -27,8 +27,7 @@ public class Monstre extends Entite
 	
 	public Monstre(TypeMonstre typeMonstre)
 	{
-		super();
-		this.action = 10000 / vitesse;
+		super.setAction(10000 /typeMonstre.getVitesse());
 		this.nom = typeMonstre.getNom();
 		this.type = typeMonstre.getType();
 		this.armesMonstre = typeMonstre.getArmes();
@@ -86,7 +85,7 @@ public class Monstre extends Entite
 		}
 
 		victime.setVie(victime.getVie() - degatTotal);
-		System.out.println("Le monstre vous a infligez " + degatTotal + " dégats.\n");
+		System.out.println("Le " + nom + " vous a infligez " + degatTotal + " dégats.\nIl vous reste " + victime.getVie() + " PV.");
 	}
 	
 	
@@ -113,16 +112,7 @@ public class Monstre extends Entite
 	{
 		this.vitesse = vitesse;
 	}
-	@Override
-	public float getAction() {
-		return super.getAction();
-	}
-	@Override
-	public void setAction(float action) {
-		super.setAction(action);
-	}
 	
-
 	public float getGold()
 	{
 		Random random = new Random();

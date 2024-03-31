@@ -18,18 +18,14 @@ public class Combat {
 		boolean fin = false;
 
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
-
 		HashMap<Integer, Monstre> hMonstres = new HashMap<>();
 
-		// for(int i = 0; i != monstres.size();i++) {
-		// hMonstres.put(i+1, monstres.get(i));
-		// } //Liste de monstre en HashMap
-		System.out.println(joueur.getAction() + "a " + monstres.get(0).getAction());
+	
 		while (fin == false) // Debut combat
 		{
 			System.out.println("Vous avez " + joueur.getVie() + " PV.");
-			System.out.println(tableau.getAllNomVieMonstre() + ".");
-			System.out.println("");
+			System.out.println(tableau.getAllNomVieMonstre() + ".\n");
+			
 
 			idMonstre = 0;
 			int id = 1;
@@ -37,20 +33,20 @@ public class Combat {
 			{
 				if (monstre.isMort() == false) {
 					hMonstres.put(id, monstres.get(idMonstre));
-					// System.out.println(hMonstres.get(id).getNom() + " , " + (idMonstre));
 					id++;
 				}
 				idMonstre++;
 			}
 			ArrayList<Entite> entites = Action.action(monstres);
 			cycle = false;
-			while (cycle == false) // Debut d'un tour
+			while (cycle == false) // Debut d'une partie de tour
 			{
-				
+				System.out.println("\n");
 				float action = entites.get(0).getAction();
 				for (Entite entite : entites) {
-					System.out.println(action  + " : 0  , autre : " + entite.getAction());
-					entite.setAction(action - entite.getAction());
+					
+					System.out.println(entite.getNom() + " " + entite.getAction()  + " - : " + action);
+					entite.setAction(entite.getAction() - action);
 					
 				}
 
@@ -121,119 +117,7 @@ public class Combat {
 							joueur.setMana(joueur.getMana() + 1);
 						}
 
-						/*
-						 * else if(joueur.getVitesse() == monstre.getVitesse())
-						 * {
-						 * boolean chanceAttaque = new Random().nextBoolean();
-						 * if(chanceAttaque)
-						 * {
-						 * if(joueur.getMana() >= joueur.getArme().getCoutMana())
-						 * {
-						 * joueur.attaque(monstre);
-						 * if(monstre.getVie() <= 0)
-						 * {
-						 * monstre.setMort(true);
-						 * joueur.addGold(gold);
-						 * joueur.addExperience(exp);
-						 * Level.levelUpdate(joueur);
-						 * System.out.println("Vous avez gagnez le combat et gagné " + gold +
-						 * " gold et " + exp + " experience !");
-						 * 
-						 * cycle = true;
-						 * }
-						 * else
-						 * {
-						 * monstre.attaque(joueur);
-						 * System.out.println("Le monstre a été plus rapide et vous a infligez " +
-						 * monstre.getAtk() + " dégats.");
-						 * if(joueur.getVie() <= 0)
-						 * {
-						 * joueur.setMort(true);
-						 * cycle = true;
-						 * System.out.println("La partie est terminée, tu es un noob ! ");
-						 * System.exit(0);
-						 * }
-						 * }
-						 * }
-						 * else if (joueur.getMana() <= joueur.getArme().getCoutMana())
-						 * {
-						 * System.out.
-						 * println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
-						 * joueur.setMana(joueur.getMana() + 1);
-						 * }
-						 * }
-						 * else
-						 * {
-						 * monstre.attaque(joueur);
-						 * if(joueur.getVie() <= 0)
-						 * {
-						 * joueur.setMort(true);
-						 * cycle = true;
-						 * System.out.println("La partie est terminée, tu es un noob ! ");
-						 * System.exit(0);
-						 * }
-						 * else
-						 * {
-						 * if(joueur.getMana() >= joueur.getArme().getCoutMana())
-						 * {
-						 * joueur.attaque(monstre);
-						 * if(monstre.getVie() <= 0)
-						 * {
-						 * monstre.setMort(true);
-						 * joueur.addGold(gold);
-						 * joueur.addExperience(exp);
-						 * Level.levelUpdate(joueur);
-						 * System.out.println("Vous avez gagnez le combat et gagné " + gold +
-						 * " gold et " + exp + " experience !");
-						 * cycle = true;
-						 * }
-						 * }
-						 * else if (joueur.getMana() <= joueur.getArme().getCoutMana())
-						 * {
-						 * System.out.
-						 * println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
-						 * joueur.setMana(joueur.getMana() + 1);
-						 * }
-						 * }
-						 * }
-						 * }
-						 * 
-						 * 
-						 * else
-						 * {
-						 * monstre.attaque(joueur);
-						 * if(joueur.getVie() <= 0)
-						 * {
-						 * joueur.setMort(true);
-						 * cycle = true;
-						 * System.out.println("La partie est terminée, tu es un noob ! ");
-						 * System.exit(0);
-						 * }
-						 * else
-						 * {
-						 * if(joueur.getMana() >= joueur.getArme().getCoutMana())
-						 * {
-						 * joueur.attaque(monstre);
-						 * if(monstre.getVie() <= 0)
-						 * {
-						 * monstre.setMort(true);
-						 * joueur.addGold(gold);
-						 * joueur.addExperience(exp);
-						 * Level.levelUpdate(joueur);
-						 * System.out.println("Vous avez gagnez le combat et gagné " + gold +
-						 * " gold et " + exp + " experience !");
-						 * cycle = true;
-						 * }
-						 * }
-						 * else if (joueur.getMana() <= joueur.getArme().getCoutMana())
-						 * {
-						 * System.out.
-						 * println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
-						 * joueur.setMana(joueur.getMana() + 1);
-						 * }
-						 * }
-						 * }
-						 */
+						
 						cycle = true;
 					}
 					/*
@@ -285,9 +169,7 @@ public class Combat {
 
 				}
 				fin = tableau.isAllMort();
-					if (monstres.size() == 0) {
-						fin = true;
-					}
+				System.out.println("remove : " + entites.get(0).getNom());
 				entites.remove(0);
 
 			}
