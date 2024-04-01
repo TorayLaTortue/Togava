@@ -38,8 +38,8 @@ public class Combat {
 			{
 				ArrayList<Entite> entites = Action.action(monstres, joueurs);
 
-				System.out.println("\n");
 				float action = entites.get(0).getAction();
+				System.out.println("Ordre d'action :");
 				for (Entite entite : entites) {
 					entite.setAction(entite.getAction() - action);
 					System.out.println(entite.getNom() + " " + entite.getAction()  + " - : " + action);
@@ -51,6 +51,7 @@ public class Combat {
 
 					System.out.println("\nQui voulez-vous attaquer ?");
 					int i = 0;
+					float vitesseTotal = 0;
 					for (Entite entite : entites)// Verifie que dans la case, il reste des monstres vivant
 					{
 						if(entite instanceof Monstre)
@@ -59,6 +60,7 @@ public class Combat {
 							i++;
 							System.out.println(i + " - Attaquer " + monstre.getNom());
 							hMonstres.put(i, monstre);
+							vitesseTotal += monstre.getVitesse();
 						}
 
 					}
@@ -124,7 +126,7 @@ public class Combat {
 					}
 					else if(choix == hMonstres.size() + 1) // fuite
 					{
-						float fuite = (joueur.getVitesse() / hMonstres.get(1).getVitesse()) * 50;
+						float fuite = (joueur.getVitesse() / (vitesseTotal / hMonstres.size())) * 50;
 						int probafuite = Math.round(fuite);
 
 						int chanceDeFuite = new Random().nextInt(101);

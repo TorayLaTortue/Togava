@@ -40,10 +40,6 @@ public class Action {
         };
 
         Collections.sort(entites, comparator);
-
-        for(Entite entite : entites){
-            System.out.println(entite.getNom() + " a " + entite.getAction() + " actions.");
-        }
         
         return entites;
     }
