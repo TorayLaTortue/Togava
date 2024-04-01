@@ -2,9 +2,12 @@ package combat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+
 import joueur.Joueur;
 import monstre.Monstre;
 import scan.Scan;
+import tableau.Tableau;
 import tableau.TableauMonstre;
 import joueur.Level;
 
@@ -80,7 +83,7 @@ public class Combat {
 						if (!ischoix) {
 							System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size() + 1) + " ! ");
 						} else {
-							if (choix >= 0 && choix <= hMonstres.size() + 1) {
+							if (choix >= 1 && choix <= hMonstres.size() +1) {
 								isCorrectNumero = true;
 							} else {
 								System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size() + 1) + " ! ");
@@ -118,44 +121,30 @@ public class Combat {
 							System.out.println("Vous n'avez pas assez de mana et donc en regeneré 1 de mana.");
 							joueur.setMana(joueur.getMana() + 1);
 						}
-
-						
-						
 					}
-					/*
-					 * else // fuite
-					 * {
-					 * float fuite = (joueur.getVitesse() / monstre.getVitesse())*50;
-					 * int probafuite = Math.round(fuite);
-					 * 
-					 * int chanceDeFuite = new Random().nextInt(101);
-					 * if(chanceDeFuite <= probafuite)
-					 * {
-					 * System.out.println("Vous avez réussi à fuir comme un noob, bravo !\n");
-					 * cycle = true;
-					 * Tableau.getTableau(joueur.getAncienTableauX(),
-					 * joueur.getAncienTableauY()).evenement();
-					 * }
-					 * else
-					 * {
-					 * System.out.println("Vous n'avez pas réussi a fuir, la honte !\n ");
-					 * monstre.attaque(joueur);
-					 * if(joueur.getVie() <= 0)
-					 * {
-					 * joueur.setMort(true);
-					 * cycle = true;
-					 * System.out.println("La partie est terminé, t'es trop nul ! ");
-					 * System.exit(0);
-					 * }
-					 * 
-					 * }
-					 * 
-					 * }
-					 * 
-					 * }
-					 */
+					else if(choix == hMonstres.size() + 1) // fuite
+					{
+						float fuite = (joueur.getVitesse() / hMonstres.get(1).getVitesse()) * 50;
+						int probafuite = Math.round(fuite);
 
-					
+						int chanceDeFuite = new Random().nextInt(101);
+						if (chanceDeFuite <= probafuite) {
+							System.out.println("Vous avez réussi à fuir comme un noob, bravo !\n");
+							cycle = true;
+							Tableau.getTableau(joueur.getAncienTableauX(),
+							joueur.getAncienTableauY()).evenement();
+						} else {
+							System.out.println("Vous n'avez pas réussi a fuir, la honte !\n ");
+							hMonstres.get(1).attaque(joueur);
+							if (joueur.getVie() <= 0) {
+								joueur.setMort(true);
+								cycle = true;
+								System.out.println("La partie est terminé, t'es trop nul ! ");
+								System.exit(0);
+							}
+
+						}
+					}
 
 				}
 				else { //Monstre attaque joueur
@@ -181,5 +170,4 @@ public class Combat {
 
 		}
 
-	}
-}
+}}
