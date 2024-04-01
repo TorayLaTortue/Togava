@@ -15,11 +15,12 @@ public class Combat {
 
 		boolean cycle = false;
 		Joueur joueur = Joueur.get();
-		boolean fin = false;
 
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 		HashMap<Integer, Monstre> hMonstres = new HashMap<>();
 		ArrayList<Joueur> joueurs = new ArrayList<>();
+
+		boolean fin = tableau.isAllMort(monstres);
 
 		joueurs.add(joueur);
 
@@ -30,7 +31,7 @@ public class Combat {
 			
 			cycle = false;
 			System.out.println("\nNouveau cycle. \n");
-			while (cycle == false) // Debut d'une partie de tour
+			while (cycle == false && fin == false) // Debut d'une partie de tour
 			{
 				ArrayList<Entite> entites = Action.action(monstres, joueurs);
 
@@ -103,6 +104,7 @@ public class Combat {
 								joueur.addGold(gold);
 								joueur.addExperience(exp);
 								System.out.println("Vous avez battue le " + hMonstres.get(choix).getNom() + " et gagné " + gold + " gold et " + exp + " experience !\n");
+								entites.remove(choix);
 								Level.levelUpdate(joueur);
 							} else {
 								hMonstres.get(choix).attaque(joueur);
@@ -170,15 +172,11 @@ public class Combat {
 
 				}
 				
-				if(entites.isEmpty())
+				if(hMonstres.isEmpty())
 				{
 					cycle = true;
 				}
-				fin = tableau.isAllMort(entites);
-				if(fin)
-				{
-					
-				}
+				fin = tableau.isAllMort(monstres);
 			}
 
 		}

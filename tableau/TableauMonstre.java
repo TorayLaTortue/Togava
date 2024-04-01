@@ -104,26 +104,20 @@ public class TableauMonstre extends Tableau
     }
 
 
-	public boolean isAllMort(ArrayList<Entite> entites)
+	public boolean isAllMort(ArrayList<Monstre> monstres)
 	{
 		boolean fin = false;
 		int i = 0;
 		int j = 0;
-		for(Entite entite :  entites)
+		for(Monstre monstre :  monstres)
 		{
-			System.out.println(entite.getNom());
-			if(entite instanceof Monstre)
+			System.out.println(monstre.getNom());
+			i++;
+			if(monstre.isMort())
 			{
-				Monstre monstre = (Monstre) entite;
-				i++;
-				if(monstre.isMort())
-				{
-					j++;
-				}
+				j++;
 			}
-
 		}
-
 		
 		if(j == i)
 		{
