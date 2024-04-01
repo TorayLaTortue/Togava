@@ -11,23 +11,24 @@ import monstre.Monstre;
 
 public class Action {
     
-    public static ArrayList<Entite> action(ArrayList<Monstre> monstres) {
+    public static ArrayList<Entite> action(ArrayList<Monstre> monstres, ArrayList<Joueur> joueurs) {
         
-        Joueur joueur = Joueur.get();
-        
-        ArrayList<Entite> entites = new ArrayList<>();
+        ArrayList<Entite> entites =  new  ArrayList<>();
 
-        for (Monstre monstre : monstres) {
+        for(Joueur joueur : joueurs)
+        {
+            if(!joueur.isMort()){
+                entites.add(joueur);
+            }
+        }
+
+        for(Monstre monstre : monstres)
+        {
             if (!monstre.isMort()) {
                 entites.add(monstre);
             }
-            
         }
-        
-        entites.add(joueur);
-
-        
-        
+             
         Comparator<Entite> comparator = new Comparator<Entite>() {
             @Override
             public int compare(Entite entite1, Entite entite2) {

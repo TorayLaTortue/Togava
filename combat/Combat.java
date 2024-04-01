@@ -19,45 +19,44 @@ public class Combat {
 
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 		HashMap<Integer, Monstre> hMonstres = new HashMap<>();
+		ArrayList<Joueur> joueurs = new ArrayList<>();
 
-	
+		joueurs.add(joueur);
+
 		while (fin == false) // Debut combat
 		{
 			System.out.println("Vous avez " + joueur.getVie() + " PV.");
 			System.out.println(tableau.getAllNomVieMonstre() + ".\n");
 			
-
-			idMonstre = 0;
-			int id = 1;
-			for (Monstre monstre : monstres)// Verifie que dans la case, il reste des monstres vivant
-			{
-				if (monstre.isMort() == false) {
-					hMonstres.put(id, monstres.get(idMonstre));
-					id++;
-				}
-				idMonstre++;
-			}
-			ArrayList<Entite> entites = Action.action(monstres);
 			cycle = false;
+			System.out.println("\nNouveau cycle. \n");
 			while (cycle == false) // Debut d'une partie de tour
 			{
+				ArrayList<Entite> entites = Action.action(monstres, joueurs);
+
 				System.out.println("\n");
 				float action = entites.get(0).getAction();
 				for (Entite entite : entites) {
-					
-					System.out.println(entite.getNom() + " " + entite.getAction()  + " - : " + action);
 					entite.setAction(entite.getAction() - action);
-					
+					System.out.println(entite.getNom() + " " + entite.getAction()  + " - : " + action);
 				}
 
 				if (entites.get(0) instanceof Joueur) {
+					
+					joueur = (Joueur) entites.get(0);
 
 					System.out.println("\nQui voulez-vous attaquer ?");
 					int i = 0;
-					for (Monstre hMonstre : monstres)// Verifie que dans la case, il reste des monstres vivant
+					for (Entite entite : entites)// Verifie que dans la case, il reste des monstres vivant
 					{
-						i++;
-						System.out.println(i + " - Attaquer " + hMonstre.getNom());
+						if(entite instanceof Monstre)
+						{
+							Monstre monstre = (Monstre) entite;
+							i++;
+							System.out.println(i + " - Attaquer " + monstre.getNom());
+							hMonstres.put(i, monstre);
+						}
+
 					}
 
 					System.out.println(i + 1 + " - Fuir \n");
@@ -94,6 +93,8 @@ public class Combat {
 						float gold = hMonstres.get(choix).getGold();
 						float exp = hMonstres.get(choix).getExperience();
 
+						joueur.resetAction(joueur.getVitesse());
+
 						if (joueur.getMana() >= joueur.getArme().getCoutMana()) {
 							joueur.attaque(hMonstres.get(choix));
 							if (hMonstres.get(choix).getVie() <= 0) {
@@ -101,8 +102,7 @@ public class Combat {
 								hMonstres.get(choix).setMort(true);
 								joueur.addGold(gold);
 								joueur.addExperience(exp);
-								System.out.println("Vous avez battue le " + hMonstres.get(choix).getNom() + " et gagné "
-										+ gold + " gold et " + exp + " experience !");
+								System.out.println("Vous avez battue le " + hMonstres.get(choix).getNom() + " et gagné " + gold + " gold et " + exp + " experience !\n");
 								Level.levelUpdate(joueur);
 							} else {
 								hMonstres.get(choix).attaque(joueur);
@@ -118,7 +118,7 @@ public class Combat {
 						}
 
 						
-						cycle = true;
+						
 					}
 					/*
 					 * else // fuite
@@ -156,9 +156,10 @@ public class Combat {
 					
 
 				}
-				else {
-
+				else { //Monstre attaque joueur
+					
 					Monstre monstre = (Monstre) entites.get(0);
+					monstre.resetAction(monstre.getVitesse());
 					monstre.attaque(joueur);
 					if (joueur.getVie() <= 0) {
 						joueur.setMort(true);
@@ -168,10 +169,16 @@ public class Combat {
 					}
 
 				}
-				fin = tableau.isAllMort();
-				System.out.println("remove : " + entites.get(0).getNom());
-				entites.remove(0);
-
+				
+				if(entites.isEmpty())
+				{
+					cycle = true;
+				}
+				fin = tableau.isAllMort(entites);
+				if(fin)
+				{
+					
+				}
 			}
 
 		}

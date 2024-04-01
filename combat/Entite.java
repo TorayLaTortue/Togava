@@ -20,6 +20,12 @@ public class Entite {
         //action = (float) Math.round(action * 10.0f) / 10.0f;
         this.action = action;
     }
+    public void resetAction(float vitesse)
+    {
+        this.action = 10000 / vitesse;
+    }
+
+
     public String getNom() {
         return nom;
     }

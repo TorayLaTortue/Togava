@@ -3,6 +3,7 @@ package tableau;
 import java.util.ArrayList;
 
 import combat.Combat;
+import combat.Entite;
 import deplacement.Deplacement;
 import monstre.Monstre;
 
@@ -103,20 +104,28 @@ public class TableauMonstre extends Tableau
     }
 
 
-	public boolean isAllMort()
+	public boolean isAllMort(ArrayList<Entite> entites)
 	{
-		ArrayList<Monstre> monstreVerif = getAllMonstre(); 
-		int nombreMonstreMort = 0;	
 		boolean fin = false;
-		
-		for (Monstre monstre : monstreVerif) {
-			if(monstre.isMort() == true)
+		int i = 0;
+		int j = 0;
+		for(Entite entite :  entites)
+		{
+			System.out.println(entite.getNom());
+			if(entite instanceof Monstre)
 			{
-				nombreMonstreMort++;
-				
+				Monstre monstre = (Monstre) entite;
+				i++;
+				if(monstre.isMort())
+				{
+					j++;
+				}
 			}
+
 		}
-		if(nombreMonstreMort == monstreVerif.size())
+
+		
+		if(j == i)
 		{
 			fin = true;
 		}
