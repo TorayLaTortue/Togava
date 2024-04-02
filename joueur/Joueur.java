@@ -83,6 +83,10 @@ public class Joueur extends Entite
 
 	public void setVie(float vie)
 	{
+		if(vie > vieMax)
+		{
+			vie = vieMax;
+		}
 		this.vie = vie;
 	}
 	public float getDefense() {
@@ -168,6 +172,10 @@ public class Joueur extends Entite
 
 	public void setMana(float mana)
 	{
+		if(mana > manaMax)
+		{
+			mana = manaMax;
+		}
 		this.mana = mana;
 	}
 

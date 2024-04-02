@@ -41,16 +41,11 @@ public enum Objet {
 		this.dégats = dégats;
 	}
 
-	public void useVie(Joueur joueur) {
-		if(joueur.getVie() + vie >= joueur.getVieMax())
-		{
-			joueur.setVie(joueur.getVieMax());
-		}
-		else
-		{
-			joueur.setVie(vie);
-		}
-		System.out.println("Vous avez gagnez " + vie + " pv, vous avez donc " + joueur.getVie() + " pv sur " + joueur.getVieMax() + " pv maximum.");
+	public void useVie(Joueur joueur) {		
+		System.out.println("Vous aviez " + joueur.getVie() + "  vie.");
+		joueur.setVie(joueur.getVie() + vie);
+		
+		System.out.println("Vous avez gagnez " + vie + " vous avez donc " + joueur.getVie() + " pv sur " + joueur.getVieMax() + " pv maximum.");
 		
 	}
 
@@ -101,14 +96,9 @@ public enum Objet {
 	}
 
 	public int useMana(Joueur joueur) {
-		if(joueur.getMana() + mana >= joueur.getManaMax())
-		{
-			joueur.setMana(joueur.getManaMax());
-		}
-		else
-		{
-			joueur.setMana(mana);
-		}
+		System.out.println("Vous aviez " + joueur.getMana() + "  mana.");
+		joueur.setMana(joueur.getMana() + mana);
+		
 		System.out.println("Vous avez gagnez " + mana + " mana, vous avez donc " + joueur.getMana() + " mana sur " + joueur.getManaMax() + " mana total.");
 		return mana;
 	}

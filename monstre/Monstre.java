@@ -78,10 +78,11 @@ public class Monstre extends Entite
 	}
 	public void attaque(Joueur victime)
 	{
-		float degatTotal = victime.getDefense() - getAtk();
+		float degatTotal = getAtk() - victime.getDefense();
 		if(degatTotal < 1)
 		{
 			degatTotal = 1;
+			
 		}
 
 		victime.setVie(victime.getVie() - degatTotal);
