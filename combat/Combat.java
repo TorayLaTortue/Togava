@@ -14,18 +14,34 @@ import joueur.Level;
 public class Combat {
 
 	public static void combat(TableauMonstre tableau) {
-		int idMonstre = 0;
+	
 
 		boolean cycle = false;
 		Joueur joueur = Joueur.get();
-
 		ArrayList<Monstre> monstres = tableau.getAllMonstre();
 		HashMap<Integer, Monstre> hMonstres = new HashMap<>();
 		ArrayList<Joueur> joueurs = new ArrayList<>();
 
 		boolean fin = tableau.isAllMort(monstres);
-
 		joueurs.add(joueur);
+
+
+		if(!tableau.isAllMort(monstres)) // liste de monstre en vie a l'arriver
+		{
+			if(monstres.size() == 1)
+		{
+			System.out.println("Wow un "+ monstres.get(0).getNom() +" terrifiant apparait.");
+		}
+		else
+		{
+			System.out.println("Des monstre apparaissent : " + tableau.getAllNomMonstre()  + ".");
+			
+		}
+		}
+		
+
+		
+
 
 		while (fin == false) // Debut combat
 		{
@@ -39,10 +55,10 @@ public class Combat {
 				ArrayList<Entite> entites = Action.action(monstres, joueurs);
 
 				float action = entites.get(0).getAction();
-				System.out.println("Ordre d'action :");
+				System.out.println("\nOrdre d'action :");
 				for (Entite entite : entites) {
 					entite.setAction(entite.getAction() - action);
-					System.out.println(entite.getNom() + " " + entite.getAction()  + " - : " + action);
+					System.out.println(entite.getNom() + " a : " + entite.getAction() +  " point d'action."); // ordre d'action
 				}
 
 				if (entites.get(0) instanceof Joueur) {

@@ -70,14 +70,9 @@ public class TableauMonstre extends Tableau
 	
 	public void evenement()
 	{
-		if(monstre.size() == 1)
-		{
-			System.out.println("Wow un "+ this.getMonstre(0).getNom() +" terrifiant apparait.");
-		}
-		else
-		{
-			System.out.println("Wow une horde de monstre apparait.");
-		}
+		
+		System.out.println("Vous arrivez dans une case de combat.");
+		
 		Combat.combat(this);
 		Deplacement.deplacement(this);
 	}
@@ -111,7 +106,7 @@ public class TableauMonstre extends Tableau
 		int j = 0;
 		for(Monstre monstre :  monstres)
 		{
-			System.out.println(monstre.getNom());
+			
 			i++;
 			if(monstre.isMort())
 			{
