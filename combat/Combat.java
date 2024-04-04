@@ -55,12 +55,12 @@ public class Combat {
 				ArrayList<Entite> entites = Action.action(monstres, joueurs);
 
 				float action = entites.get(0).getAction();
-				System.out.println("\nOrdre d'action :");
+				System.out.println("\nOrdre d'action :\n╔═══════");
 				for (Entite entite : entites) {
 					entite.setAction(entite.getAction() - action);
-					System.out.println(entite.getNom() + " a : " + entite.getAction() +  " point d'action."); // ordre d'action
+					System.out.println("║" + entite.getNom() + " a : " + entite.getAction() +  " point d'action."); // ordre d'action
 				}
-
+				System.out.println("╚═══════");
 				if (entites.get(0) instanceof Joueur) {
 					
 					joueur = (Joueur) entites.get(0);

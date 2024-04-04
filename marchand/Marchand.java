@@ -6,6 +6,8 @@ import java.util.Scanner;
 import deplacement.Deplacement;
 import joueur.Joueur;
 import objet.Armes;
+import objet.Objet;
+import pet.Pets;
 import tableau.Tableau;
 import tableau.TableauMarchand;
 
@@ -13,6 +15,8 @@ public class Marchand
 {
 	
 	private ArrayList<Armes> armes = new ArrayList<>();
+	private ArrayList<Objet> objets = new ArrayList<>();
+	private ArrayList<Pets> pets = new ArrayList<>();
 	
 	public Marchand()
 	{
@@ -23,10 +27,11 @@ public class Marchand
 	{
 		Joueur joueur = Joueur.get();
 		ArrayList<Armes> armesMarchand = tableau.getMarchand().getArmes();
+		ArrayList<Pets> petsMarchand = tableau.getMarchand().getPets();
 		
-		if(armesMarchand.isEmpty())
+		if(armesMarchand.isEmpty() && petsMarchand.isEmpty())
 		{
-			System.out.println("Il n'y a plus de marchand. \n");
+			System.out.println("Il n'y a plus de marchand.\n");
 			Deplacement.deplacement(tableau);
 			return;
 		}
@@ -34,6 +39,10 @@ public class Marchand
 		for(Armes armes : armesMarchand)
 		{
 			marchandise += armes.getNom() + " et ";
+		}
+		for(Pets pets : petsMarchand)
+		{
+			marchandise += pets.getNom() + " et ";
 		}
 		String nomMarchandise = marchandise.substring(0, marchandise.length() - 4);
 		System.out.println("Un marchand qui vend "+ nomMarchandise + " apparait devant vous !");
@@ -167,13 +176,17 @@ public class Marchand
 		return this;
 	}
 
-	public Marchand addPotion(Armes arme)
+	public Marchand addObjet(Objet objet)
 	{
-		armes.add(arme);
+		objets.add(objet);
 		return this;
 	}
 
-
+	public Marchand addPets(Pets pet)
+	{
+		pets.add(pet);
+		return this;
+	}
 	
 	
 	public ArrayList<Armes> getArmes()
@@ -181,5 +194,9 @@ public class Marchand
 		return armes;
 	}
 
+	public ArrayList<Pets> getPets()
+	{
+		return pets;
+	}
 	
 }

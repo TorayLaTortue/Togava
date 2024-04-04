@@ -1,8 +1,5 @@
 package joueur;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 import combat.Entite;
 import monstre.Monstre;
 import objet.Armes;
@@ -17,7 +14,6 @@ public class Joueur extends Entite
 	private float vieMax;
 	private float atk;
 	private float vitesse;
-	private float action;
 	private Armes arme;
 	private TypePets typePets;
 	private float mana;

@@ -17,7 +17,6 @@ public class Monstre extends Entite
 	private float defense;
 	private float atk;
 	private float vitesse;
-	private float action;
 	private float gold;
 	private float experience;
 	private int multiplicateur;
@@ -100,9 +99,6 @@ public class Monstre extends Entite
 		this.atk = atk;
 	}
 
-	
-	
-	
 	public float getVitesse()
 	{
 		vitesse = vitesse + armesMonstre.getVitesse();
@@ -126,9 +122,6 @@ public class Monstre extends Entite
 	{
 		this.gold = gold;
 	}
-
-	
-	
 	
 	public boolean isMort()
 	{
@@ -187,8 +180,5 @@ public class Monstre extends Entite
 
         return degat;
     }
-	
-	
-
 	
 }

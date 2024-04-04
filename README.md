@@ -1,11 +1,16 @@
 # Togava
 
-idée : case quete, evenement, fontaine
-attaque de zone, plusieur joueur
-drop mob
-clé
-des équipements
-éléments
+idée : case quete, evenement, fontaine, case aleatoire
+attaque de zone
+plusieur joueur
+drop mob 
+clé 
+des équipements 
+éléments 
 abilité au joueur
-inventaire
+abilité mob 
+inventaire 
 vente d'objet
+sauvegarde 
+blessing rare mais permanent
+enchantement

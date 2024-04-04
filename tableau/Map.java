@@ -7,6 +7,7 @@ import monstre.Monstre;
 import monstre.TypeMonstre;
 import objet.Armes;
 import objet.Objet;
+import pet.TypePets;
 import tableau.Map;
 
 
@@ -22,7 +23,7 @@ public class Map {
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB), new Monstre(TypeMonstre.BLOBFEU)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.CHEVALIERCOROMPUE)),
             new TableauCoffre(3, 0, Armes.AUCUNE, Objet.POTIONPOLY),
-            new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
+            new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),
             new Tableau(6, 0).addBas(),
             new Tableau(7, 0).addBas(),
