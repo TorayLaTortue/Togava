@@ -1,13 +1,16 @@
 package marchand;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import deplacement.Deplacement;
 import joueur.Joueur;
+import monstre.Monstre;
 import objet.Armes;
 import objet.Objet;
-import pet.Pets;
+import pet.TypePets;
 import tableau.Tableau;
 import tableau.TableauMarchand;
 
@@ -16,7 +19,7 @@ public class Marchand
 	
 	private ArrayList<Armes> armes = new ArrayList<>();
 	private ArrayList<Objet> objets = new ArrayList<>();
-	private ArrayList<Pets> pets = new ArrayList<>();
+	private ArrayList<TypePets> pets = new ArrayList<>();
 	
 	public Marchand()
 	{
@@ -27,7 +30,9 @@ public class Marchand
 	{
 		Joueur joueur = Joueur.get();
 		ArrayList<Armes> armesMarchand = tableau.getMarchand().getArmes();
-		ArrayList<Pets> petsMarchand = tableau.getMarchand().getPets();
+		ArrayList<TypePets> petsMarchand = tableau.getMarchand().getPets();
+		ArrayList<Objet> objetsMarchand = tableau.getMarchand().getObjets();
+		HashMap<Integer, Object> hListObjet = new HashMap<>();
 		
 		if(armesMarchand.isEmpty() && petsMarchand.isEmpty())
 		{
@@ -35,18 +40,30 @@ public class Marchand
 			Deplacement.deplacement(tableau);
 			return;
 		}
-		String marchandise = "";
+		
+		int i = 1;
+		System.out.println("Un marchand apparait devant vous !\n");
+		System.out.println("\nQue voulez vous faire ?\n ");
 		for(Armes armes : armesMarchand)
 		{
-			marchandise += armes.getNom() + " et ";
+			System.out.println(i +" - Acheter : " +armes.getNom());
+			hListObjet.put(i, armes);
+			i++;
 		}
-		for(Pets pets : petsMarchand)
+		for(TypePets pets : petsMarchand)
 		{
-			marchandise += pets.getNom() + " et ";
+			System.out.println(i +" - Acheter : " + pets.getNom());
+			hListObjet.put(i, pets);
+			i++;
 		}
-		String nomMarchandise = marchandise.substring(0, marchandise.length() - 4);
-		System.out.println("Un marchand qui vend "+ nomMarchandise + " apparait devant vous !");
-		
+		for(Objet objets : objetsMarchand)
+		{
+			System.out.println(i +" - Acheter : " + objets.getNom());
+			hListObjet.put(i, objets);
+			i++;
+		}
+		System.out.println(i++ +" - Partir d'ici. ");
+
 		boolean end = false;
 		
 		while(end == false)
@@ -58,22 +75,6 @@ public class Marchand
 				return;
 			}
 			
-			System.out.println("Que voulez vous achetez ?\n ");
-			
-			if(armesMarchand.size() >= 1)
-			{
-				System.out.println("1 - " + armesMarchand.get(0).getNom());
-			}
-			if(armesMarchand.size() >= 2)
-			{
-				System.out.println("2 - " + armesMarchand.get(1).getNom());
-			}
-			if(armesMarchand.size() >= 3)
-			{
-				System.out.println("3 - " + armesMarchand.get(2).getNom());
-			}
-			
-			System.out.println("4 - Partir. ");
 
 			boolean isNumero = true;
 			boolean isCorrectNumero = false;
@@ -99,28 +100,60 @@ public class Marchand
 				
 				if(!isNumero)
 				{
-					System.out.println("Vous devez mettre entre 1 et 4 ! >:c");
+					System.out.println("Vous devez mettre entre 1 et " + hListObjet.size() + " ! >:c");
 				}
 				else
 				{
-					if(armesMarchand.size() >= 1 && numero == 1)
+					
+					if(numero <= hListObjet.size())// Achat
 					{
-						if(armesMarchand.get(0).getCouts() <= joueur.getGold())
+						if(hListObjet.get(numero) instanceof Armes) // Armes
 						{
-							isCorrectNumero = true;
-							joueur.setArme(armesMarchand.get(0));
-							joueur.subGold(armesMarchand.get(0).getCouts());
-							System.out.println("Vous equipez l'objet. \n");
-							armesMarchand.remove(0);					
+							Armes arme = (Armes) hListObjet.get(numero);
+							if(arme.getCouts() <= joueur.getGold())
+							{
+								isCorrectNumero = true;
+								joueur.setArme(arme);
+								joueur.subGold(arme.getCouts());
+								System.out.println("Vous equipez l'arme. \n");
+								armesMarchand.remove(numero-1);					
+							}
+							else
+							{
+								System.out.println("Vous n'avez pas assez d'argent ! ");
+							}
 						}
-						else
+						else if(hListObjet.get(numero) instanceof Objet) //Objet
 						{
-							System.out.println("Vous n'avez pas assez d'argent ! ");
-						}
+							Objet objet = (Objet) hListObjet.get(numero);
+							if(objet.getCouts() <= joueur.getGold())
+							{
+								isCorrectNumero = true;
+								objet.useAll(joueur);
+								joueur.subGold(objet.getCouts());
+								System.out.println("Vous utilisez l'objet. \n");
+								objetsMarchand.remove(numero-1);					
+							}
+							else
+							{
+								System.out.println("Vous n'avez pas assez d'argent ! ");
+							}
+						}	
+						
 					}
+					else if (numero == hListObjet.size() +1) //Fuite
+					{
+						isCorrectNumero = true;
+						System.out.println("Vous partez.\n");
+						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
+					}
+					else
+					{
+						System.out.println("Veuillez choisir un bon numéro. ");
+					}
+
+
 					
-					
-					else if(armesMarchand.size() >= 2 && numero == 2)
 					{
 						if(armesMarchand.get(1).getCouts() <= joueur.getGold())
 						{
@@ -137,33 +170,10 @@ public class Marchand
 					}
 					
 					
-					else if (armesMarchand.size() >= 3 && numero == 3)
-					{
-						if(armesMarchand.get(1).getCouts() <= joueur.getGold())
-						{
-							isCorrectNumero = true;
-							joueur.setArme(armesMarchand.get(2));
-							joueur.subGold(armesMarchand.get(2).getCouts());
-							System.out.println("Vous equipez l'objet. \n");
-							armesMarchand.remove(2);
-						}
-						else
-						{
-							System.out.println("Vous n'avez pas assez d'argent ! ");
-						}
-					}
 					
 					
-					else if (numero == 4)
-					{
-						isCorrectNumero = true;
-						System.out.println("Vous partez. \n");
-						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
-					}
-					else
-					{
-						System.out.println("Veuillez choisir un bon numéro. ");
-					}
+					
+					
 				}
 			} while(!isCorrectNumero);
 			
@@ -182,7 +192,7 @@ public class Marchand
 		return this;
 	}
 
-	public Marchand addPets(Pets pet)
+	public Marchand addPets(TypePets pet)
 	{
 		pets.add(pet);
 		return this;
@@ -194,9 +204,13 @@ public class Marchand
 		return armes;
 	}
 
-	public ArrayList<Pets> getPets()
+	public ArrayList<TypePets> getPets()
 	{
 		return pets;
 	}
 	
+	public ArrayList<Objet> getObjets()
+	{
+		return objets;
+	}
 }

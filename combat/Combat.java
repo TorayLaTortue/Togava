@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import deplacement.Deplacement;
 import joueur.Joueur;
 import monstre.Monstre;
 import scan.Scan;
@@ -26,18 +27,35 @@ public class Combat {
 		joueurs.add(joueur);
 
 
-		if(!tableau.isAllMort(monstres)) // liste de monstre en vie a l'arriver
+		
+		if(monstres.size() == 1)//Case  d'un monstre
 		{
-			if(monstres.size() == 1)
+			if(!tableau.isAllMort(monstres)) // liste de monstre en vie a l'arriver
+			{
+				System.out.println("Wow un "+ monstres.get(0).getNom() +" terrifiant apparait.");
+			}
+			else
+			{
+				System.out.println("Il ya le cadavre d'un " + monstres.get(0).getNom() +".\n");
+				Deplacement.deplacement(tableau);
+				return;
+			}
+		}
+		else //Case plusieurs monstres
 		{
-			System.out.println("Wow un "+ monstres.get(0).getNom() +" terrifiant apparait.");
+			if(!tableau.isAllMort(monstres))
+			{
+				System.out.println("Des monstre apparaissent : " + tableau.getAllNomMonstre()  + ".");
+			}
+			else
+			{
+				System.out.println("Il ya le cadavre de " +tableau.getAllNomMonstre() +".\n");
+				Deplacement.deplacement(tableau);
+				return;
+			}
 		}
-		else
-		{
-			System.out.println("Des monstre apparaissent : " + tableau.getAllNomMonstre()  + ".");
-			
-		}
-		}
+		
+		
 		
 
 		

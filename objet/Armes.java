@@ -14,11 +14,11 @@ public enum Armes
 	private int dégats;
 	private int vitesse;
 	private int coutMana;
-	private int couts;
+	private float couts;
 	private Type type;
 	
 	
-	private Armes(String nom,Type type, int dégats, int vitesse, int coutMana, int couts)
+	private Armes(String nom,Type type, int dégats, int vitesse, int coutMana, float couts)
 	{
 		this.nom = nom;
 		this.type = type;
@@ -75,13 +75,13 @@ public enum Armes
 		this.coutMana = coutMana;
 	}
 
-	public int getCouts()
+	public float getCouts()
 	{
 		return couts;
 	}
 
 
-	public void setCouts(int couts)
+	public void setCouts(float couts)
 	{
 		this.couts = couts;
 	}

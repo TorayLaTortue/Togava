@@ -16,9 +16,9 @@ public enum Objet {
 	private int vitesse;
 	private int mana;
 	private int manaMax;
-	private int couts;
+	private float couts;
 
-	private Objet(String nom, int dégats, int vie, int vieMax, int vitesse, int mana, int manaMax, int couts) {
+	private Objet(String nom, int dégats, int vie, int vieMax, int vitesse, int mana, int manaMax, float couts) {
 		this.nom = nom;
 		this.dégats = dégats;
 		this.vie = vie;
@@ -122,12 +122,26 @@ public enum Objet {
 		this.mana = mana;
 	}
 
-	public int getCouts() {
+	public float getCouts() {
 		return couts;
 	}
 
-	public void setCouts(int couts) {
+	public void setCouts(float couts) {
 		this.couts = couts;
+	}
+
+	public void useAll(Joueur joueur){
+		if(this.getVie() > 0)
+		{this.useVie(joueur);}
+		if(this.getVieMax() > 0)
+		{joueur.setVieMax(this.useVieMax(joueur) + joueur.getVieMax());}
+		if(this.getMana() > 0)
+		{joueur.setMana(this.useMana(joueur) + joueur.getMana());}
+		if(this.getManaMax() > 0)
+		{joueur.setManaMax(this.useManaMax(joueur) + joueur.getManaMax());}
+		if(this.getVitesse() > 0)
+		{joueur.setVitesse(this.useVitesse(joueur) + joueur.getVitesse());}
+					
 	}
 
 }

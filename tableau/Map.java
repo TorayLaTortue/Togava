@@ -30,7 +30,7 @@ public class Map {
             new Tableau(8, 0).addBas(),
            
 
-            new TableauMonstre(0, 1, new Monstre(TypeMonstre.BLOB)).addGauche(),
+            new TableauMarchand(0, 1, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
             new Tableau(1, 1),
             new Tableau(2, 1),
             new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addDroite(),
