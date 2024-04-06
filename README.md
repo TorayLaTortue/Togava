@@ -14,3 +14,4 @@ vente d'objet
 sauvegarde 
 blessing rare mais permanent
 enchantement
+degat crit, ferocity, stealth

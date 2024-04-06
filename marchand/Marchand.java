@@ -138,7 +138,24 @@ public class Marchand
 							{
 								System.out.println("Vous n'avez pas assez d'argent ! ");
 							}
-						}	
+						}
+						else if(hListObjet.get(numero) instanceof TypePets) //Pets
+						{
+							TypePets pets = (TypePets) hListObjet.get(numero);
+							if(pets.getCouts() <= joueur.getGold())
+							{
+								isCorrectNumero = true;
+								joueur.setTypePets(pets);
+								joueur.subGold(pets.getCouts());
+								System.out.println("Vous utilisez l'objet. \n");
+								petsMarchand.remove(pets);					
+							}
+							else
+							{
+								System.out.println("Vous n'avez pas assez d'argent ! ");
+							}
+						}
+							
 						
 					}
 					else if (numero == hListObjet.size() +1) //Fuite
@@ -151,34 +168,13 @@ public class Marchand
 					{
 						System.out.println("Veuillez choisir un bon numéro. ");
 					}
-
-
-					
-					{
-						if(armesMarchand.get(1).getCouts() <= joueur.getGold())
-						{
-							isCorrectNumero = true;
-							joueur.setArme(armesMarchand.get(1));
-							joueur.subGold(armesMarchand.get(1).getCouts());
-							System.out.println("Vous equipez l'objet. \n");
-							armesMarchand.remove(1);
-						}
-						else
-						{
-							System.out.println("Vous n'avez pas assez d'argent ! ");
-						}
-					}
-					
-					
-					
-					
-					
-					
 				}
 			} while(!isCorrectNumero);
-			
 		}
 	}
+	
+
+
 	
 	public Marchand addArme(Armes arme)
 	{

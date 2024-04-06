@@ -10,7 +10,7 @@ public enum TypeJoueur
 	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
 	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
 	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 120, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 115, Armes.SCEPTRET1, 10, 10, 2 ,3 ,0 ,100 ,1);
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;
