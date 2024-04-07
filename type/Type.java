@@ -1,4 +1,4 @@
-package joueur;
+package type;
 
 
 public enum Type {

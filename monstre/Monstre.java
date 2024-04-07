@@ -6,7 +6,7 @@ import java.util.Random;
 
 import combat.Entite;
 import joueur.Joueur;
-import joueur.Type;
+import type.Type;
 
 public class Monstre extends Entite
 {

@@ -4,6 +4,7 @@ import combat.Entite;
 import monstre.Monstre;
 import objet.Armes;
 import pet.TypePets;
+import type.Type;
 
 public class Joueur extends Entite
 {

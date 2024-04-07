@@ -1,6 +1,6 @@
 package monstre;
 
-import joueur.Type;
+import type.Type;
 
 public enum ArmesMonstre
 {

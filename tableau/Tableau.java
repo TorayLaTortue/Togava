@@ -19,7 +19,6 @@ public class Tableau
 	
 	
 	public Tableau(int X,  int Y)
-	
 	{
 		this.setDroite(false);
 		this.setGauche(false);

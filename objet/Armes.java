@@ -1,6 +1,6 @@
 package objet;
 
-import joueur.Type;
+import type.Type;
 
 public enum Armes
 {

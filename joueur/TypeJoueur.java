@@ -2,6 +2,7 @@ package joueur;
 
 import objet.Armes;
 import pet.TypePets;
+import type.Type;
 
 public enum TypeJoueur
 {

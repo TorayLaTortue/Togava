@@ -3,7 +3,7 @@ package monstre;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import joueur.Type;
+import type.Type;
 
 public enum TypeMonstre
 {
