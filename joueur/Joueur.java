@@ -1,6 +1,9 @@
 package joueur;
 
 import combat.Entite;
+import equipement.Anneau;
+import equipement.Cape;
+import equipement.Collier;
 import monstre.Monstre;
 import objet.Armes;
 import pet.TypePets;
@@ -11,9 +14,18 @@ public class Joueur extends Entite
 	private String nom;
 	private Type type;
 	private float vie;
+	private Collier collier;
+	private Cape cape;
+	private Anneau anneau;
+	private float voleVie;
+    private float regenVie;
+    private float vitality;
 	private float defense;
 	private float vieMax;
 	private float atk;
+	private float tauxCrit;
+    private float degatCrit;
+	private float atkSuivie;
 	private float vitesse;
 	private Armes arme;
 	private TypePets typePets;
@@ -22,11 +34,12 @@ public class Joueur extends Entite
 	private int ancienTableauX;
 	private int ancienTableauY;
 	private float gold;
+	private float bonusGold;
 	private float experience;
+	private float bonusExp;
 	private float experienceRequis;
 	private int level;
 	private boolean mort;
-
 	
 	private static Joueur joueur;  
 	
@@ -39,12 +52,16 @@ public class Joueur extends Entite
 		this.defense = typeJoueur.getDefense();
 		this.vieMax = typeJoueur.getVieMax();
 		this.atk = typeJoueur.getAtk();
+		this.tauxCrit = typeJoueur.getTauxCrit();
+		this.degatCrit = typeJoueur.getDegatCrit();// lier les equipement au joueur, modifier le bonus gold, verifier le addGold()
+		this.atkSuivie = typeJoueur.getAtkSuivie();
 		this.vitesse = typeJoueur.getVitesse();
 		this.arme = typeJoueur.getArme();
 		this.typePets = typeJoueur.getTypePets();
 		this.mana = typeJoueur.getMana();
 		this.manaMax = typeJoueur.getManaMax();
 		this.gold = typeJoueur.getGold();
+		this.bonusGold = typeJoueur.getBonusGold();
 		this.mort = false;
 		this.experience = typeJoueur.getExperience();
 		this.experienceRequis = typeJoueur.getExperienceRequis();
@@ -86,6 +103,46 @@ public class Joueur extends Entite
 		}
 		this.vie = vie;
 	}
+
+	public Anneau getAnneau() {
+		return anneau;
+	}
+	public void setAnneau(Anneau anneau) {
+		this.anneau = anneau;
+	}
+	public Cape getCape() {
+		return cape;
+	}
+	public void setCape(Cape cape) {
+		this.cape = cape;
+	}
+	public Collier getCollier() {
+		return collier;
+	}
+	public void setCollier(Collier collier) {
+		this.collier = collier;
+	}
+
+	public float getRegenVie() {
+		return regenVie;
+	}
+	public void setRegenVie(float regenVie) {
+		this.regenVie = regenVie;
+	}
+	public float getVitality() {
+		return vitality;
+	}
+	public void setVitality(float vitality) {
+		this.vitality = vitality;
+	}
+	public float getVoleVie() {
+		return voleVie;
+	}
+	public void setVoleVie(float voleVie) {
+		this.voleVie = voleVie;
+	}
+	
+
 	public float getDefense() {
 		defense = defense + typePets.getDefense();
 		return defense;
@@ -113,7 +170,24 @@ public class Joueur extends Entite
 	{
 		this.atk = atk;
 	}
-
+	public float getTauxCrit() {
+		return tauxCrit;
+	}
+	public void setTauxCrit(float tauxCrit) {
+		this.tauxCrit = tauxCrit;
+	}
+	public float getDegatCrit() {
+		return degatCrit;
+	}
+	public void setDegatCrit(float degatCrit) {
+		this.degatCrit = degatCrit;
+	}
+	public float getAtkSuivie() {
+		return atkSuivie;
+	}
+	public void setAtkSuivie(float atkSuivie) {
+		this.atkSuivie = atkSuivie;
+	}
 
 	public void attaque(Monstre victime) 
 	{
@@ -245,6 +319,12 @@ public class Joueur extends Entite
 	{
 		setGold(getGold() - gold);
 	}
+	public float getBonusGold() {
+		return bonusGold;
+	}
+	public void setBonusGold(float bonusGold) {
+		this.bonusGold = bonusGold;
+	}
 
 	public float getExperience()
 	{
@@ -270,6 +350,13 @@ public class Joueur extends Entite
 	{
 		double result = experienceRequis * (1 + (level / 10.0));
     	this.experienceRequis = (int) Math.round(result);
+	}
+
+	public float getBonusExp() {
+		return bonusExp;
+	}
+	public void setBonusExp(float bonusExp) {
+		this.bonusExp = bonusExp;
 	}
 
 	public int getLevel()

@@ -6,12 +6,12 @@ import type.Type;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 120, Armes.SCEPTRET1, 20, 20, 2 ,0, 0 ,100 ,1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 0, 100, 0, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 0, 100, 0, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 0, 100, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 0, 100, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 , 0, 0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 0, 100, 0, 120, Armes.SCEPTRET1, 20, 20, 2 , 0,  0, 0, 100, 1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 0, 100, 0, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;
@@ -20,19 +20,23 @@ public enum TypeJoueur
 	private float defense;
 	private float vieMax;
 	private float atk;
+	private float tauxCrit;
+    private float degatCrit;
+    private float atkSuivie;
 	private float vitesse;
 	private Armes arme;
 	private float mana;
 	private float manaMax;
 	private int ancienTableau;
 	private float gold;
+	private float bonusGold;
 	private float experience;
 	private float experienceRequis;
 	private int level;
 	
 	
 	
-	private TypeJoueur(String nom, Type type, TypePets typePets, float vie, float defense, float vieMax, float atk, float vitesse, Armes arme, float mana, float manaMax, int tableauStart, float gold, float experience, float experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, TypePets typePets, float vie, float defense, float vieMax, float atk, float tauxCrit, float degatCrit, float atkSuivie, float vitesse, Armes arme, float mana, float manaMax, int tableauStart, float gold, float bonusGold, float experience, float experienceRequis, int level)
 	{
 	this.nom = nom;
 	this.type = type;
@@ -116,7 +120,26 @@ public enum TypeJoueur
 		this.atk = atk;
 	}
 	
-	
+	public float getTauxCrit() {
+		return tauxCrit;
+	}
+	public void setTauxCrit(float tauxCrit) {
+		this.tauxCrit = tauxCrit;
+	}
+
+	public float getDegatCrit() {
+		return degatCrit;
+	}
+	public void setDegatCrit(float degatCrit) {
+		this.degatCrit = degatCrit;
+	}
+
+	public float getAtkSuivie() {
+		return atkSuivie;
+	}
+	public void setAtkSuivie(float atkSuivie) {
+		this.atkSuivie = atkSuivie;
+	}
 	
 	public float getVitesse()
 	{
@@ -177,6 +200,12 @@ public enum TypeJoueur
 	public void setGold(float gold)
 	{
 		this.gold = gold;
+	}
+	public float getBonusGold() {
+		return bonusGold;
+	}
+	public void setBonusGold(float bonusGold) {
+		this.bonusGold = bonusGold;
 	}
 	
 	public float getExperience()
