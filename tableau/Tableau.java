@@ -11,6 +11,12 @@ public class Tableau
 	private Boolean gauche;
 	private Boolean haut;
 	private Boolean bas;
+
+	private Boolean porteDroite;
+	private Boolean porteGauche;
+	private Boolean porteHaut;
+	private Boolean porteBas;
+
 	private int X;
 	private int Y;
 	
@@ -20,6 +26,10 @@ public class Tableau
 	
 	public Tableau(int X,  int Y)
 	{
+		this.setDroite(false);
+		this.setGauche(false);
+		this.setHaut(false);
+		this.setBas(false);
 		this.setDroite(false);
 		this.setGauche(false);
 		this.setHaut(false);
@@ -52,6 +62,12 @@ public class Tableau
 		return getTableau((getX() + 1), (getY()));
 		
 	}
+	public void setPorteDroite(Boolean porteDroite) {
+		this.porteDroite = porteDroite;
+	}
+	public Boolean hasPorteDroite() {
+		return porteDroite;
+	}
 	
 	public Boolean hasGauche()
 	{
@@ -73,6 +89,13 @@ public class Tableau
 		return getTableau((getX() - 1), (getY()));
 		
 	}
+	public void setPorteGauche(Boolean porteGauche) {
+		this.porteGauche = porteGauche;
+	}
+	public Boolean hasPorteGauche() {
+		return porteGauche;
+	}
+	
 	
 	public Boolean hasHaut()
 	{
@@ -94,6 +117,12 @@ public class Tableau
 		return getTableau(getX(), (getY() + 1));
 		
 	}
+	public void setPorteHaut(Boolean porteHaut) {
+		this.porteHaut = porteHaut;
+	}
+	public Boolean hasPorteHaut() {
+		return porteHaut;
+	}
 	
 	public Boolean hasBas()
 	{
@@ -114,6 +143,12 @@ public class Tableau
 		Joueur.get().setAncienTableauY(getY());
 		return getTableau(getX(), (getY() - 1));
 		
+	}
+	public void setPorteBas(Boolean porteBas) {
+		this.porteBas = porteBas;
+	}
+	public Boolean hasPorteBas() {
+		return porteBas;
 	}
 	
 	public int getX()
@@ -167,4 +202,6 @@ public class Tableau
 		Deplacement.deplacement(this);
 		
 	}
+
+
 }

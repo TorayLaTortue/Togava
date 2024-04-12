@@ -1,6 +1,6 @@
 package tableau;
 
-import java.util.Random;
+//import java.util.Random;
 
 import marchand.Marchand;
 import monstre.Monstre;

@@ -1,16 +1,12 @@
 package jeu;
 import joueur.ChoixPersonnage;
 import joueur.Joueur;
-import monstre.Monstre;
-import monstre.TypeMonstre;
-import tableau.ImageMap;
 import tableau.Map;
 import tableau.Tableau;
-import tableau.TableauMonstre;
-import combat.Action;
 
 
 public class Main {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         
         ChoixPersonnage choixPersonnage = new ChoixPersonnage();

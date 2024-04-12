@@ -1,6 +1,8 @@
 # Togava
 
-idée : case quete, evenement, fontaine, case aleatoire
+idée :
+case quete, evenement, fontaine, case aleatoire, feu de camp, village, spawner
+levier / porte
 attaque de zone
 plusieur joueur
 drop mob 
@@ -15,3 +17,4 @@ sauvegarde
 blessing rare mais permanent
 enchantement
 degat crit, ferocity, stealth
+cycle jour nuit
