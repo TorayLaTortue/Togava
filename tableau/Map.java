@@ -31,7 +31,7 @@ public class Map {
            
 
             new TableauMarchand(0, 1, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
-            new Tableau(1, 1),
+            new Tableau(1, 1).setLevier(new Levier.Builder(0, 0).droite(true).build()),
             new Tableau(2, 1),
             new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addDroite(),
             new TableauMarchand(4, 1, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),

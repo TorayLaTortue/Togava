@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import deplacement.Deplacement;
 import joueur.Joueur;
+import tableau.Levier;
 
 public class Tableau
 {
@@ -16,6 +17,7 @@ public class Tableau
 	private Boolean porteGauche;
 	private Boolean porteHaut;
 	private Boolean porteBas;
+	private Levier levier;
 
 	private int X;
 	private int Y;
@@ -30,10 +32,11 @@ public class Tableau
 		this.setGauche(false);
 		this.setHaut(false);
 		this.setBas(false);
-		this.setDroite(false);
-		this.setGauche(false);
-		this.setHaut(false);
-		this.setBas(false);
+		this.setPorteDroite(porteDroite);
+		this.setPorteGauche(porteGauche);
+		this.setPorteHaut(porteHaut);
+		this.setPorteBas(porteBas);
+		this.setLevier(levier);
 		this.setX(X);
 		this.setY(Y);
 		tableaux.add(this);
@@ -200,6 +203,28 @@ public class Tableau
 			System.out.println("Vous êtes dans le neant.");
 		}
 		Deplacement.deplacement(this);
+		
+	}
+
+	public Tableau setLevier(Levier levier)
+	{
+		this.levier = levier;
+		return this;
+	}
+
+	public void useLevier(Levier levier)
+	{
+		if(!levier.isUsed()) // faire que le levier ouvre la porte
+		{
+			this.setPorteDroite(porteDroite);
+			this.setPorteGauche(porteGauche);
+			this.setPorteHaut(porteHaut);
+			this.setPorteBas(porteBas);
+		}
+		else
+		{
+
+		}
 		
 	}
 
