@@ -67,6 +67,7 @@ public class Tableau
 	}
 	public void setPorteDroite(Boolean porteDroite) {
 		this.porteDroite = porteDroite;
+		this.droite = porteDroite;
 	}
 	public Boolean hasPorteDroite() {
 		return porteDroite;
@@ -94,6 +95,7 @@ public class Tableau
 	}
 	public void setPorteGauche(Boolean porteGauche) {
 		this.porteGauche = porteGauche;
+		this.gauche = porteGauche;
 	}
 	public Boolean hasPorteGauche() {
 		return porteGauche;
@@ -149,6 +151,7 @@ public class Tableau
 	}
 	public void setPorteBas(Boolean porteBas) {
 		this.porteBas = porteBas;
+		this.bas = porteBas;
 	}
 	public Boolean hasPorteBas() {
 		return porteBas;
@@ -216,14 +219,26 @@ public class Tableau
 	{
 		if(!levier.isUsed()) // faire que le levier ouvre la porte
 		{
-			this.setPorteDroite(porteDroite);
-			this.setPorteGauche(porteGauche);
-			this.setPorteHaut(porteHaut);
-			this.setPorteBas(porteBas);
+
+			if (levier.getDroite()) {
+				Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(false);
+			}
+			if (levier.getGauche()) {
+				Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(false);
+			}
+			levier.setUsed(true);
+			
+			
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(false);
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(false);
 		}
 		else
 		{
-
+			levier.setUsed(false);
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(true);
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(true);
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(true);
+			Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(true);
 		}
 		
 	}
