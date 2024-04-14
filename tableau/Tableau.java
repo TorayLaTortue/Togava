@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import deplacement.Deplacement;
 import joueur.Joueur;
+import scan.Scan;
 import tableau.Levier;
 
 public class Tableau
@@ -32,11 +33,11 @@ public class Tableau
 		this.setGauche(false);
 		this.setHaut(false);
 		this.setBas(false);
-		this.setPorteDroite(porteDroite);
-		this.setPorteGauche(porteGauche);
-		this.setPorteHaut(porteHaut);
-		this.setPorteBas(porteBas);
-		this.setLevier(levier);
+		this.setPorteDroite(false);
+		this.setPorteGauche(false);
+		this.setPorteHaut(false);
+		this.setPorteBas(false);
+		this.setLevier(null);
 		this.setX(X);
 		this.setY(Y);
 		tableaux.add(this);
@@ -69,6 +70,11 @@ public class Tableau
 		this.porteDroite = porteDroite;
 		this.droite = porteDroite;
 	}
+	public Tableau addPorteDroite() {
+		setDroite(true);
+		setPorteDroite(true);
+		return this;
+	}
 	public Boolean hasPorteDroite() {
 		return porteDroite;
 	}
@@ -96,6 +102,11 @@ public class Tableau
 	public void setPorteGauche(Boolean porteGauche) {
 		this.porteGauche = porteGauche;
 		this.gauche = porteGauche;
+	}
+	public Tableau addPorteGauche() {
+		setGauche(true);
+		setPorteGauche(true);
+		return this;
 	}
 	public Boolean hasPorteGauche() {
 		return porteGauche;
@@ -125,6 +136,11 @@ public class Tableau
 	public void setPorteHaut(Boolean porteHaut) {
 		this.porteHaut = porteHaut;
 	}
+	public Tableau addPorteHaut() {
+		setHaut(true);
+		setPorteHaut(true);
+		return this;
+	}
 	public Boolean hasPorteHaut() {
 		return porteHaut;
 	}
@@ -153,6 +169,12 @@ public class Tableau
 		this.porteBas = porteBas;
 		this.bas = porteBas;
 	}
+	public Tableau addPorteBas() {
+		setBas(true);
+		setPorteBas(true);
+		return this;
+	}
+
 	public Boolean hasPorteBas() {
 		return porteBas;
 	}
@@ -205,6 +227,10 @@ public class Tableau
 		{
 			System.out.println("Vous êtes dans le neant.");
 		}
+		if(this.levier != null)
+		{
+			this.useLevier();
+		}
 		Deplacement.deplacement(this);
 		
 	}
@@ -215,33 +241,78 @@ public class Tableau
 		return this;
 	}
 
-	public void useLevier(Levier levier)
+	public void useLevier()
 	{
-		if(!levier.isUsed()) // faire que le levier ouvre la porte
-		{
-
-			if (levier.getDroite()) {
-				Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(false);
-			}
-			if (levier.getGauche()) {
-				Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(false);
-			}
-			levier.setUsed(true);
-			
-			
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(false);
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(false);
-		}
-		else
-		{
-			levier.setUsed(false);
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(true);
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(true);
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(true);
-			Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(true);
-		}
+		System.out.println("Vous trouvez un levier.\nVoulez vous l'utilisez ?");
+		System.out.println("0 - Non");
+		System.out.println("1 - Oui");
+		boolean isNumero = true;
+		boolean isCorrectNumero = false;
+		int numero = 0;
 		
+		do  
+		{
+			String reponse = Scan.scanner();
+			isNumero = true;
+			numero = 0;
+			
+			try 
+			{
+				numero = Integer.parseInt(reponse);
+			} 
+			catch (NumberFormatException e)
+			{
+				isNumero = false;
+			}
+			
+			if(!isNumero)
+			{
+				System.out.println("Vous devez mettre entre 0 et 1 ! >:c");
+			}
+			else
+			{
+				if(numero >= 0 && numero <= 1 )
+				{
+					isCorrectNumero = true;
+				}
+			}
+		} while(!isCorrectNumero);
+	
+		if(numero == 1 )
+		{
+
+			if(!levier.isUsed()) // on/off levier 
+			{
+				if (levier.getDroite()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(false);
+				}
+				if (levier.getGauche()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(false);
+				}
+				if (levier.getHaut()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(false);
+				}
+				if (levier.getBas()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(false);
+				}
+				levier.setUsed(true);
+			}
+			else
+			{
+				if (levier.getDroite()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(true);
+				}
+				if (levier.getGauche()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(true);
+				}
+				if (levier.getHaut()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(true);
+				}
+				if (levier.getBas()) {
+					Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(true);
+				}
+				levier.setUsed(false);
+			}
+		}
 	}
-
-
 }

@@ -18,3 +18,9 @@ blessing rare mais permanent
 enchantement
 degat crit, ferocity, stealth
 cycle jour nuit
+mettre les option d'un scanner dans une class
+
+bug: 
+marchand achat
+marchand deplacement
+levier

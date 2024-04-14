@@ -19,7 +19,7 @@ public class Map {
        
         
         Tableau[] tableaux = {
-            new Tableau(0, 0).addBas(),
+            new Tableau(0, 0).addBas().addPorteDroite(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB), new Monstre(TypeMonstre.BLOBFEU)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.CHEVALIERCOROMPUE)),
             new TableauCoffre(3, 0, Armes.AUCUNE, Objet.POTIONPOLY),
@@ -29,9 +29,8 @@ public class Map {
             new Tableau(7, 0).addBas(),
             new Tableau(8, 0).addBas(),
            
-
-            new TableauMarchand(0, 1, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
-            new Tableau(1, 1).setLevier(new Levier.Builder(0, 0).droite(true).build()),
+            new Tableau(0, 1).setLevier(new Levier.Builder(0, 0).droite(true).build()).addGauche(),
+            new TableauMarchand(1, 1, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
             new Tableau(2, 1),
             new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addDroite(),
             new TableauMarchand(4, 1, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),

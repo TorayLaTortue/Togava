@@ -71,8 +71,8 @@ public class TableauMonstre extends Tableau
 	{
 		
 		System.out.println("Vous arrivez dans une case de combat.");
-		
 		Combat.combat(this);
+		
 		Deplacement.deplacement(this);
 	}
 	
