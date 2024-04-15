@@ -167,8 +167,7 @@ public class Combat {
 						if (chanceDeFuite <= probafuite) {
 							System.out.println("Vous avez réussi à fuir comme un noob, bravo !\n");
 							cycle = true;
-							Tableau.getTableau(joueur.getAncienTableauX(),
-							joueur.getAncienTableauY()).evenement();
+							Tableau.getTableau(joueur.getAncienTableauX(),joueur.getAncienTableauY()).evenement();
 						} else {
 							System.out.println("Vous n'avez pas réussi a fuir, la honte !\n ");
 							hMonstres.get(1).attaque(joueur);

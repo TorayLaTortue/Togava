@@ -40,7 +40,7 @@ public class Map {
             new Tableau(8, 1),
             
 
-            new Tableau(0, 2),
+            new TableauCoffre(0, 2, Armes.SCEPTRET1 , Objet.POTIONVIE),
             new Tableau(1, 2),
             new Tableau(2, 2),
             new Tableau(3, 2),

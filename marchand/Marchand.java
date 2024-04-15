@@ -122,11 +122,11 @@ public class Marchand {
 							}
 						}
 
-					} else if (numero == hListObjet.size() + 1) // Fuite
+					} else if (numero == hListObjet.size() + 1) // Partir
 					{
 						isCorrectNumero = true;
 						System.out.println("Vous partez.\n");
-						Tableau.getTableau(joueur.getAncienTableauX(), joueur.getAncienTableauY()).evenement();
+						Deplacement.deplacement(tableau);
 					} else {
 						System.out.println("Veuillez choisir un bon numéro. ");
 					}

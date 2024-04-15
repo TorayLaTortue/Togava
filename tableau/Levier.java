@@ -25,8 +25,8 @@ public class Levier {
         private Boolean haut = false;
         private Boolean bas = false;
         private Boolean used  = false;
-        private int X;
-        private int Y;
+        private int X = 0;
+        private int Y = 0;
 
         public Builder(int X, int Y) {
             this.X = X;

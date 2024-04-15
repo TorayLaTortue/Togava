@@ -223,10 +223,15 @@ public class Tableau
 		{
 			System.out.println("Vous vous trouvez au spawn.");
 		}
+		else if(this instanceof Tableau)
+		{
+			System.out.println("Vous êtes dans une plaine vide.");
+		}
 		else
 		{
-			System.out.println("Vous êtes dans le neant.");
+			System.out.println("Vous êtes dans le neant."); //Cas impossible
 		}
+
 		if(this.levier != null)
 		{
 			this.useLevier();
@@ -243,6 +248,7 @@ public class Tableau
 
 	public void useLevier()
 	{
+		Tableau tableau = Tableau.getTableau(levier.getX(), levier.getY());
 		System.out.println("Vous trouvez un levier.\nVoulez vous l'utilisez ?");
 		System.out.println("0 - Non");
 		System.out.println("1 - Oui");
@@ -280,36 +286,37 @@ public class Tableau
 	
 		if(numero == 1 )
 		{
-
 			if(!levier.isUsed()) // on/off levier 
 			{
+				System.out.println("Levier activé.");
 				if (levier.getDroite()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(false);
+					tableau.setPorteDroite(false);
 				}
 				if (levier.getGauche()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(false);
+					tableau.setPorteGauche(false);
 				}
 				if (levier.getHaut()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(false);
+					tableau.setPorteHaut(false);
 				}
 				if (levier.getBas()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(false);
+					tableau.setPorteBas(false);
 				}
 				levier.setUsed(true);
 			}
 			else
 			{
+				System.out.println("Levier désactivé.");
 				if (levier.getDroite()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteDroite(true);
+					tableau.setPorteDroite(true);
 				}
 				if (levier.getGauche()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteGauche(true);
+					tableau.setPorteGauche(true);
 				}
 				if (levier.getHaut()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteHaut(true);
+					tableau.setPorteHaut(true);
 				}
 				if (levier.getBas()) {
-					Tableau.getTableau(levier.getX(), levier.getY()).setPorteBas(true);
+					tableau.setPorteBas(true);
 				}
 				levier.setUsed(false);
 			}
