@@ -20,13 +20,15 @@ public class Coffre {
 
 			if (joueur.getArme() == Armes.AUCUNE) {
 				System.out.println("Vous n'avez pas d'arme ,deux choix s'offre a vous : ");
+				System.out.println("1 - Prendre ");
 			} else {
 				System.out.println("Vous avez " + joueur.getArme().getNom() + ", deux choix s'offre a vous :");
+				System.out.println("1 - Remplacer votre arme ");
 			}
 
 			while (end == false) {
 
-				System.out.println("1 - Prendre ");
+				
 				System.out.println("2 - Partir \n");
 
 				boolean isNumero = true;

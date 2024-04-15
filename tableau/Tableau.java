@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import deplacement.Deplacement;
 import joueur.Joueur;
 import scan.Scan;
-import tableau.Levier;
 
 public class Tableau
 {
@@ -288,7 +287,7 @@ public class Tableau
 		{
 			if(!levier.isUsed()) // on/off levier 
 			{
-				System.out.println("Levier activé.");
+				System.out.println("Le levier est maintenant activé.");
 				if (levier.getDroite()) {
 					tableau.setPorteDroite(false);
 				}
@@ -305,7 +304,7 @@ public class Tableau
 			}
 			else
 			{
-				System.out.println("Levier désactivé.");
+				System.out.println("Le levier est maintenant désactivé.");
 				if (levier.getDroite()) {
 					tableau.setPorteDroite(true);
 				}

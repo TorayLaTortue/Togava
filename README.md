@@ -21,6 +21,5 @@ cycle jour nuit
 mettre les option d'un scanner dans une class
 
 bug: 
-marchand achat
 coffre, choisir l'objet
 faire que si la case d'apres n'existe pas, deplacement impossible

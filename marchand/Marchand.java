@@ -8,7 +8,6 @@ import objet.Armes;
 import objet.Objet;
 import pet.TypePets;
 import scan.Scan;
-import tableau.Tableau;
 import tableau.TableauMarchand;
 
 public class Marchand {
@@ -26,19 +25,23 @@ public class Marchand {
 		ArrayList<Armes> armesMarchand = tableau.getMarchand().getArmes();
 		ArrayList<TypePets> petsMarchand = tableau.getMarchand().getPets();
 		ArrayList<Objet> objetsMarchand = tableau.getMarchand().getObjets();
-		HashMap<Integer, Object> hListObjet = new HashMap<>();
+		
 
 		boolean end = false;
 		while (end == false) {
+			HashMap<Integer, Object> hListObjet = new HashMap<>();
 
 			if (armesMarchand.isEmpty() && petsMarchand.isEmpty() && objetsMarchand.isEmpty()) {
 				System.out.println("Il n'y a plus de marchand.\n");
+				end = true;
 				Deplacement.deplacement(tableau);
 				return;
 			}
+			else{
+				System.out.println("Un marchand apparait devant vous !\n");
+			}
 
 			int i = 1;
-			System.out.println("Un marchand apparait devant vous !\n");
 			System.out.println("\nQue voulez vous faire ?\n ");
 			for (Armes armes : armesMarchand) {
 				System.out.println(i + " - Acheter : " + armes.getNom());
@@ -91,7 +94,7 @@ public class Marchand {
 								isCorrectNumero = true;
 								joueur.setArme(arme);
 								joueur.subGold(arme.getCouts());
-								System.out.println("Vous equipez l'arme. \n");
+								System.out.println("Vous equipez : " + arme.getNom() + ". \n");
 								armesMarchand.remove(arme);
 							} else {
 								System.out.println("Vous n'avez pas assez d'argent ! ");
@@ -103,7 +106,7 @@ public class Marchand {
 								isCorrectNumero = true;
 								objet.useAll(joueur);
 								joueur.subGold(objet.getCouts());
-								System.out.println("Vous utilisez l'objet. \n");
+								System.out.println("Vous equipez : " + objet.getNom() + ". \n");
 								objetsMarchand.remove(objet);
 							} else {
 								System.out.println("Vous n'avez pas assez d'argent ! ");
@@ -115,7 +118,7 @@ public class Marchand {
 								isCorrectNumero = true;
 								joueur.setTypePets(pets);
 								joueur.subGold(pets.getCouts());
-								System.out.println("Vous utilisez l'objet. \n");
+								System.out.println("Vous equipez : " + pets.getNom() + ". \n");
 								petsMarchand.remove(pets);
 							} else {
 								System.out.println("Vous n'avez pas assez d'argent ! ");
@@ -127,6 +130,7 @@ public class Marchand {
 						isCorrectNumero = true;
 						System.out.println("Vous partez.\n");
 						Deplacement.deplacement(tableau);
+						return;
 					} else {
 						System.out.println("Veuillez choisir un bon numéro. ");
 					}
