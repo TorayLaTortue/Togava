@@ -60,12 +60,6 @@ public class Marchand {
 			}
 			System.out.println(i++ + " - Partir d'ici. ");
 
-			if (armesMarchand.isEmpty()) {
-				System.out.println("Il n'y a plus de marchand. \n");
-				Deplacement.deplacement(tableau);
-				return;
-			}
-
 			boolean isNumero = true;
 			boolean isCorrectNumero = false;
 			int numero = 0;
@@ -106,7 +100,7 @@ public class Marchand {
 								isCorrectNumero = true;
 								objet.useAll(joueur);
 								joueur.subGold(objet.getCouts());
-								System.out.println("Vous equipez : " + objet.getNom() + ". \n");
+								System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
 								objetsMarchand.remove(objet);
 							} else {
 								System.out.println("Vous n'avez pas assez d'argent ! ");

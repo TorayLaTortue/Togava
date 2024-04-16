@@ -2,45 +2,27 @@ package tableau;
 
 import coffre.Coffre;
 import deplacement.Deplacement;
-import objet.Armes;
-import objet.Objet;
 
 public class TableauCoffre extends Tableau
 {
-private Armes armes;
-private Objet objet;
+private Coffre coffre;
 	
-	public TableauCoffre(int X, int Y, Armes armes ,Objet objet)
+	public TableauCoffre(int X, int Y, Coffre coffre)
 	{
 		super(X, Y);
-		this.setCoffreArmes(armes);
-		this.setCoffreObjet(objet);
+		this.coffre = coffre;
 	}
 
-	public Armes getCoffreArmes()
-	{
-		return armes;
+	public Coffre getCoffre() {
+		return coffre;
 	}
-
-	public void setCoffreArmes(Armes armes)
-	{
-		this.armes = armes;
-	}
-
-
-	public Objet getCoffreObjet()
-	{
-		return objet;
-	}
-
-	public void setCoffreObjet(Objet objet)
-	{
-		this.objet = objet;
+	public void setCoffre(Coffre coffre) {
+		this.coffre = coffre;
 	}
 	
 	public void evenement()
 	{
-		Coffre.coffre(this);
+		Coffre.ouverture(this);
 		Deplacement.deplacement(this);
 	}
 }

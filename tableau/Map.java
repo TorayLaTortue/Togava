@@ -1,5 +1,7 @@
 package tableau;
 
+import coffre.Coffre;
+
 //import java.util.Random;
 
 import marchand.Marchand;
@@ -22,9 +24,9 @@ public class Map {
             new Tableau(0, 0).addBas().addPorteDroite(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB), new Monstre(TypeMonstre.BLOBFEU)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.CHEVALIERCOROMPUE)),
-            new TableauCoffre(3, 0, Armes.AUCUNE, Objet.POTIONPOLY),
+            new TableauCoffre(3, 0, new Coffre().addArme(Armes.AUCUNE).addObjet(Objet.POTIONPOLY)),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
-            new TableauCoffre(5, 0, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),
+            new TableauCoffre(5, 0, new Coffre().addArme(Armes.EPEEPIERRE).addObjet(Objet.RIEN)).addHaut().addDroite(),
             new Tableau(6, 0).addBas(),
             new Tableau(7, 0).addBas(),
             new Tableau(8, 0).addBas(),
@@ -34,13 +36,13 @@ public class Map {
             new Tableau(2, 1),
             new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addDroite(),
             new TableauMarchand(4, 1, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
-            new TableauCoffre(5, 1, Armes.EPEEPIERRE , Objet.RIEN).addHaut().addDroite(),
+            new TableauCoffre(5, 1, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Objet.POTIONVITESSE)).addHaut().addDroite(),
             new Tableau(6, 1),
             new TableauMarchand(7, 1, new Marchand().addArme(Armes.CLAYMORE)),
             new Tableau(8, 1),
             
 
-            new TableauCoffre(0, 2, Armes.SCEPTRET1 , Objet.POTIONVIE),
+            new TableauCoffre(0, 2, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Objet.POTIONVITESSE)),
             new Tableau(1, 2),
             new Tableau(2, 2),
             new Tableau(3, 2),

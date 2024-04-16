@@ -23,3 +23,4 @@ mettre les option d'un scanner dans une class
 bug: 
 coffre, choisir l'objet
 faire que si la case d'apres n'existe pas, deplacement impossible
+(maybe) supp les objet AUCUNE rempalcer par null
