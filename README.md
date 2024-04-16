@@ -19,6 +19,7 @@ enchantement
 degat crit, ferocity, stealth
 cycle jour nuit
 mettre les option d'un scanner dans une class
+mettre les item remplacé dans l'inventaire
 
 bug: 
 coffre, choisir l'objet
