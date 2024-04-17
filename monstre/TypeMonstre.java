@@ -26,7 +26,7 @@ public enum TypeMonstre
 	private ArrayList<Type> faiblesse = new ArrayList<>();
 	private AbiliteMonstre abilite;
 	
-	private TypeMonstre(String nom, Type type, ArmesMonstre armes, float vie, float defense, float atk, float vitesse, float gold, float experience, int multiplicateur, int difficulte, AbiliteMonstre ability)
+	private TypeMonstre(String nom, Type type, ArmesMonstre armes, float vie, float defense, float atk, float vitesse, float gold, float experience, int multiplicateur, int difficulte, AbiliteMonstre abilite)
 	{
 	this.nom = nom;
 	this.type = type;
@@ -41,7 +41,7 @@ public enum TypeMonstre
 	for (Type faiblesses : faiblesse) {
 		this.faiblesse.add(faiblesses);
 	}
-	
+	this.abilite = abilite;
 	}
 
 	static{
@@ -158,14 +158,11 @@ public enum TypeMonstre
 		this.multiplicateur = multiplicateur;
 	}
 
+	public AbiliteMonstre getAbilite() {
+		return abilite;
+	}
 	public void setAbilite(AbiliteMonstre abilite) {
         this.abilite = abilite;
-    }
-
-    public void useAbilite() {
-        if (abilite != null) {
-            abilite.performAbilite();
-        }
     }
 	
 }

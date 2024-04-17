@@ -187,6 +187,7 @@ public class Combat {
 					Monstre monstre = (Monstre) entites.get(0);
 					monstre.resetAction(monstre.getVitesse());
 					monstre.attaque(joueur);
+					monstre.useAbilite();
 					if (joueur.getVie() <= 0) {
 						joueur.setMort(true);
 						cycle = true;

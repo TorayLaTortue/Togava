@@ -23,6 +23,7 @@ public class Monstre extends Entite
 	private int difficulte;
 	private boolean mort;
 	private ArrayList<Type> faiblesse = new ArrayList<>();
+	private AbiliteMonstre abilite;
 	
 	public Monstre(TypeMonstre typeMonstre)
 	{
@@ -40,6 +41,7 @@ public class Monstre extends Entite
 		this.difficulte = typeMonstre.getDifficulte();
 		this.setMort(false);
 		this.faiblesse = typeMonstre.getFaiblesse();
+		this.abilite = typeMonstre.getAbilite();
 	}
 	
 	public String getNom()
@@ -180,5 +182,16 @@ public class Monstre extends Entite
 
         return degat;
     }
-	
+
+	public void setAbilite(AbiliteMonstre abilite) {
+		this.abilite = abilite;
+	}
+	public AbiliteMonstre getAbilite() {
+		return abilite;
+	}
+	public void useAbilite() {
+        if (abilite != null) {
+            abilite.performAbilite();
+        }
+    }
 }
