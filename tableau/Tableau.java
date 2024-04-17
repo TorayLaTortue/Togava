@@ -45,6 +45,12 @@ public class Tableau
 
 	public Boolean hasDroite()
 	{
+		try {
+			getTableau(getX() + 1, getY());
+			} catch (Exception e) {
+			setDroite(true);
+		}
+
 		return droite;
 	}
 
@@ -80,6 +86,12 @@ public class Tableau
 	
 	public Boolean hasGauche()
 	{
+		try {
+			getTableau(getX() - 1, getY());
+			} catch (Exception e) {
+				setGauche(true);
+		}
+			
 		return gauche;
 	}
 
@@ -114,6 +126,11 @@ public class Tableau
 	
 	public Boolean hasHaut()
 	{
+		try {
+			getTableau(getX(), getY() + 1);
+		} catch (Exception e) {
+			setHaut(true);
+		}
 		return haut;
 	}
 
@@ -146,6 +163,12 @@ public class Tableau
 	
 	public Boolean hasBas()
 	{
+		try {
+			getTableau(getX(), getY() - 1);
+		} catch (Exception e) {
+			setBas(true);
+		}
+		
 		return bas;
 	}
 
