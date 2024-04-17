@@ -1,6 +1,7 @@
 package coffre;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import deplacement.Deplacement;
@@ -110,14 +111,12 @@ public class Coffre {
 	}
 
 	public Coffre addArme(Armes... arme) {
-		
-		armes.addAll(arme);
-		
+		Collections.addAll(this.armes, arme);
 		return this;
 	}
 
-	public Coffre addObjet(Objet objet) {
-		objets.add(objet);
+	public Coffre addObjet(Objet... objet) {
+		Collections.addAll(this.objets, objet);
 		return this;
 	}
 
@@ -128,6 +127,6 @@ public class Coffre {
 	public ArrayList<Objet> getObjets() {
 		return objets;
 	}
-
+	
 
 }
