@@ -7,10 +7,10 @@ import type.Type;
 
 public enum TypeMonstre
 {
-	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 100, 3 , 250, 5, 1), BLOBFEU("Blob de feu",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 105, 6 , 25, 5, 1),
-	SQUELETTE("Squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 120, 6 , 30, 4, 1),
-	CHEVALIERCOROMPUE("Chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 200, 4, 40, 110, 99, 20, 4, 5),
-	DRAGON("Dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 130, 999, 200, 2, 5);
+	BLOB("Blob", Type.AUCUN, ArmesMonstre.AUCUNE, 8, 0, 2, 100, 3 , 250, 5, 1, new Rien()), BLOBFEU("Blob de feu",Type.FEU , ArmesMonstre.AUCUNE, 10, 0, 4, 105, 6 , 25, 5, 1, new Rien()),
+	SQUELETTE("Squelette", Type.TENEBRE, ArmesMonstre.ARCBOIS, 12, 1, 4, 120, 6 , 30, 4, 1, new Rien()),
+	CHEVALIERCOROMPUE("Chevalier corompue", Type.PHYSIQUE, ArmesMonstre.EPEEBOIS, 200, 4, 40, 110, 99, 20, 4, 5, new Rien()),
+	DRAGON("Dragon", Type.PHYSIQUE, ArmesMonstre.AUCUNE, 5, 10, 9, 130, 999, 200, 2, 5, new Rien());
 	
 	private String nom;
 	private Type type;
@@ -24,8 +24,9 @@ public enum TypeMonstre
 	private int multiplicateur;
 	private int difficulte;
 	private ArrayList<Type> faiblesse = new ArrayList<>();
+	private AbiliteMonstre abilite;
 	
-	private TypeMonstre(String nom, Type type, ArmesMonstre armes, float vie, float defense, float atk, float vitesse, float gold, float experience, int multiplicateur, int difficulte)
+	private TypeMonstre(String nom, Type type, ArmesMonstre armes, float vie, float defense, float atk, float vitesse, float gold, float experience, int multiplicateur, int difficulte, AbiliteMonstre ability)
 	{
 	this.nom = nom;
 	this.type = type;
@@ -156,5 +157,15 @@ public enum TypeMonstre
 	public void setMultiplicateur(int multiplicateur) {
 		this.multiplicateur = multiplicateur;
 	}
+
+	public void setAbilite(AbiliteMonstre abilite) {
+        this.abilite = abilite;
+    }
+
+    public void useAbilite() {
+        if (abilite != null) {
+            abilite.performAbilite();
+        }
+    }
 	
 }
