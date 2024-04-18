@@ -2,7 +2,8 @@ package equipement;
 
 public enum Anneau{
     
-    AUCUN("Aucun" ,0  ,0 ,0 ,0);
+    AUCUN("Aucun" ,0  ,0 ,0 ,0),
+    ANNEAUJADE("Baguue de jade", 1, 5, 10, 20);
 
     private String nom;
     public float atk;

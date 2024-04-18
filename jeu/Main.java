@@ -1,6 +1,7 @@
 package jeu;
 import joueur.ChoixPersonnage;
 import joueur.Joueur;
+import monstre.TypeMonstre;
 import tableau.Map;
 import tableau.Tableau;
 
@@ -13,7 +14,7 @@ public class Main {
         Joueur joueur = choixPersonnage.choixPersonnage();
         Tableau[] tableaux = Map.map();
 
-
+        
         
 
 

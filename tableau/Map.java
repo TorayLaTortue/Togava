@@ -53,7 +53,7 @@ public class Map {
             new Tableau(8, 2),
             
 
-            new Tableau(0, 3),
+            new TableauMonstre(0, 3, TableauMonstre.monstresAleatoire(1, 3)),
             new Tableau(1, 3),
             new Tableau(2, 3),
             new Tableau(3, 3),

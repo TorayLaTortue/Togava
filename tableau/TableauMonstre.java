@@ -1,10 +1,12 @@
 package tableau;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import combat.Combat;
 import deplacement.Deplacement;
 import monstre.Monstre;
+import monstre.TypeMonstre;
 
 public class TableauMonstre extends Tableau
 {
@@ -19,6 +21,7 @@ public class TableauMonstre extends Tableau
         }
 		
 	}
+	
 
 	public ArrayList<Monstre> getAllMonstre() {
 		return monstre;
@@ -121,4 +124,26 @@ public class TableauMonstre extends Tableau
 		return fin;
 	}
 
+	public static Monstre[] monstresAleatoire(int difficulte, int nombreMob) {
+		TypeMonstre[] monstresEnum = TypeMonstre.values();
+		ArrayList<Monstre> monstresChoisis = new ArrayList<>();
+		Random rand = new Random();
+	
+		for (int i = 0; i < nombreMob; i++) {
+			TypeMonstre monstreChoisi = null;
+			do {
+				monstreChoisi = monstresEnum[rand.nextInt(monstresEnum.length)];
+			} while (monstreChoisi.getDifficulte() != difficulte);
+	
+			
+			Monstre monstre = new Monstre(monstreChoisi); 
+			
+			monstresChoisis.add(monstre);
+		}
+	
+		// Convertir la liste des monstres choisis en tableau et le retourner
+		return monstresChoisis.toArray(new Monstre[0]);
+	}
+	
+	
 }
