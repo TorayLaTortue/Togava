@@ -101,31 +101,7 @@ public class Combat {
 
 					System.out.println(i + 1 + " - Fuir \n");
 
-					boolean ischoix = true;
-					boolean isCorrectNumero = false;
-					int choix = 0;
-
-					do {
-						String reponse = Scan.scanner();
-						ischoix = true;
-						choix = 0;
-
-						try {
-							choix = Integer.parseInt(reponse);
-						} catch (NumberFormatException e) {
-							ischoix = false;
-						}
-
-						if (!ischoix) {
-							System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size() + 1) + " ! ");
-						} else {
-							if (choix >= 1 && choix <= hMonstres.size() +1) {
-								isCorrectNumero = true;
-							} else {
-								System.out.println("Vous devez mettre entre 1 et " + (hMonstres.size() + 1) + " ! ");
-							}
-						}
-					} while (!isCorrectNumero);
+					int choix = Scan.scannerInt(i);;
 
 					if (choix <= hMonstres.size()) // Attaque
 					{

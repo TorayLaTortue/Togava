@@ -168,7 +168,7 @@ public class Tableau
 		} catch (Exception e) {
 			setBas(true);
 		}
-		
+
 		return bas;
 	}
 
@@ -274,39 +274,11 @@ public class Tableau
 		System.out.println("Vous trouvez un levier.\nVoulez vous l'utilisez ?");
 		System.out.println("0 - Non");
 		System.out.println("1 - Oui");
-		boolean isNumero = true;
-		boolean isCorrectNumero = false;
-		int numero = 0;
+
+		boolean reponse = Scan.scannerBoolean();
 		
-		do  
-		{
-			String reponse = Scan.scanner();
-			isNumero = true;
-			numero = 0;
-			
-			try 
-			{
-				numero = Integer.parseInt(reponse);
-			} 
-			catch (NumberFormatException e)
-			{
-				isNumero = false;
-			}
-			
-			if(!isNumero)
-			{
-				System.out.println("Vous devez mettre entre 0 et 1 ! >:c");
-			}
-			else
-			{
-				if(numero >= 0 && numero <= 1 )
-				{
-					isCorrectNumero = true;
-				}
-			}
-		} while(!isCorrectNumero);
 	
-		if(numero == 1 )
+		if(reponse)
 		{
 			if(!levier.isUsed()) // on/off levier 
 			{

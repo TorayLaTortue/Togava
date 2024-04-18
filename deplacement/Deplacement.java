@@ -17,7 +17,7 @@ public class Deplacement
 		{
 			if(!tableau.hasGauche())
 			{
-				System.out.println("1 - Gauche ");
+				System.out.println("1 - Gauche ");	
 			}
 			if(!tableau.hasBas())
 			{
@@ -29,43 +29,14 @@ public class Deplacement
 			}
 			
 			System.out.println("4 - Dormir ");
-		
+			
 			if(!tableau.hasHaut())
 			{
-				System.out.println("5 - Haut \n");
+				System.out.println("5 - Haut \n");	
 			}
 
-			boolean isNumero = true;
-			boolean isCorrectNumero = false;
-			int numero = 0;
+			int numero = Scan.scannerInt(5);
 			
-			do  
-			{
-				String reponse = Scan.scanner();
-                isNumero = true;
-                numero = 0;
-				
-				try 
-                {
-                    numero = Integer.parseInt(reponse);
-                } 
-                catch (NumberFormatException e)
-                {
-                    isNumero = false;
-                }
-				
-				if(!isNumero)
-				{
-					System.out.println("Vous devez mettre entre 1 et 5 ! >:c");
-				}
-				else
-				{
-					if(numero >= 1 && numero <= 5 )
-					{
-						isCorrectNumero = true;
-					}
-				}
-			} while(!isCorrectNumero);
 		
 			if(numero == 1 )
 			{

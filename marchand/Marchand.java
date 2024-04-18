@@ -25,7 +25,6 @@ public class Marchand {
 		ArrayList<Armes> armesMarchand = tableau.getMarchand().getArmes();
 		ArrayList<TypePets> petsMarchand = tableau.getMarchand().getPets();
 		ArrayList<Objet> objetsMarchand = tableau.getMarchand().getObjets();
-		
 
 		boolean end = false;
 		while (end == false) {
@@ -36,105 +35,85 @@ public class Marchand {
 				end = true;
 				Deplacement.deplacement(tableau);
 				return;
-			}
-			else{
+			} else {
 				System.out.println("Un marchand apparait devant vous !\n");
 			}
 
-			int i = 1;
+			int i = 0;
 			System.out.println("\nQue voulez vous faire ?\n ");
 			for (Armes armes : armesMarchand) {
+				i++;
 				System.out.println(i + " - Acheter : " + armes.getNom());
 				hListObjet.put(i, armes);
-				i++;
+
 			}
 			for (TypePets pets : petsMarchand) {
+				i++;
 				System.out.println(i + " - Acheter : " + pets.getNom());
 				hListObjet.put(i, pets);
-				i++;
+
 			}
 			for (Objet objets : objetsMarchand) {
+				i++;
 				System.out.println(i + " - Acheter : " + objets.getNom());
 				hListObjet.put(i, objets);
-				i++;
+
 			}
 			System.out.println(i++ + " - Partir d'ici. ");
 
-			boolean isNumero = true;
-			boolean isCorrectNumero = false;
-			int numero = 0;
+			int numero = Scan.scannerInt(i);
 
-			do {
-				String reponse = Scan.scanner();
-				isNumero = true;
-				numero = 0;
+			if (numero <= hListObjet.size())// Achat
+			{
+				if (hListObjet.get(numero) instanceof Armes) // Armes
+				{
+					Armes arme = (Armes) hListObjet.get(numero);
+					if (arme.getCouts() <= joueur.getGold()) {
 
-				try {
-					numero = Integer.parseInt(reponse);
-				} catch (NumberFormatException e) {
-					isNumero = false;
-				}
-
-				if (!isNumero) {
-					System.out.println("Vous devez mettre entre 1 et " + hListObjet.size() + " ! >:c");
-				} else {
-
-					if (numero <= hListObjet.size())// Achat
-					{
-						if (hListObjet.get(numero) instanceof Armes) // Armes
-						{
-							Armes arme = (Armes) hListObjet.get(numero);
-							if (arme.getCouts() <= joueur.getGold()) {
-								isCorrectNumero = true;
-								joueur.setArme(arme);
-								joueur.subGold(arme.getCouts());
-								System.out.println("Vous equipez : " + arme.getNom() + ". \n");
-								armesMarchand.remove(arme);
-							} else {
-								System.out.println("Vous n'avez pas assez d'argent ! ");
-							}
-						} else if (hListObjet.get(numero) instanceof Objet) // Objet
-						{
-							Objet objet = (Objet) hListObjet.get(numero);
-							if (objet.getCouts() <= joueur.getGold()) {
-								isCorrectNumero = true;
-								objet.useAll(joueur);
-								joueur.subGold(objet.getCouts());
-								System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
-								objetsMarchand.remove(objet);
-							} else {
-								System.out.println("Vous n'avez pas assez d'argent ! ");
-							}
-						} else if (hListObjet.get(numero) instanceof TypePets) // Pets
-						{
-							TypePets pets = (TypePets) hListObjet.get(numero);
-							if (pets.getCouts() <= joueur.getGold()) {
-								isCorrectNumero = true;
-								joueur.setTypePets(pets);
-								joueur.subGold(pets.getCouts());
-								System.out.println("Vous equipez : " + pets.getNom() + ". \n");
-								petsMarchand.remove(pets);
-							} else {
-								System.out.println("Vous n'avez pas assez d'argent ! ");
-							}
-						}
-
-					} else if (numero == hListObjet.size() + 1) // Partir
-					{
-						isCorrectNumero = true;
-						System.out.println("Vous partez.\n");
-						Deplacement.deplacement(tableau);
-						return;
+						joueur.setArme(arme);
+						joueur.subGold(arme.getCouts());
+						System.out.println("Vous equipez : " + arme.getNom() + ". \n");
+						armesMarchand.remove(arme);
 					} else {
-						System.out.println("Veuillez choisir un bon numéro. ");
+						System.out.println("Vous n'avez pas assez d'argent ! ");
+					}
+				} else if (hListObjet.get(numero) instanceof Objet) // Objet
+				{
+					Objet objet = (Objet) hListObjet.get(numero);
+					if (objet.getCouts() <= joueur.getGold()) {
+
+						objet.useAll(joueur);
+						joueur.subGold(objet.getCouts());
+						System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
+						objetsMarchand.remove(objet);
+					} else {
+						System.out.println("Vous n'avez pas assez d'argent ! ");
+					}
+				} else if (hListObjet.get(numero) instanceof TypePets) // Pets
+				{
+					TypePets pets = (TypePets) hListObjet.get(numero);
+					if (pets.getCouts() <= joueur.getGold()) {
+
+						joueur.setTypePets(pets);
+						joueur.subGold(pets.getCouts());
+						System.out.println("Vous equipez : " + pets.getNom() + ". \n");
+						petsMarchand.remove(pets);
+					} else {
+						System.out.println("Vous n'avez pas assez d'argent ! ");
 					}
 				}
-			} while (!isCorrectNumero);
+
+			} else if (numero == hListObjet.size() + 1) // Partir
+			{
+
+				System.out.println("Vous partez.\n");
+				Deplacement.deplacement(tableau);
+				return;
+			} else {
+				System.out.println("Veuillez choisir un bon numéro. ");
+			}
 		}
 	}
-
-
-
 
 	public Marchand addArme(Armes arme) {
 		armes.add(arme);

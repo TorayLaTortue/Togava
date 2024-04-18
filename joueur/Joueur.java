@@ -235,6 +235,8 @@ public class Joueur extends Entite
 		System.out.println("Vous avez utilisez " + getArme().getCoutMana() + " mana, il vous reste " + getMana() + " mana.");
 		}
 	}
+
+	
 	
 	
 	public float getVitesse()

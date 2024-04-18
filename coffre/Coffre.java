@@ -16,8 +16,7 @@ public class Coffre {
 	private ArrayList<Armes> armes = new ArrayList<>();
 	private ArrayList<Objet> objets = new ArrayList<>();
 
-	public Coffre()
-	{
+	public Coffre() {
 
 	}
 
@@ -27,20 +26,17 @@ public class Coffre {
 		ArrayList<Objet> objetsCoffre = tableau.getCoffre().getObjets();
 		boolean end = false;
 
-
 		while (end == false) {
 			HashMap<Integer, Object> hListObjet = new HashMap<>();
-	
+
 			if (armesCoffre.isEmpty() && objetsCoffre.isEmpty()) {
 				System.out.println("Le coffre est vide.\n");
 				end = true;
 				Deplacement.deplacement(tableau);
 				return;
-			}
-			else{
+			} else {
 				System.out.println("Oh un coffre sauvage apparait !");
 			}
-			
 
 			int i = 1;
 			System.out.println("\nQue voulez vous faire ?\n ");
@@ -55,59 +51,39 @@ public class Coffre {
 				i++;
 			}
 			System.out.println(i++ + " - Partir d'ici. ");
-	
-			boolean isNumero = true;
-			boolean isCorrectNumero = false;
-			int numero = 0;
-	
-			do {
-				String reponse = Scan.scanner();
-				isNumero = true;
-				numero = 0;
-	
-				try {
-					numero = Integer.parseInt(reponse);
-				} catch (NumberFormatException e) {
-					isNumero = false;
+
+			int numero = Scan.scannerInt(i);
+
+			if (numero <= hListObjet.size())// Prendre
+			{
+				if (hListObjet.get(numero) instanceof Armes) // Armes
+				{
+					Armes arme = (Armes) hListObjet.get(numero);
+
+					joueur.setArme(arme);
+					System.out.println("Vous equipez : " + arme.getNom() + ". \n");
+					armesCoffre.remove(arme);
+
+				} else if (hListObjet.get(numero) instanceof Objet) // Objet
+				{
+					Objet objet = (Objet) hListObjet.get(numero);
+
+					objet.useAll(joueur);
+					System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
+					objetsCoffre.remove(objet);
+
 				}
-	
-				if (!isNumero) {
-					System.out.println("Vous devez mettre entre 1 et " + hListObjet.size() + " ! >:c");
-				} else {
-	
-					if (numero <= hListObjet.size())// Prendre
-					{
-						if (hListObjet.get(numero) instanceof Armes) // Armes
-						{
-							Armes arme = (Armes) hListObjet.get(numero);
-						
-							isCorrectNumero = true;
-							joueur.setArme(arme);
-							System.out.println("Vous equipez : " + arme.getNom() + ". \n");
-							armesCoffre.remove(arme);
-							
-						} else if (hListObjet.get(numero) instanceof Objet) // Objet
-						{
-							Objet objet = (Objet) hListObjet.get(numero);
-						
-							isCorrectNumero = true;
-							objet.useAll(joueur);
-							System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
-							objetsCoffre.remove(objet);
-						
-						}
-					} else if (numero == hListObjet.size() + 1) // Partir
-					{
-						isCorrectNumero = true;
-						System.out.println("Vous partez.\n");
-						Deplacement.deplacement(tableau);
-						return;
-					} else {
-						System.out.println("Veuillez choisir un bon numéro. ");
-					}
-				}
-			} while (!isCorrectNumero);
+			} else if (numero == hListObjet.size() + 1) // Partir
+			{
+
+				System.out.println("Vous partez.\n");
+				Deplacement.deplacement(tableau);
+				return;
+			} else {
+				System.out.println("Veuillez choisir un bon numéro. ");
+			}
 		}
+
 	}
 
 	public Coffre addArme(Armes... arme) {
@@ -127,6 +103,5 @@ public class Coffre {
 	public ArrayList<Objet> getObjets() {
 		return objets;
 	}
-	
 
 }

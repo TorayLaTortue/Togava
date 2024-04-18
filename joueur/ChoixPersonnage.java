@@ -13,52 +13,24 @@ public class ChoixPersonnage
 		
 		while(end == false)
 		{
-			
-				System.out.println("1 - Chevalier ");
-			
-			
-				System.out.println("2 - Chevalier du neant ");
-			
-			
-				System.out.println("3 - Bandit ");
-			
-			
-				System.out.println("4 - Mage ");
+			int i = 0;
+			System.out.println("1 - Chevalier ");
+			i++;
 		
-				System.out.println("5 - Adepte ");
+			System.out.println("2 - Chevalier du neant ");
+			i++;
+		
+			System.out.println("3 - Bandit ");
+			i++;
+		
+			System.out.println("4 - Mage ");
+			i++;
 
-			boolean isNumero = true;
-			boolean isCorrectNumero = false;
-			int numero = 0;
+			System.out.println("5 - Adepte ");
+			i++;
 			
-			do  
-			{
-				String reponse = Scan.scanner();
-                isNumero = true;
-                numero = 0;
-				
-				try 
-                {
-                    numero = Integer.parseInt(reponse);
-                } 
-                catch (NumberFormatException e)
-                {
-                    isNumero = false;
-                }
-				
-				if(!isNumero)
-				{
-					System.out.println("Vous devez mettre entre 1 et 5 ! >:c");
-				}
-				else
-				{
-					if(numero >= 1 && numero <= 5 )
-					{
-						isCorrectNumero = true;
-					}
-				}
-			} while(!isCorrectNumero);
-			{
+			int numero = Scan.scannerInt(i);
+			
 			if(numero == 1 )
 			{
 				
@@ -91,7 +63,7 @@ public class ChoixPersonnage
 				end = true;
 				return new Joueur(TypeJoueur.ADEPTE);
 			}
-			}
+			
 		
 		}
 		return null;

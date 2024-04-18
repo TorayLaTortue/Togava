@@ -16,7 +16,7 @@ vente d'objet
 sauvegarde 
 blessing rare mais permanent
 enchantement
-degat crit, ferocity, stealth
+ferocity, stealth
 cycle jour nuit
 mettre les option d'un scanner dans une class
 mettre les item remplacé dans l'inventaire

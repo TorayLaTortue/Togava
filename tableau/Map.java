@@ -24,7 +24,7 @@ public class Map {
             new Tableau(0, 0).addBas().addPorteDroite(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB), new Monstre(TypeMonstre.BLOBFEU)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.CHEVALIERCOROMPUE)),
-            new TableauCoffre(3, 0, new Coffre().addArme(Armes.AUCUNE).addObjet(Objet.POTIONPOLY)),
+            new TableauCoffre(3, 0, new Coffre().addArme(Armes.DAGUE).addObjet(Objet.POTIONPOLY)),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
             new TableauCoffre(5, 0, new Coffre().addArme(Armes.EPEEPIERRE).addObjet(Objet.RIEN)).addHaut().addDroite(),
             new Tableau(6, 0).addBas(),
