@@ -1,6 +1,5 @@
 package joueur;
 
-import java.util.HashMap;
 import java.util.Random;
 
 import combat.Entite;
@@ -29,6 +28,7 @@ public class Joueur extends Entite
 	private float tauxCrit;
     private float degatCrit;
 	private float atkSuivie;
+	private float ferocity;
 	private float vitesse;
 	private Armes arme;
 	private TypePets typePets;
@@ -50,6 +50,9 @@ public class Joueur extends Entite
 		super.setAction(10000 / typeJoueur.getVitesse());
 		this.nom = typeJoueur.getNom();
 		this.type = typeJoueur.getType();
+		this.collier = typeJoueur.getCollier();
+		this.anneau = typeJoueur.getAnneau();
+		this.cape = typeJoueur.getCape();
 		this.vie = typeJoueur.getVie();
 		this.defense = typeJoueur.getDefense();
 		this.vieMax = typeJoueur.getVieMax();
@@ -69,7 +72,6 @@ public class Joueur extends Entite
 		this.experienceRequis = typeJoueur.getExperienceRequis();
 		this.level = typeJoueur.getLevel();
 		joueur = this;
-		
 	}
 	
 	public String getNom()
@@ -165,21 +167,20 @@ public class Joueur extends Entite
 
 	public float getAtk()
 	{
-		atk = atk + arme.getDégats() + typePets.getAtk();
-		return atk;
+		return atk + arme.getDégats() + typePets.getAtk() + anneau.getAtk();
 	}
 	public void setAtk(float atk)
 	{
 		this.atk = atk;
 	}
 	public float getTauxCrit() {
-		return tauxCrit;
+		return tauxCrit + anneau.getTauxCrit();
 	}
 	public void setTauxCrit(float tauxCrit) {
 		this.tauxCrit = tauxCrit;
 	}
 	public float getDegatCrit() {
-		return degatCrit;
+		return degatCrit + anneau.getDegatCrit();
 	}
 	public void setDegatCrit(float degatCrit) {
 		this.degatCrit = degatCrit;
@@ -189,6 +190,12 @@ public class Joueur extends Entite
 	}
 	public void setAtkSuivie(float atkSuivie) {
 		this.atkSuivie = atkSuivie;
+	}
+	public float getFerocity() {
+		return ferocity + anneau.getFerocity();
+	}
+	public void setFerocity(float ferocity) {
+		this.ferocity = ferocity;
 	}
 
 	public float coupCritique(float tauxCritique, float degat)
@@ -241,7 +248,7 @@ public class Joueur extends Entite
 	
 	public float getVitesse()
 	{
-		return vitesse + arme.getVitesse() + typePets.getVitesse();
+		return vitesse + arme.getVitesse() + typePets.getVitesse() + cape.getVitesse();
 	}
 
 	public void setVitesse(float vitesse)
@@ -260,10 +267,7 @@ public class Joueur extends Entite
 		this.arme = arme;
 	}
 	
-	public float getMana()
-	{
-		return mana;
-	}
+	
 	public TypePets getTypePets() {
 		return typePets;
 	}
@@ -279,14 +283,17 @@ public class Joueur extends Entite
 		}
 		this.mana = mana;
 	}
-
-	public float getManaMax()
+	public float getMana()
 	{
 		if(mana > manaMax)
 		{
 			setMana(manaMax);
 		}
 		return mana;
+	}
+	public float getManaMax()
+	{	
+		return mana + cape.getmanaMax();
 	}
 
 	public void setManaMax(float manaMax)
@@ -350,7 +357,7 @@ public class Joueur extends Entite
 		setGold(getGold() - gold);
 	}
 	public float getBonusGold() {
-		return bonusGold;
+		return bonusGold + cape.getbonusGold();
 	}
 	public void setBonusGold(float bonusGold) {
 		this.bonusGold = bonusGold;
@@ -383,7 +390,7 @@ public class Joueur extends Entite
 	}
 
 	public float getBonusExp() {
-		return bonusExp;
+		return bonusExp + cape.getbonusExp();
 	}
 	public void setBonusExp(float bonusExp) {
 		this.bonusExp = bonusExp;

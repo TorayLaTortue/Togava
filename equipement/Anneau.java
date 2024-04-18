@@ -9,15 +9,15 @@ public enum Anneau{
     public float atk;
     private float tauxCrit;
     private float degatCrit;
-    private float atkSuivie;
+    private float ferocity; //Changer cela par de la fero
 
-	private Anneau(String nom, float atk, float tauxCrit, float degatCrit, float atkSuivie)
+	private Anneau(String nom, float atk, float tauxCrit, float degatCrit, float ferocity)
 	{
         this.nom = nom;
         this.atk = atk;
         this.tauxCrit = tauxCrit;
         this.degatCrit = degatCrit;
-        this.atkSuivie = atkSuivie;
+        this.ferocity = ferocity;
 	}
     
     public String getNom() {
@@ -27,31 +27,31 @@ public enum Anneau{
         this.nom = nom;
     }
 
-    public float getatk() {
+    public float getAtk() {
         return atk;
     }
-    public void setatk(float atk) {
+    public void setAtk(float atk) {
         this.atk = atk;
     }
 
-    public float gettauxCrit() {
+    public float getTauxCrit() {
         return tauxCrit;
     }
-    public void settauxCrit(float tauxCrit) {
+    public void setTauxCrit(float tauxCrit) {
         this.tauxCrit = tauxCrit;
     }
 
-    public float getdegatCrit() {
+    public float getDegatCrit() {
         return degatCrit;
     }
-    public void setdegatCrit(float degatCrit) {
+    public void setDegatCrit(float degatCrit) {
         this.degatCrit = degatCrit;
     }
 
-    public float getatkSuivie() {
-        return atkSuivie;
+    public float getFerocity() {
+        return ferocity;
     }
-    public void setatkSuivie(float atkSuivie) {
-        this.atkSuivie = atkSuivie;
+    public void setFerocity(float ferocity) {
+        this.ferocity = ferocity;
     }
 }

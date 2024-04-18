@@ -3,16 +3,9 @@ package joueur;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class Objet {
+public class Inventaire {
     
     private static HashMap<Integer, Object> hInventaire = new LinkedHashMap<>();
-    private String nom;
-    private String description;
-
-    public Objet()
-    {
-
-    }
 
     public static void addObjet(Object obj)
     {

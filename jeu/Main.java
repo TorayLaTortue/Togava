@@ -1,6 +1,6 @@
 package jeu;
 import joueur.ChoixPersonnage;
-import joueur.Objet;
+import joueur.Inventaire;
 import joueur.Joueur;
 import monstre.TypeMonstre;
 import objet.Armes;
@@ -18,8 +18,8 @@ public class Main {
 
 
 
-        Objet.addObjet(Armes.CLAYMORE);
-        Armes armes = (Armes) Objet.getObjet(1);
+        Inventaire.addObjet(Armes.CLAYMORE);
+        Armes armes = (Armes) Inventaire.getObjet(1);
         System.out.println(armes.getNom());
 
 

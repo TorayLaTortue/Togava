@@ -20,11 +20,10 @@ vente d'objet / salvage (gold, materiaux)
 sauvegarde (coordonnée, map, stat perso)
 blessing : de bonus d'quip, drop sur les boss
 enchantement : end game, (a reflechir)
-ferocity, stealth (en cours)
+ferocity,(equipment) follow up(character), stealth (en cours)
 cycle jour nuit: deplacement limiter la nuit (cycle jour nuit entre un nombre de deplacement)
 effet status(feu poison)
 
 
 bug: 
-(maybe) supp les objet AUCUNE rempalcer par null
 lier les equipement au joueur, modifier le bonus gold, verifier le addGold()

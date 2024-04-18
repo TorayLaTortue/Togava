@@ -1,21 +1,27 @@
 package joueur;
 
+import equipement.Anneau;
+import equipement.Cape;
+import equipement.Collier;
 import objet.Armes;
 import pet.TypePets;
 import type.Type;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 0, 50, 0, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 0, 50, 0, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 , 0, 0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 50, 50, 0, 120, Armes.SCEPTRET1, 20, 20, 2 , 0,  0, 0, 100, 1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 150, 50, 0, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 10, 2, 10, 2, 0, 50, 0, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 6, 2, 6, 4, 0, 50, 0, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 8, 2, 8, 4, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 7, 2, 7, 3, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 , 0, 0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 50, 2, 50, 70, 50, 50, 0, 120, Armes.SCEPTRET1, 20, 20, 2 , 0,  0, 0, 100, 1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, Anneau.AUCUN, Collier.AUCUN, Cape.AUCUN, 500, 2, 500, 50, 150, 50, 0, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;
 	private TypePets typePets;
+	private Collier collier;
+	private Cape cape;
+	private Anneau anneau;
 	private float vie;
 	private float defense;
 	private float vieMax;
@@ -36,11 +42,14 @@ public enum TypeJoueur
 	
 	
 	
-	private TypeJoueur(String nom, Type type, TypePets typePets, float vie, float defense, float vieMax, float atk, float tauxCrit, float degatCrit, float atkSuivie, float vitesse, Armes arme, float mana, float manaMax, int tableauStart, float gold, float bonusGold, float experience, float experienceRequis, int level)
+	private TypeJoueur(String nom, Type type, TypePets typePets, Anneau anneau, Collier collier, Cape cape, float vie, float defense, float vieMax, float atk, float tauxCrit, float degatCrit, float atkSuivie, float vitesse, Armes arme, float mana, float manaMax, int tableauStart, float gold, float bonusGold, float experience, float experienceRequis, int level)
 	{
 	this.nom = nom;
 	this.type = type;
 	this.typePets = typePets;
+	this.collier = collier;
+	this.anneau = anneau;
+	this.cape = cape;
 	this.vie = vie;
 	this.defense = defense;
 	this.vieMax = vieMax;
@@ -57,9 +66,6 @@ public enum TypeJoueur
 	this.experience = experience;
 	this.experienceRequis = experienceRequis;
 	this.level = level;
-
-	
-	
 	}
 	
 	public String getNom()
@@ -83,6 +89,25 @@ public enum TypeJoueur
 	}
 	public void setTypePets(TypePets typePets) {
 		this.typePets = typePets;
+	}
+
+	public Anneau getAnneau() {
+		return anneau;
+	}
+	public void setAnneau(Anneau anneau) {
+		this.anneau = anneau;
+	}
+	public Cape getCape() {
+		return cape;
+	}
+	public void setCape(Cape cape) {
+		this.cape = cape;
+	}
+	public Collier getCollier() {
+		return collier;
+	}
+	public void setCollier(Collier collier) {
+		this.collier = collier;
 	}
 
 	public float getVie()

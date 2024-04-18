@@ -26,10 +26,10 @@ public enum Cape{
         this.nom = nom;
     }
 
-    public float vitesse() {
+    public float getVitesse() {
         return vitesse;
     }
-    public void vitesse(float vitesse) {
+    public void setVitesse(float vitesse) {
         this.vitesse = vitesse;
     }
 

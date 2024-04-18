@@ -5,15 +5,15 @@ public enum Collier{
     AUCUN("Aucun" ,0  ,0 ,0 ,0);
 
     private String nom;
-    public float vie;
+    public float vieMax;
     private float voleVie;
     private float regenVie;
     private float vitality;
 
-	private Collier(String nom, float vie, float voleVie, float regenVie, float vitality)
+	private Collier(String nom, float vieMax, float voleVie, float regenVie, float vitality)
 	{
         this.nom = nom;
-        this.vie = vie;
+        this.vieMax = vieMax;
         this.voleVie = voleVie;
         this.regenVie = regenVie;
         this.vitality = vitality;
@@ -26,11 +26,11 @@ public enum Collier{
         this.nom = nom;
     }
 
-    public float getVie() {
-        return vie;
+    public float getVieMax() {
+        return vieMax;
     }
-    public void setVie(float vie) {
-        this.vie = vie;
+    public void setVieMax(float vieMax) {
+        this.vieMax = vieMax;
     }
 
     public float getVoleVie() {

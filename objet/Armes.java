@@ -25,7 +25,7 @@ public enum Armes
 		this.dégats = dégats;
 		this.vitesse = vitesse;
 		this.coutMana = coutMana;
-		this.setCouts(couts);
+		this.couts = couts;
 	}
 
 	public Type getType() {

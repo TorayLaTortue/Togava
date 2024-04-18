@@ -26,7 +26,7 @@ public enum Consommable {
 		this.vitesse = vitesse;
 		this.mana = mana;
 		this.manaMax = manaMax;
-		this.setCouts(couts);
+		this.couts = couts;
 	}
 
 	public int getDégats() {
