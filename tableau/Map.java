@@ -8,7 +8,7 @@ import marchand.Marchand;
 import monstre.Monstre;
 import monstre.TypeMonstre;
 import objet.Armes;
-import objet.Objet;
+import objet.Consommable;
 import pet.TypePets;
 import tableau.Map;
 
@@ -24,9 +24,9 @@ public class Map {
             new Tableau(0, 0).addBas().addPorteDroite(),
             new TableauMonstre(1, 0, new Monstre(TypeMonstre.SQUELETTE), new Monstre(TypeMonstre.BLOB), new Monstre(TypeMonstre.BLOBFEU)),
             new TableauMonstre(2, 0, new Monstre(TypeMonstre.CHEVALIERCOROMPUE)),
-            new TableauCoffre(3, 0, new Coffre().addArme(Armes.DAGUE).addObjet(Objet.POTIONPOLY)),
+            new TableauCoffre(3, 0, new Coffre().addArme(Armes.DAGUE).addObjet(Consommable.POTIONPOLY)),
             new TableauMarchand(4, 0, new Marchand().addArme(Armes.CLAYMORE).addPets(TypePets.TORTUE)).addHaut().addGauche(),
-            new TableauCoffre(5, 0, new Coffre().addArme(Armes.EPEEPIERRE).addObjet(Objet.RIEN)).addHaut().addDroite(),
+            new TableauCoffre(5, 0, new Coffre().addArme(Armes.EPEEPIERRE).addObjet(Consommable.RIEN)).addHaut().addDroite(),
             new Tableau(6, 0).addBas(),
             new Tableau(7, 0).addBas(),
             new Tableau(8, 0).addBas(),
@@ -36,13 +36,13 @@ public class Map {
             new Tableau(2, 1),
             new TableauMonstre(3, 1, new Monstre(TypeMonstre.DRAGON)).addDroite(),
             new TableauMarchand(4, 1, new Marchand().addArme(Armes.CLAYMORE)).addHaut().addGauche(),
-            new TableauCoffre(5, 1, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Objet.POTIONVITESSE)).addHaut().addDroite(),
+            new TableauCoffre(5, 1, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Consommable.POTIONVITESSE)).addHaut().addDroite(),
             new Tableau(6, 1),
             new TableauMarchand(7, 1, new Marchand().addArme(Armes.CLAYMORE)),
             new Tableau(8, 1),
             
 
-            new TableauCoffre(0, 2, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Objet.POTIONVITESSE)),
+            new TableauCoffre(0, 2, new Coffre().addArme(Armes.SCEPTRELUMIERE, Armes.CLAYMORE).addObjet(Consommable.POTIONVITESSE)),
             new Tableau(1, 2),
             new Tableau(2, 2),
             new Tableau(3, 2),

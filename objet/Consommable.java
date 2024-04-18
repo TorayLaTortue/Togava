@@ -2,7 +2,7 @@ package objet;
 
 import joueur.Joueur;
 
-public enum Objet {
+public enum Consommable {
 	RIEN("vide", 0, 0, 0, 0, 0, 0 ,0),
 	POTIONVIE("potion de vie", 0, 5, 0, 0, 0, 0 ,0), POTIONVIEMAX("potion d'augmentation de vie", 0, 0, 5, 0, 0, 0 ,0),
 	POTIONMANA("potion de régénaration de mana", 0, 0, 0, 0, 10, 0, 0), POTIONMANMAX("potion d'augmentation du mana", 0, 0, 0, 0, 0, 5, 0),
@@ -18,7 +18,7 @@ public enum Objet {
 	private int manaMax;
 	private float couts;
 
-	private Objet(String nom, int dégats, int vie, int vieMax, int vitesse, int mana, int manaMax, float couts) {
+	private Consommable(String nom, int dégats, int vie, int vieMax, int vitesse, int mana, int manaMax, float couts) {
 		this.nom = nom;
 		this.dégats = dégats;
 		this.vie = vie;

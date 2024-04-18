@@ -5,7 +5,7 @@ import java.util.HashMap;
 import deplacement.Deplacement;
 import joueur.Joueur;
 import objet.Armes;
-import objet.Objet;
+import objet.Consommable;
 import pet.TypePets;
 import scan.Scan;
 import tableau.TableauMarchand;
@@ -13,7 +13,7 @@ import tableau.TableauMarchand;
 public class Marchand {
 
 	private ArrayList<Armes> armes = new ArrayList<>();
-	private ArrayList<Objet> objets = new ArrayList<>();
+	private ArrayList<Consommable> objets = new ArrayList<>();
 	private ArrayList<TypePets> pets = new ArrayList<>();
 
 	public Marchand() {
@@ -24,7 +24,7 @@ public class Marchand {
 		Joueur joueur = Joueur.get();
 		ArrayList<Armes> armesMarchand = tableau.getMarchand().getArmes();
 		ArrayList<TypePets> petsMarchand = tableau.getMarchand().getPets();
-		ArrayList<Objet> objetsMarchand = tableau.getMarchand().getObjets();
+		ArrayList<Consommable> objetsMarchand = tableau.getMarchand().getObjets();
 
 		boolean end = false;
 		while (end == false) {
@@ -53,7 +53,7 @@ public class Marchand {
 				hListObjet.put(i, pets);
 
 			}
-			for (Objet objets : objetsMarchand) {
+			for (Consommable objets : objetsMarchand) {
 				i++;
 				System.out.println(i + " - Acheter : " + objets.getNom());
 				hListObjet.put(i, objets);
@@ -77,9 +77,9 @@ public class Marchand {
 					} else {
 						System.out.println("Vous n'avez pas assez d'argent ! ");
 					}
-				} else if (hListObjet.get(numero) instanceof Objet) // Objet
+				} else if (hListObjet.get(numero) instanceof Consommable) // Objet
 				{
-					Objet objet = (Objet) hListObjet.get(numero);
+					Consommable objet = (Consommable) hListObjet.get(numero);
 					if (objet.getCouts() <= joueur.getGold()) {
 
 						objet.useAll(joueur);
@@ -120,7 +120,7 @@ public class Marchand {
 		return this;
 	}
 
-	public Marchand addObjet(Objet objet) {
+	public Marchand addObjet(Consommable objet) {
 		objets.add(objet);
 		return this;
 	}
@@ -138,7 +138,7 @@ public class Marchand {
 		return pets;
 	}
 
-	public ArrayList<Objet> getObjets() {
+	public ArrayList<Consommable> getObjets() {
 		return objets;
 	}
 }

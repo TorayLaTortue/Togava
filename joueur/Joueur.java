@@ -1,5 +1,6 @@
 package joueur;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import combat.Entite;
@@ -41,8 +42,7 @@ public class Joueur extends Entite
 	private float bonusExp;
 	private float experienceRequis;
 	private int level;
-	private boolean mort;
-	
+	private boolean mort;	
 	private static Joueur joueur;  
 	
 	public Joueur(TypeJoueur typeJoueur)
@@ -236,7 +236,7 @@ public class Joueur extends Entite
 		}
 	}
 
-	
+
 	
 	
 	public float getVitesse()

@@ -7,14 +7,14 @@ import java.util.HashMap;
 import deplacement.Deplacement;
 import joueur.Joueur;
 import objet.Armes;
-import objet.Objet;
+import objet.Consommable;
 import scan.Scan;
 import tableau.TableauCoffre;
 
 public class Coffre {
 
 	private ArrayList<Armes> armes = new ArrayList<>();
-	private ArrayList<Objet> objets = new ArrayList<>();
+	private ArrayList<Consommable> objets = new ArrayList<>();
 
 	public Coffre() {
 
@@ -23,7 +23,7 @@ public class Coffre {
 	public static void ouverture(TableauCoffre tableau) {
 		Joueur joueur = Joueur.get();
 		ArrayList<Armes> armesCoffre = tableau.getCoffre().getArmes();
-		ArrayList<Objet> objetsCoffre = tableau.getCoffre().getObjets();
+		ArrayList<Consommable> objetsCoffre = tableau.getCoffre().getObjets();
 		boolean end = false;
 
 		while (end == false) {
@@ -45,7 +45,7 @@ public class Coffre {
 				hListObjet.put(i, armes);
 				i++;
 			}
-			for (Objet objets : objetsCoffre) {
+			for (Consommable objets : objetsCoffre) {
 				System.out.println(i + " - Prendre : " + objets.getNom());
 				hListObjet.put(i, objets);
 				i++;
@@ -64,9 +64,9 @@ public class Coffre {
 					System.out.println("Vous equipez : " + arme.getNom() + ". \n");
 					armesCoffre.remove(arme);
 
-				} else if (hListObjet.get(numero) instanceof Objet) // Objet
+				} else if (hListObjet.get(numero) instanceof Consommable) // Objet
 				{
-					Objet objet = (Objet) hListObjet.get(numero);
+					Consommable objet = (Consommable) hListObjet.get(numero);
 
 					objet.useAll(joueur);
 					System.out.println("Vous utilisez : " + objet.getNom() + ". \n");
@@ -91,7 +91,7 @@ public class Coffre {
 		return this;
 	}
 
-	public Coffre addObjet(Objet... objet) {
+	public Coffre addObjet(Consommable... objet) {
 		Collections.addAll(this.objets, objet);
 		return this;
 	}
@@ -100,7 +100,7 @@ public class Coffre {
 		return armes;
 	}
 
-	public ArrayList<Objet> getObjets() {
+	public ArrayList<Consommable> getObjets() {
 		return objets;
 	}
 

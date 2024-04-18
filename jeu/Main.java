@@ -1,7 +1,9 @@
 package jeu;
 import joueur.ChoixPersonnage;
+import joueur.Objet;
 import joueur.Joueur;
 import monstre.TypeMonstre;
+import objet.Armes;
 import tableau.Map;
 import tableau.Tableau;
 
@@ -14,8 +16,11 @@ public class Main {
         Joueur joueur = choixPersonnage.choixPersonnage();
         Tableau[] tableaux = Map.map();
 
-        
-        
+
+
+        Objet.addObjet(Armes.CLAYMORE);
+        Armes armes = (Armes) Objet.getObjet(1);
+        System.out.println(armes.getNom());
 
 
         //ImageMap.imageMap(tableaux);
