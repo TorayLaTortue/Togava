@@ -6,12 +6,12 @@ import type.Type;
 
 public enum TypeJoueur
 {
-	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 0, 100, 0, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,0 ,100 ,1)
-	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 0, 100, 0, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,0 ,100 ,1)
-	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 0, 100, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,0 ,100 ,1)
-	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 0, 100, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 , 0, 0 ,0 ,100 ,1)
-	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 0, 100, 0, 120, Armes.SCEPTRET1, 20, 20, 2 , 0,  0, 0, 100, 1)
-	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 0, 100, 0, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,0 ,100 ,1);
+	CHEVALIER("Chevalier", Type.PHYSIQUE, TypePets.AUCUN, 10, 2, 10, 2, 0, 50, 0, 120, Armes.EPEEBOIS, 3, 3, 2 ,0 ,0 ,0 ,100 ,1)
+	,CHEVALIERDUNEANT("Chevalier  du neant", Type.PHYSIQUE, TypePets.AUCUN, 6, 2, 6, 4, 0, 50, 0, 120, Armes.EPEEBOIS, 8, 8, 2 ,0 ,0 ,0 ,100 ,1)
+	,BANDIT("Bandit", Type.TENEBRE, TypePets.AUCUN, 8, 2, 8, 4, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 ,5 ,0 ,0 ,100 ,1)
+	,VAMPIRE("Vampire", Type.TENEBRE, TypePets.BAT, 7, 2, 7, 3, 0, 50, 0, 120, Armes.DAGUEROUILLE, 5, 5, 2 , 0, 0 ,0 ,100 ,1)
+	,MAGE("Mage", Type.LUMIERE, TypePets.AUCUN, 50, 2, 50, 70, 50, 50, 0, 120, Armes.SCEPTRET1, 20, 20, 2 , 0,  0, 0, 100, 1)
+	,ADEPTE("Adepte", Type.LUMIERE, TypePets.AUCUN, 500, 2, 500, 50, 150, 50, 0, 115, Armes.SCEPTRET1, 10, 10, 2 ,300 ,0 ,0 ,100 ,1);
 	
 	private String nom;
 	private Type type;
@@ -45,6 +45,9 @@ public enum TypeJoueur
 	this.defense = defense;
 	this.vieMax = vieMax;
 	this.atk = atk;
+	this.tauxCrit = tauxCrit;
+	this.degatCrit = degatCrit;
+	this.atkSuivie = atkSuivie;
 	this.vitesse = vitesse;
 	this.arme = arme;
 	this.mana = mana;
@@ -54,6 +57,7 @@ public enum TypeJoueur
 	this.experience = experience;
 	this.experienceRequis = experienceRequis;
 	this.level = level;
+
 	
 	
 	}

@@ -163,7 +163,7 @@ public class Monstre extends Entite
 		this.faiblesse = faiblesse;
 	}
 	
-	public float estFaible(Type perso, Type arme, float degat){
+	public float degatFaible(Type perso, Type arme, float degat){
 		boolean crit = false;
         if(faiblesse.contains(perso))
         {       

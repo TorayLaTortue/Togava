@@ -1,5 +1,7 @@
 package joueur;
 
+import java.util.Random;
+
 import combat.Entite;
 import equipement.Anneau;
 import equipement.Cape;
@@ -53,7 +55,7 @@ public class Joueur extends Entite
 		this.vieMax = typeJoueur.getVieMax();
 		this.atk = typeJoueur.getAtk();
 		this.tauxCrit = typeJoueur.getTauxCrit();
-		this.degatCrit = typeJoueur.getDegatCrit();// lier les equipement au joueur, modifier le bonus gold, verifier le addGold()
+		this.degatCrit = typeJoueur.getDegatCrit();
 		this.atkSuivie = typeJoueur.getAtkSuivie();
 		this.vitesse = typeJoueur.getVitesse();
 		this.arme = typeJoueur.getArme();
@@ -189,10 +191,36 @@ public class Joueur extends Entite
 		this.atkSuivie = atkSuivie;
 	}
 
+	public float coupCritique(float tauxCritique, float degat)
+	{
+		Random rand = new Random();
+		float chance = rand.nextFloat(101);
+		float bonusCritique = 1;
+
+		for (int i = 100; i < tauxCritique; i = i + 100) {
+			bonusCritique++;
+			System.out.println(" - Bonus dégats critique.");
+		}
+
+		
+
+		if(chance <= tauxCritique)
+		{
+			System.out.println(" - Dégats critique !");
+			return degat = degat * ((degatCrit / 100) + bonusCritique);
+		}
+		else
+		{
+			return degat;
+		}
+	}
+
 	public void attaque(Monstre victime) 
 	{
 		float degatTotal = getAtk();
-		degatTotal = victime.estFaible(arme.getType(), getType(), degatTotal) - victime.getDefense();
+		degatTotal = victime.degatFaible(arme.getType(), getType(), degatTotal) - victime.getDefense();
+
+		degatTotal = coupCritique(tauxCrit, degatTotal);		
 		
 		if(degatTotal < 1)
 		{
