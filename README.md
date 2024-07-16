@@ -27,3 +27,5 @@ effet status(feu poison)
 
 bug: 
 lier les equipement au joueur, modifier le bonus gold, verifier le addGold()
+
+theme  : mage
