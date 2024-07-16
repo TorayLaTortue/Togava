@@ -2,7 +2,6 @@ package jeu;
 import joueur.ChoixPersonnage;
 import joueur.Inventaire;
 import joueur.Joueur;
-import monstre.TypeMonstre;
 import objet.Armes;
 import tableau.Map;
 import tableau.Tableau;
