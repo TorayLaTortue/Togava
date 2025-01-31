@@ -1,13 +1,10 @@
 package tableau;
 
-import java.util.Random;
-
 import marchand.Marchand;
 import monstre.Monstre;
 import monstre.TypeMonstre;
 import objet.Armes;
 import objet.Objet;
-import tableau.Map;
 
 
 

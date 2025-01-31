@@ -3,7 +3,6 @@ package tableau;
 import java.util.ArrayList;
 
 import combat.Combat;
-import combat.Entite;
 import deplacement.Deplacement;
 import monstre.Monstre;
 
